@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<setup:ProjectCatalog
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
+    name="com.ganz.releng"
+    label="Release Engineering">
+  <setupTask
+      xsi:type="setup:CompoundTask"
+      name="Variables">
+    <setupTask
+        xsi:type="setup:VariableTask"
+        name="releng.jira.url"
+        value="http://jira.releng.ganz.net"
+        label="Releng Jira">
+      <description>The url of the release engineering jira</description>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:VariableTask"
+        name="releng.jira.username"
+        defaultValue="${scope.user.name}"
+        label="RelEng Jira Username">
+      <description>The username used to login to the RelEng issue tracker</description>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:VariableTask"
+        type="PASSWORD"
+        name="releng.jira.password"
+        label="RelEng Jira Password">
+      <description>The password used to login to the RelEng issue tracker</description>
+    </setupTask>
+  </setupTask>
+   <project href="builderx.setup#/"/>
+  <project href="jenkins.setup#/"/>
+  <description>Ganz Release Engineering Projects</description>
+</setup:ProjectCatalog>

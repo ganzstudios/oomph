@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<TaskList Version="2.0">
+	<Query ConnectorKind="jira" Handle="handle-6"
+		LastRefreshTimeStamp="Feb 19, 15:31:21" Name="BuilderX"
+		QueryString="http://jira.releng.ganz.net/issues/?jql=project+in+%28%22BLDX%22%29+"
+		RepositoryUrl="http://jira.releng.ganz.net">
+		<Attribute Key="FilterCustomUrl">http://jira.releng.ganz.net/secure/IssueNavigator.jspa?mode=hide&amp;reset=true&amp;pid=10505&amp;query=&amp;summary=true&amp;description=true
+		</Attribute>
+		<Attribute Key="FilterCustomJqlUrl">http://jira.releng.ganz.net/issues/?jql=project+in+%28%22BLDX%22%29+
+		</Attribute>
+		<QueryHit Handle="http://jira.releng.ganz.net-10738" />
+		<QueryHit Handle="http://jira.releng.ganz.net-10734" />
+		<QueryHit Handle="http://jira.releng.ganz.net-10727" />
+		<QueryHit Handle="http://jira.releng.ganz.net-10724" />
+	</Query>
+</TaskList>
