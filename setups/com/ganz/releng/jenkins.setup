@@ -69,8 +69,6 @@
         label="Master"/>
     <description>The Jenkins component of orchestrator</description>
   </project>
-  <logicalProjectContainer
-      xsi:type="setup:ProjectCatalog"
-      href="index:/org.eclipse.setup#//@projectCatalogs[name='com.ganz.releng']"/>
+  
   <description></description>
 </setup:Project>

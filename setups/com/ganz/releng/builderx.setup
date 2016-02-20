@@ -54,8 +54,6 @@
   </setupTask>
   <stream name="master"
       label="master"/>
-  <logicalProjectContainer
-      xsi:type="setup:ProjectCatalog"
-      href="index:/org.eclipse.setup#//@projectCatalogs[name='com.ganz.releng']"/>
-  <description>BuiderX project</description>
+  
+  <description></description>
 </setup:Project>
