@@ -62,6 +62,48 @@
         <description>The password used to login to the RelEng issue tracker</description>
       </setupTask>
     </setupTask>
+    
+      <setupTask
+      xsi:type="setup:CompoundTask"
+      name="Preferences">
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="General">
+         <setupTask
+          xsi:type="setup:CompoundTask"
+          name="Capabilities">
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.ui.workbench/UIActivities.org.eclipse.antDevelopment"
+            value="true">
+          <description>Automatic Ant Enablement</description>
+        </setupTask>
+      </setupTask>
+        
+      <setupTask
+          xsi:type="setup:CompoundTask"
+          name="Editors">
+        <setupTask
+            xsi:type="setup:CompoundTask"
+            name="Text Editors">
+          <setupTask
+              xsi:type="setup:PreferenceTask"
+              key="/instance/org.eclipse.ui.editors/lineNumberRuler"
+              value="true"/>
+        </setupTask>
+      </setupTask>
+      <setupTask
+          xsi:type="setup:CompoundTask"
+          name="Keys">
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.ui.workbench/org.eclipse.ui.commands"
+            value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;org.eclipse.ui.commands>&#xD;&#xA;&lt;keyBinding contextId=&quot;org.eclipse.ui.contexts.window&quot; keyConfigurationId=&quot;org.eclipse.ui.defaultAcceleratorConfiguration&quot; keySequence=&quot;CTRL+F6&quot;/>&#xD;&#xA;&lt;keyBinding contextId=&quot;org.eclipse.ui.contexts.window&quot; keyConfigurationId=&quot;org.eclipse.ui.defaultAcceleratorConfiguration&quot; keySequence=&quot;CTRL+F6&quot;/>&#xD;&#xA;&lt;keyBinding commandId=&quot;org.eclipse.ui.window.nextEditor&quot; contextId=&quot;org.eclipse.ui.contexts.window&quot; keyConfigurationId=&quot;org.eclipse.ui.defaultAcceleratorConfiguration&quot; keySequence=&quot;CTRL+TAB&quot;/>&#xD;&#xA;&lt;/org.eclipse.ui.commands>"/>
+        <description>Key Bindings</description>
+      </setupTask>
+    </setupTask>
+    <description>Preferences -> General</description>
+  </setupTask>
     <project
         href="releng/builderx.setup#/"/>
     <project
