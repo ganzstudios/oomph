@@ -134,6 +134,10 @@
           value="false">
         <description></description>
       </setupTask>
+             <setupTask
+          xsi:type="setup:PreferenceTask"
+          key="/instance/com.atlassian.connector.eclipse.monitor.ui/com.atlassian.connector.eclipse.monitor.usage.first.time"
+          value="false"/>
     </setupTask>
     <setupTask
         xsi:type="setup:CompoundTask"
