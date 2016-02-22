@@ -11,13 +11,11 @@
     name="builderx"
     label="BuilderX">
   <setupTask
-      xsi:type="setup.p2:P2Task"/>
+      xsi:type="setup:WorkspaceTask"
+      id="workspace"
+      excludedTriggers="MANUAL"/>
   <setupTask
-      xsi:type="projectset:ProjectSetImportTask"
-      id="builderx"
-      uRL="file:///C:/builderx.psf">
-    <description></description>
-  </setupTask>
+      xsi:type="setup.p2:P2Task"/>
   <setupTask
       xsi:type="setup:CompoundTask"
       name="Variables">
@@ -33,6 +31,12 @@
   <setupTask
       xsi:type="setup:CompoundTask"
       name="Tasks">
+    <setupTask
+        xsi:type="projectset:ProjectSetImportTask"
+        id="builderx"
+        uRL="file:///C:/builderx.psf">
+      <description></description>
+    </setupTask>
     <setupTask
         xsi:type="mylyn:MylynQueriesTask"
         connectorKind="jira"
@@ -54,6 +58,8 @@
   </setupTask>
   <stream name="master"
       label="master"/>
-  
+  <logicalProjectContainer
+      xsi:type="setup:Project"
+      href="index:/org.eclipse.setup#//@projectCatalogs[name='com.ganz']/@projects[name='releng']"/>
   <description></description>
 </setup:Project>

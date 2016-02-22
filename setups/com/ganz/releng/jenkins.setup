@@ -17,6 +17,12 @@
     <requirement
         name="org.eclipse.m2e.feature.feature.group"/>
   </setupTask>
+  <setupTask
+      xsi:type="setup:WorkspaceTask"
+      id="workspace"
+      excludedTriggers="MANUAL">
+    <description></description>
+  </setupTask>
   <project name="default"
       label="New Plugin"
       logicalProjectContainer="/">
@@ -69,6 +75,5 @@
         label="Master"/>
     <description>The Jenkins component of orchestrator</description>
   </project>
-  
   <description></description>
 </setup:Project>

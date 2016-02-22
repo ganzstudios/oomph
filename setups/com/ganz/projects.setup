@@ -32,7 +32,8 @@
     </setupTask>
   </setupTask>
   <project name="releng"
-      label="Release Engineering">
+      label="Release Engineering"
+      logicalProjectContainer="/">
     <setupTask
         xsi:type="setup:CompoundTask"
         name="Variables">
@@ -65,6 +66,7 @@
         href="releng/builderx.setup#/"/>
     <project
         href="releng/jenkins.setup#/"/>
+    <description></description>
   </project>
   <description>Ganz Release Engineering Projects</description>
 </setup:ProjectCatalog>
