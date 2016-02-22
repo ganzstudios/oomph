@@ -90,6 +90,13 @@
         name="installation.root"
         defaultValue="${user.home/ganz}"
         label="Installation directory"/>
+        <setupTask
+        xsi:type="setup:VariableTask"
+        id="workspace.root"
+        type="FOLDER"
+        name="workspace.root"
+        value="${installation.root/proj}"
+        label="Installation directory"/>    
     <setupTask
         xsi:type="setup:VariableTask"
         id="product.container.root"
@@ -109,7 +116,7 @@
         id="workspace.location"
         type="FOLDER"
         name="workspace.location"
-        value="${installation.root/proj}/${scope.project.root.name}/${scope.project.name}"
+        value="${workspace.root}/${scope.project.root.name}/${scope.project.name}"
         label="Workspace container folder">
       <description></description>
     </setupTask>

@@ -66,7 +66,7 @@
           id="workspace.location"
           type="FOLDER"
           name="workspace.location"
-          value="${installation.root/proj}/releng/${scope.project.name}"
+          value="${workspace.root}/releng/${scope.project.name}"
           label="Workspace container folder">
         <description></description>
       </setupTask>
@@ -385,6 +385,8 @@
       </setupTask>
       <description>Preferences</description>
     </setupTask>
+    <project
+        href="releng/oomph.setup#/"/>
     <project
         href="releng/builderx.setup#/"/>
     <project
