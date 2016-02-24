@@ -34,7 +34,7 @@
     <setupTask
         xsi:type="projectset:ProjectSetImportTask"
         id="builderx"
-        uRL="file:///C:/builderx.psf">
+        uRL="http://repo.ganz.net/psf/releng/${scope.project.name}/${scope.project.stream.name}.psf">
       <description></description>
     </setupTask>
     <setupTask
@@ -58,6 +58,7 @@
   </setupTask>
   <stream name="master"
       label="master"/>
+  <stream name="bldx-5"/>
   <logicalProjectContainer
       xsi:type="setup:Project"
       href="index:/org.eclipse.setup#//@projectCatalogs[name='com.ganz']/@projects[name='releng']"/>
