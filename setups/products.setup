@@ -46,6 +46,26 @@
   </setupTask>
   <setupTask
       xsi:type="setup.p2:P2Task"
+      id=""
+      label="Ivy">
+    <requirement
+        name="org.apache.ivy.feature.feature.group"
+        versionRange="(2.4.0,2.4.9]"/>
+    <requirement
+        name="org.apache.ivy.eclipse.ant.feature.feature.group"
+        versionRange="(2.4.0,2.4.9]"/>
+    <requirement
+        name="org.apache.ivyde.feature.feature.group"
+        versionRange="(2.2.0,2.2.9]"/>
+    <requirement
+        name="org.apache.ivyde.eclipse.resolvevisualizer.feature.feature.group"
+        versionRange="(2.2.0,2.2.9]"/>
+    <repository
+        url="http://www.apache.org/dist/ant/ivyde/updatesite"/>
+    <description></description>
+  </setupTask>
+  <setupTask
+      xsi:type="setup.p2:P2Task"
       label="Mylyn">
     <requirement
         name="org.eclipse.mylyn.tasks.core"/>
