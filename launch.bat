@@ -21,7 +21,9 @@ GOTO :CASE_DEFAULT
 	
 :CASE_INSTALL
 	ECHO Launching installer...
+	echo on
 	start eclipse-inst.exe -vmargs "-Doomph.redirection.setups=http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/->%setups%"
+	@echo off
 	GOTO CASE_RETURN
 	
 :CASE_DEFAULT
