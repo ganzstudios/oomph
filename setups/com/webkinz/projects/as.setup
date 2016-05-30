@@ -7,8 +7,8 @@
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
     xmlns:setup.p2="http://www.eclipse.org/oomph/setup/p2/1.0"
     xsi:schemaLocation="http://www.eclipse.org/oomph/setup/jdt/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/JDT.ecore"
-    name="js"
-    label="JavaScript">
+    name="as"
+    label="ActionScript">
   <setupTask
       xsi:type="setup:WorkspaceTask"
       id="workspace"
@@ -17,11 +17,7 @@
   </setupTask>
   <setupTask
       xsi:type="setup.p2:P2Task"
-      label="TypeScript">
-    <requirement
-        name="com.palantir.typescript.feature.feature.group"/>
-    <repository
-        url="http://eclipse-update.palantir.com/eclipse-typescript/"/>
+      label="">
     <description>
       Install the tools needed in the IDE to work with the
       source code for ${scope.project.label}
@@ -114,8 +110,7 @@
     <description></description>
   </setupTask>
   <project name="new"
-      label="New Project"
-      logicalProjectContainer="/">
+      label="New Project">
     <setupTask
         xsi:type="setup:VariableTask"
         id="workspace.location"

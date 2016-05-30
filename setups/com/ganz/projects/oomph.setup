@@ -65,7 +65,8 @@
   <stream name="master"
       label="master"/>
   <logicalProjectContainer
+  <logicalProjectContainer
       xsi:type="setup:ProjectCatalog"
-      href="index:/org.eclipse.setup#//@projectCatalogs[name='com.ganz']"/>
+      href="../projects.setup#/"/>
   <description>The setups for Ganz Studios Projects</description>
 </setup:Project>

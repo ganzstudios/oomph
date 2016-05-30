@@ -186,23 +186,8 @@
     <repository
         url="http://download.eclipse.org/egit/github/updates/"/>
   </setupTask>
-  <setupTask
-      xsi:type="setup.p2:P2Task"
-      id=""
-      label="Subversive">
-    <requirement
-        name="org.eclipse.team.svn.resource.ignore.rules.jdt.feature.group"/>
-    <requirement
-        name="org.eclipse.team.svn.revision.graph.feature.group"/>
-    <requirement
-        name="org.eclipse.team.svn.mylyn.feature.group"/>
-    <requirement
-        name="org.eclipse.team.svn.feature.group"/>
-    <requirement
-        name="org.polarion.eclipse.team.svn.connector.feature.group"/>
-    <requirement
-        name="org.polarion.eclipse.team.svn.connector.svnkit18.feature.group"/>
-  </setupTask>
-  <project href="projects/js.setup#/"/>  
+  <project href="projects/as.setup#/"/>
+  <project href="projects/js.setup#/"/>
+  <project href="projects/php.setup#/"/>
   <description>Webkinz Eclipse based projects catalog</description>
 </setup:ProjectCatalog>

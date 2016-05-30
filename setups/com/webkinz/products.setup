@@ -49,7 +49,7 @@
     <setupTask
         xsi:type="setup:VariableTask"
         name="organization"
-        value="webkinz"/>
+        value="ganz"/>
     <setupTask
         xsi:type="setup:VariableTask"
         id="install.root"
@@ -94,7 +94,7 @@
     </setupTask>
   </setupTask>
   <product name="org.eclipse.platform.ide"
-      label="Eclipse Platformx">
+      label="Eclipse Platform">
     <version
         name="latest"
         label="Latest (Neon)"
