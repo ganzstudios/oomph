@@ -203,8 +203,8 @@
     <requirement
         name="org.polarion.eclipse.team.svn.connector.svnkit18.feature.group"/>
   </setupTask>
-  <project href="projects/ai.setup#/"/>
+  
   <project href="projects/oomph.setup#/"/>
-  <project href="projects/ant.setup#/"/>
+  <project href="projects/releng.setup#/"/>
   <description>Ganz Studios Eclipse based projects catalog</description>
 </setup:ProjectCatalog>

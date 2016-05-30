@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<setup:Project
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:mylyn="http://www.eclipse.org/oomph/setup/mylyn/1.0"
+    xmlns:projectset="http://www.eclipse.org/oomph/setup/projectset/1.0"
+    xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
+    xmlns:setup.p2="http://www.eclipse.org/oomph/setup/p2/1.0"
+    xsi:schemaLocation="http://www.eclipse.org/oomph/setup/mylyn/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Mylyn.ecore http://www.eclipse.org/oomph/setup/projectset/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/ProjectSet.ecore"
+    name="builderx"
+    label="BuilderX">
+  <setupTask
+      xsi:type="setup:WorkspaceTask"
+      id="workspace"
+      excludedTriggers="MANUAL"/>
+  <setupTask
+      xsi:type="setup.p2:P2Task"/>
+  <setupTask
+      xsi:type="setup:CompoundTask"
+      name="Variables">
+    <setupTask
+        xsi:type="setup:VariableTask"
+        name="jira.project.key"
+        value="BLDX"/>
+    <setupTask
+        xsi:type="setup:VariableTask"
+        name="jira.project.id"
+        value="10505"/>
+  </setupTask>
+  <setupTask
+      xsi:type="setup:CompoundTask"
+      name="Tasks">
+    <setupTask
+        xsi:type="projectset:ProjectSetImportTask"
+        id="builderx"
+        uRL="http://repo.ganz.net/psf/releng/${scope.project.name}/${scope.project.stream.name}.psf">
+      <description></description>
+    </setupTask>
+    <setupTask
+        xsi:type="mylyn:MylynQueriesTask"
+        connectorKind="jira"
+        repositoryURL="${releng.jira.url}"
+        userID="${releng.jira.username}"
+        password="${releng.jira.password}">
+      <query
+          summary="BuilderX"
+          url="${releng.jira.url}/issues/?jql=project+in+%28%22{$jira.project.key}%22%29+">
+        <attribute
+            key="FilterCustomUrl"
+            value="${releng.jira.url}/secure/IssueNavigator.jspa?mode=hide&amp;reset=true&amp;pid=${jira.project.id}&amp;query=&amp;summary=true&amp;description=true"/>
+        <attribute
+            key="FilterCustomJqlUrl"
+            value="${releng.jira.url}/issues/?jql=project+in+%28%22${jira.project.key}%22%29+"/>
+      </query>
+      <description>Releng</description>
+    </setupTask>
+  </setupTask>
+  <stream name="master"
+      label="master"/>
+  <stream name="bldx-5"/>
+  <logicalProjectContainer
+      xsi:type="setup:Project"
+      href="../releng.setup#/"/>
+  <description></description>
+</setup:Project>
