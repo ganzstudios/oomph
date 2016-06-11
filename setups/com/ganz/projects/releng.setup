@@ -11,6 +11,7 @@
     name="releng"
     label="Release Engineering">
 	<project href="releng/builderx.setup#/"/>
+	<project href="releng/jenkins.setup#/"/>
   <logicalProjectContainer
       xsi:type="setup:Project"
         href="../projects.setup#/"/>

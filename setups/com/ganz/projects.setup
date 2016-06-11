@@ -202,8 +202,9 @@
         name="org.polarion.eclipse.team.svn.connector.feature.group"/>
     <requirement
         name="org.polarion.eclipse.team.svn.connector.svnkit18.feature.group"/>
+    <repository
+        url="http://community.polarion.com/projects/subversive/download/eclipse/5.0/mars-site/"/>
   </setupTask>
-  
   <project href="projects/oomph.setup#/"/>
   <project href="projects/releng.setup#/"/>
   <description>Ganz Studios Eclipse based projects catalog</description>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<setup:Project
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
+    xmlns:setup.p2="http://www.eclipse.org/oomph/setup/p2/1.0"
+    name="jenkins"
+    label="Jenkins">
+  <annotation
+      source="http://www.eclipse.org/oomph/setup/BrandingInfo">
+    <detail
+        key="imageURI">
+      <value>https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSSXcKcnQcD2ekYjFGVbQpYfAomDMgXgXsV6yKUo5-tIhIbV3Uwaw</value>
+    </detail>
+    <detail
+        key="siteURI">
+      <value>https://github.com/</value>
+    </detail>
+  </annotation>
+  <setupTask
+      xsi:type="setup:WorkspaceTask"
+      id="workspace"
+      excludedTriggers="MANUAL">
+    <description></description>
+  </setupTask>
+  <setupTask
+      xsi:type="setup.p2:P2Task"
+      label="">
+    <description>
+      Install the tools needed in the IDE to work with the
+      source code for ${scope.project.label}
+    </description>
+  </setupTask>
+  <setupTask
+      xsi:type="setup:CompoundTask"
+      id="org.eclipse.ant.variables"
+      name="Variables">
+    <setupTask
+        xsi:type="setup:VariableTask"
+        id="scope.project.group"
+        name="scope.project.group"
+        value="releng/jenkins"
+        storageURI="scope://Workspace"/>
+    <setupTask
+        xsi:type="setup:VariableTask"
+        id="scope.project.name.new"
+        name="scope.project.name.new"
+        storageURI="scope://Workspace"
+        label="Project name"/>
+  </setupTask>
+  <setupTask
+      xsi:type="setup:CompoundTask"
+      name="Preferences">
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="General">
+      <setupTask
+          xsi:type="setup:CompoundTask"
+          name="Capabilities">
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.ui.workbench/UIActivities.org.eclipse.antDevelopment"
+            value="true">
+          <description>Automatic Ant Enablement</description>
+        </setupTask>
+      </setupTask>
+      <setupTask
+          xsi:type="setup:CompoundTask"
+          name="Perspectives">
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            id=""
+            key="/instance/org.eclipse.ui/defaultPerspectiveId"
+            value="org.eclipse.jdt.ui.JavaPerspective">
+          <description>Make the Java perspective the default perspective</description>
+        </setupTask>
+        <description>
+          Container for the
+          &quot;Window->Preferences->General->Perspectives&quot; preferences
+        </description>
+      </setupTask>
+    </setupTask>
+    <description></description>
+  </setupTask>
+  <project name="new"
+      label="New Project">
+    <setupTask
+        xsi:type="setup:VariableTask"
+        id="workspace.location"
+        name="workspace.location"
+        value="${install.root/}${organization/proj/|lower}${scope.project.group/|lower}${scope.project.name.new/|lower}"
+        defaultValue="${install.root/}${organization/proj/|lower}${scope.project.group/|lower}${scope.project.name.new/|lower}"
+        storageURI="scope://Workspace"/>
+    <stream
+        name="master"
+        label="master"/>
+  </project>
+  <logicalProjectContainer
+      xsi:type="setup:Project"
+      href="../../projects.setup#//@projects[name='releng']"/>
+  <description></description>
+</setup:Project>

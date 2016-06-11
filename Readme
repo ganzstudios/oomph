@@ -1,0 +1,41 @@
+Controlling the installer
+
+Agent and bundle pool
+===========================================================
+The bundle pool location(s) are controlled by by 2 entities: agent and bundle pool
+Each agent can contain multiple bundle pools.  
+An agent is defined by specifying a directory. When an agent is defined its default bundle pool 
+is set to the [pool] subdirectory of the agent's directory
+
+The list of available agents is persisted in %userhome%\.eclipse\org.eclipse.oomph.p2\agents.info file 
+Each available agent is a line containing the path to the agents directory
+The following listing of agents.info contains 2 agents
+
+-----------------------------------------
+O:\work\oomph\test\ganz\tool\eclipse\.p2
+O:\work\tool\eclipse\.p2
+-----------------------------------------
+
+The currently selected agent is and pool are persisted in the %userhome%\.eclipse\org.eclipse.oomph.p2\defaults.info
+The listing of defaults.info contains the
+---------------------------------------------------------------------------------
+org.eclipse.oomph.setup.ui=O\:\\work\\oomph\\test\\_ganz\\tool\\eclipse\\p2\\pool
+org.eclipse.oomph.setup.ui\:agent=O\:\\work\\oomph\\test\\_ganz\\tool\\eclipse\\p2
+ ----------------------------------------------------------------------------------
+
+org.eclipse.oomph.setup.ui\:agent setting specifies the agent that will be displayed in the installer ui 
+and used if the user does not define a new agent
+org.eclipse.oomph.setup.ui specifies the bundle pool directory that will be displayed in the installer ui 
+and used unless the user defines a new agent
+
+If the defaults.info file is missing the installer will fall back to its internal default values
+
+
+?? WHERE IS THE BUNDLE POOL CONFIGURATION FOR EACH AGENT ???
+
+Eclipse installation folder
+===========================================================
+O:\Users\Bogdan\.eclipse\org.eclipse.oomph.setup.installer\installRoot.txt
+Where is setting coming from and where is located
+It is saved in the following file
+O:\Users\Bogdan\.eclipse\org.eclipse.oomph.setup\setups\user.setup
