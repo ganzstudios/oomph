@@ -71,11 +71,23 @@
         id="git.repository.location"
         type="FOLDER"
         name="git.repository.location"
-        value="${repository.location/.git/|lower}${organization/|lower}"
+        value="${repository.location/.git/|lower}${organization|lower}"
         storageURI="scope://Installation">
       <description></description>
     </setupTask>
   </setupTask>
+  <!-- 
+  <setupTask
+      xsi:type="setup:EclipseIniTask"
+      option="-Doomph.redirection.index.redirection"
+      value="=index:/->${git.oomph.location|uri}/setups/"
+      vm="true"/>
+  <setupTask
+      xsi:type="setup:EclipseIniTask"
+      option="-Doomph.redirection.index.location.redirection"
+      value="=http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/->${git.oomph.location|uri}/setups/"
+      vm="true"/>
+  -->    
   <setupTask
       xsi:type="setup:CompoundTask"
       name="Tasks">
@@ -94,14 +106,6 @@
           rootFolder="${git.oomph.location}"
           locateNestedProjects="true"/>
     </setupTask>
-  </setupTask>
-  <setupTask
-      xsi:type="setup:VariableTask"
-      id="git.repository.location"
-      type="FOLDER"
-      name="git.repository.location"
-      value="${repository.location/.git/}${organization/|lower}">
-    <description>The local git clone directory</description>
   </setupTask>
   <stream name="master"
       label="master"/>
