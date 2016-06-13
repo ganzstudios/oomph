@@ -140,7 +140,7 @@
           source="http://www.eclipse.org/oomph/setup/BrandingInfo">
         <detail
             key="siteURI">
-          <value>http://download.eclipse.org/eclipse/downloads/drops4/R-4.5.1-201509040015/</value>
+          <value>http://download.eclipse.org/eclipse/downloads/drops4/R-4.5.2-201602121500/</value>
         </detail>
         <detail
             key="folderName">
@@ -164,9 +164,7 @@
             name="org.eclipse.rcp.feature.group"
             versionRange="[4.5.0,4.6.0)"/>
         <repository
-            url="http://download.eclipse.org/technology/epp/packages/mars"/>
-        <repository
-            url="http://download.eclipse.org/releases/mars/201510021000"/>
+            url="http://download.eclipse.org/releases/mars/201602261000"/>
       </setupTask>
     </version>
     <version
@@ -214,7 +212,7 @@
           source="http://www.eclipse.org/oomph/setup/BrandingInfo">
         <detail
             key="siteURI">
-          <value>http://download.eclipse.org/eclipse/downloads/drops4/R-4.5.1-201509040015/</value>
+          <value>http://download.eclipse.org/eclipse/downloads/drops4/R-4.5.2-201602121500//</value>
         </detail>
         <detail
             key="folderName">
@@ -238,9 +236,7 @@
             name="org.eclipse.rcp.feature.group"
             versionRange="[4.5.0,4.6.0)"/>
         <repository
-            url="http://download.eclipse.org/technology/epp/packages/mars"/>
-        <repository
-            url="http://download.eclipse.org/releases/mars/201510021000"/>
+            url="http://download.eclipse.org/releases/mars/201602261000"/>
       </setupTask>
     </version>
     <version

@@ -18,7 +18,22 @@
   </setupTask>
   <setupTask
       xsi:type="setup.p2:P2Task"
-      label="">
+      label="EGit">
+    <requirement
+        name="org.eclipse.egit.feature.group"/>
+    <requirement
+        name="org.eclipse.egit.mylyn.feature.group"/>
+    <requirement
+        name="org.eclipse.mylyn.git.feature.group"/>
+    <repository
+        url="http://download.eclipse.org/egit/updates"/>
+    <description></description>
+  </setupTask>
+  <setupTask
+      xsi:type="setup.p2:P2Task"
+      label="Oomph SDK">
+    <requirement
+        name="org.eclipse.oomph.setup.sdk.feature.group"/>
     <description></description>
   </setupTask>
   <setupTask
@@ -26,14 +41,39 @@
       name="Variables">
     <setupTask
         xsi:type="setup:VariableTask"
+        id="installation.location"
+        type="FOLDER"
+        name="installation.location"
+        value="${install.root/oomph/|lower}${organization/tool/eclipse|lower}"
+        storageURI="scope://Installation"
+        label="">
+      <description></description>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:VariableTask"
         id="workspace.location"
         type="FOLDER"
         name="workspace.location"
-        value="${install.root/}${organization/proj/|lower}${scope.project.name/|lower}"
+        value="${install.root/oomph/|lower}${organization/proj/|lower}${scope.project.name/|lower}"
         defaultValue=""
         storageURI="scope://Workspace"
         label="${scope.project.label}'s workspace">
       <description>The location of the project's workspace</description>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:VariableTask"
+        id="repository.location"
+        name="repository.location"
+        value="${install.root/oomph/repo/|lower}"
+        storageURI="scope://Installation"/>
+    <setupTask
+        xsi:type="setup:VariableTask"
+        id="git.repository.location"
+        type="FOLDER"
+        name="git.repository.location"
+        value="${repository.location/.git/|lower}${organization/|lower}"
+        storageURI="scope://Installation">
+      <description></description>
     </setupTask>
   </setupTask>
   <setupTask
@@ -43,7 +83,8 @@
         xsi:type="git:GitCloneTask"
         id="git.oomph"
         location="${git.repository.location}/${scope.project.name}"
-        remoteURI="https://github.com/ganzstudio/oomph"
+        remoteURI="https://github.com/ganzstudios/oomph"
+        pushURI=""
         checkoutBranch="master">
       <description>Clones the ${organization} oomph setups</description>
     </setupTask>
@@ -66,6 +107,6 @@
       label="master"/>
   <logicalProjectContainer
       xsi:type="setup:ProjectCatalog"
-      href="../projects.setup#/"/>
+      href="index:/org.eclipse.setup#//@projectCatalogs[name='com.ganz']"/>
   <description>The setups for Ganz Studios Projects</description>
 </setup:Project>
