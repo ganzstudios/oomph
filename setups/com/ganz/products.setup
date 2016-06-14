@@ -83,13 +83,14 @@
         xsi:type="setup:VariableTask"
         id="repository.location"
         name="repository.location"
-        value="${install.root/|lower}${organization/repo/|lower}"/>
+        value="${install.root/|lower}${organization/repo/|lower}"
+        storageURI="scope://Installation"/>
     <setupTask
         xsi:type="setup:VariableTask"
         id="git.repository.location"
         type="FOLDER"
         name="git.repository.location"
-        value="${repository.location/.git/}${organization/|lower}">
+        value="${repository.location/.git/}${scope.project.group/|lower}">
       <description></description>
     </setupTask>
   </setupTask>
