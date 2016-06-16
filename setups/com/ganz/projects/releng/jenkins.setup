@@ -102,11 +102,13 @@
       excludedTriggers="STARTUP"
       option="-perspective"
       value="org.eclipse.jdt.ui.JavaPerspective"/>
-  <project name="new"
-      label="New Project">
+  <project name="new-plugin"
+      label="New Plugin"
+      logicalProjectContainer="/">
     <stream
         name="master"
         label="master"/>
+    <description>New Jenkins Plugin</description>
   </project>
   <project name="php-plugin"
       label="PHP Plugin"
@@ -117,7 +119,7 @@
       <setupTask
           xsi:type="git:GitCloneTask"
           id="git.clone.jenkins.php"
-          location="${git.repository.location}/${scope.project.name}"
+          location="${git.repository.location/}${scope.project.name}"
           remoteURI="https://github.com/releng-jenkins/php-plugin"
           pushURI=""
           checkoutBranch="master">
