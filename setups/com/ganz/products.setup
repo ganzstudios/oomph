@@ -64,7 +64,7 @@
         id="installation.location"
         type="FOLDER"
         name="installation.location"
-        value="${install.root/|lower}${organization/tool/eclipse|lower}"
+        value="${install.root/|lower}tool/eclipse"
         label="">
       <description></description>
     </setupTask>
