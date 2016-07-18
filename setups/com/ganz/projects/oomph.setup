@@ -44,7 +44,7 @@
         id="installation.location"
         type="FOLDER"
         name="installation.location"
-        value="${install.root/oomph/|lower}${organization/tool/eclipse|lower}"
+        value="${install.root/oomph/|lower}/tool/eclipse|lower}"
         storageURI="scope://Installation"
         label="">
       <description></description>
@@ -76,18 +76,6 @@
       <description></description>
     </setupTask>
   </setupTask>
-  <!-- 
-  <setupTask
-      xsi:type="setup:EclipseIniTask"
-      option="-Doomph.redirection.index.redirection"
-      value="=index:/->${git.oomph.location|uri}/setups/"
-      vm="true"/>
-  <setupTask
-      xsi:type="setup:EclipseIniTask"
-      option="-Doomph.redirection.index.location.redirection"
-      value="=http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/->${git.oomph.location|uri}/setups/"
-      vm="true"/>
-  -->    
   <setupTask
       xsi:type="setup:CompoundTask"
       name="Tasks">
