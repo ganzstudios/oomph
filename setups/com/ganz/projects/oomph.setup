@@ -44,7 +44,7 @@
         id="installation.location"
         type="FOLDER"
         name="installation.location"
-        value="${install.root/oomph/|lower}/tool/eclipse|lower}"
+        value="${install.root/oomph/|lower}/tool/eclipse"
         storageURI="scope://Installation"
         label="">
       <description></description>
