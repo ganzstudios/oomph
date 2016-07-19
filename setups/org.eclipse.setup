@@ -38,7 +38,6 @@
 	<productCatalog href="com/webkinz/products.setup#/" />
 	 -->
 	<projectCatalog href="com/ganz/projects.setup#/" />
-	<!-- 
 	<projectCatalog href="com/webkinz/projects.setup#/" />
-	 -->
+	
 </setup:Index>

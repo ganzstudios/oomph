@@ -186,8 +186,24 @@
     <repository
         url="http://download.eclipse.org/egit/github/updates/"/>
   </setupTask>
-  <project href="projects/as.setup#/"/>
-  <project href="projects/js.setup#/"/>
-  <project href="projects/php.setup#/"/>
+  <setupTask
+      xsi:type="setup.p2:P2Task"
+      id="subversive"
+      label="Subversive">
+    <requirement
+        name="org.eclipse.team.svn.revision.graph.feature.group"/>
+    <requirement
+        name="org.polarion.eclipse.team.svn.connector.svnkit18.feature.group"/>
+    <requirement
+        name="org.polarion.eclipse.team.svn.connector.feature.group"/>
+    <requirement
+        name="org.eclipse.team.svn.mylyn.feature.group"/>
+    <requirement
+        name="org.eclipse.team.svn.feature.group"/>
+    <repository
+        url="http://community.polarion.com/projects/subversive/download/eclipse/5.0/mars-site/"/>
+    <description>SVN features</description>
+  </setupTask>
+  <project href="projects/server.setup#/"/>
   <description>Webkinz Eclipse based projects catalog</description>
 </setup:ProjectCatalog>

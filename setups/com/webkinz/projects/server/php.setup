@@ -17,7 +17,14 @@
   </setupTask>
   <setupTask
       xsi:type="setup.p2:P2Task"
-      label="">
+      id="zend.studio"
+      label="Zend Studio"
+      licenseConfirmationDisabled="true">
+    <requirement
+        name="com.zend.php.productivity.feature.group"
+        versionRange="13.5.1"/>
+    <repository
+        url="http://downloads.zend.com/studio-eclipse/updates/13_5"/>
     <description>
       Install the tools needed in the IDE to work with the
       source code for ${scope.project.label}
@@ -40,7 +47,7 @@
         xsi:type="setup:VariableTask"
         id="scope.project.group"
         name="scope.project.group"
-        value="server"
+        value="webkinz"
         storageURI="scope://Workspace"/>
     <setupTask
         xsi:type="setup:VariableTask"
@@ -52,8 +59,8 @@
         name="github.user.id"
         defaultValue="anonymous"
         label="Github user ID"
-        xmlns:xmi="http://www.omg.org/XMI"
-        xmlns:setup="http://www.eclipse.org/oomph/setup/1.0">
+        xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
+        xmlns:xmi="http://www.omg.org/XMI">
 			<description>The user ID of the Github account</description>
 		</setup:VariableTask>
   </setupTask>
@@ -80,7 +87,7 @@
             xsi:type="setup:PreferenceTask"
             id=""
             key="/instance/org.eclipse.ui/defaultPerspectiveId"
-            value="org.eclipse.jdt.ui.JavaPerspective">
+            value="org.eclipse.php.perspective">
           <description>Make the Java perspective the default perspective</description>
         </setupTask>
         <description>
@@ -105,7 +112,7 @@
       xsi:type="setup:EclipseIniTask"
       excludedTriggers="STARTUP"
       option="-Dperspective"
-      value="=org.eclipse.jdt.ui.JavaPerspective"
+      value="=org.eclipse.php.perspective"
       vm="true">
     <description></description>
   </setupTask>
@@ -115,8 +122,8 @@
         xsi:type="setup:VariableTask"
         id="workspace.location"
         name="workspace.location"
-        value="${install.root/}${organization/proj/|lower}${scope.project.group/|lower}${scope.project.name.new/|lower}"
-        defaultValue="${install.root/}${organization/proj/|lower}${scope.project.group/|lower}${scope.project.name.new/|lower}"
+        value="${install.root/}${organization/proj/|lower}${scope.project.group/|lower}${scope.project.stream.name/|lower}"
+        defaultValue="${install.root/}${organization/proj/|lower}${scope.project.group/|lower}${scope.project.stream.name/|lower}"
         storageURI="scope://Workspace"/>
     <stream
         name="master"
@@ -124,6 +131,6 @@
   </project>
   <logicalProjectContainer
       xsi:type="setup:ProjectCatalog"
-      href="../projects.setup#/"/>
+      href="index:/com/webkinz/projects.setup#/"/>
   <description>PHP Projects</description>
 </setup:Project>
