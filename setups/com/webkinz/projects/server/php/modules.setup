@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<setup:Project
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
+    name="modules"
+    label="Modules">
+  <project name="new"
+      label="New Module"
+      logicalProjectContainer="/">
+    <stream
+        name="master"
+        label="master"/>
+    <description>Creates an empty workspace if one does not exist</description>
+  </project>
+  <project name="xcore"
+      label="xcore"
+      logicalProjectContainer="/">
+    <stream
+        name="master"
+        label="master"/>
+    <description>xcore project</description>    
+  </project>
+    <project name="wafx"
+      label="wafx"
+      logicalProjectContainer="/">
+    <stream
+        name="master"
+        label="master"/>
+  </project>
+      <project name="webkinz"
+      label="webkinz"
+      logicalProjectContainer="/">
+    <stream
+        name="master"
+        label="master"/>
+        
+  </project>
+    <project name="amfphp"
+      label="amfphp"
+      logicalProjectContainer="/">
+    <stream
+        name="master"
+        label="master"/>
+        
+  </project>
+  
+  <!--
+  <logicalProjectContainer
+      xsi:type="setup:Project"
+      href="index:/org.eclipse.setup#//@projectCatalogs[name='com.webkinz']/@projects[name='server']/@projects[name='php']"/>
+      -->
+        <logicalProjectContainer
+      xsi:type="setup:ProjectCatalog"
+      href="index:/org.eclipse.setup#//@projectCatalogs[name='com.webkinz']"/>
+   <description>PHP Modules</description>
+</setup:Project>

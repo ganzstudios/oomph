@@ -128,14 +128,12 @@
         id="webkinz.jira.url"
         name="webkinz.jira.url"
         value="http://jira.ganz.com"
-        storageURI="scope://Installation"
         label="Jira URL"/>
     <setupTask
         xsi:type="setup:VariableTask"
         id="webkinz.jira.username"
         name="webkinz.jira.username"
         defaultValue="${scope.user.name}"
-        storageURI="scope://Installation"
         label="Jira username"/>
     <setupTask
         xsi:type="setup:VariableTask"

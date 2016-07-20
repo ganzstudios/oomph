@@ -491,12 +491,14 @@
   <setupTask
       xsi:type="setup:CompoundTask"
       name="Tasks">
+
     <setupTask
         xsi:type="projectset:ProjectSetImportTask"
         id="builderx"
         uRL="http://repo.ganz.net/psf/webkinz/${scope.project.name}/${scope.project.stream.name}.psf">
       <description></description>
     </setupTask>
+    
     <setupTask
         xsi:type="mylyn:MylynQueriesTask"
         connectorKind="jira"
@@ -505,38 +507,21 @@
         password="${webkinz.jira.password}">
       <query
           summary="All my issues"
-          url="${webkinz.jira.url}/issues/?jql=resolution+in+%28Unresolved%29+AND+assignee+in+%28currentUser%28%29%29+&quot; ">
+          url="${webkinz.jira.url}/issues/?jql=resolution%20in%20(Unresolved)%20AND%20assignee%20in%20(currentUser())">
         <attribute
             key="FilterCustomUrl"
-            value="${webkinz.jira.url}/secure/IssueNavigator.jspa?mode=hide&amp;amp;reset=true&amp;amp;resolution=-1&amp;amp;assigneeSelect=issue_current_user"/>
+            value="${webkinz.jira.url}/secure/IssueNavigator.jspa?mode=hide&amp;reset=true&amp;resolution=-1&amp;assigneeSelect=issue_current_user"/>
         <attribute
             key="FilterCustomJqlUrl"
-            value="${webkinz.jira.url}/issues/?jql=resolution+in+%28Unresolved%29+AND+assignee+in+%28currentUser%28%29%29+"/>
+            value="${webkinz.jira.url}/issues/?jql=resolution%20in%20(Unresolved)%20AND%20assignee%20in%20(currentUser())"/>
       </query>
       <description>Configuration for Webkinz Issue Tracker </description>
     </setupTask>
   </setupTask>
-  <project name="new"
-      label="New Project">
-    <stream
-        name="master"
-        label="master"/>
-    <stream
-        name="kinzpost"
-        label="kinzpost"/>
-  </project>
-  <project name="xcore"
-      label="xcore"
-      logicalProjectContainer="/">
-    <stream
-        name="master"
-        label="master"/>
-    <stream
-        name="kinzpost"
-        label="kinzpost"/>
-  </project>
+  <project href="php/modules.setup#/"/>
+  <project href="php/features.setup#/"/>
   <logicalProjectContainer
-      xsi:type="setup:ProjectCatalog"
-      href="index:/org.eclipse.setup#//@projectCatalogs[name='com.webkinz']"/>
+      xsi:type="setup:Project"
+      href="index:/org.eclipse.setup#//@projectCatalogs[name='com.webkinz']/@projects[name='server']"/>
   <description>PHP Projects</description>
 </setup:Project>
