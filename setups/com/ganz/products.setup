@@ -36,6 +36,8 @@
         url="http://download.eclipse.org/modeling/emf/emf/updates/2.10/core/R201405190339"/>
     <repository
         url="http://download.eclipse.org/egit/updates"/>
+    <repository
+        url="http://download.eclipse.org/releases/mars"/>
     <description></description>
   </setupTask>
   <setupTask
