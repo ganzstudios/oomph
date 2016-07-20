@@ -41,6 +41,49 @@
     <description></description>
   </setupTask>
   <setupTask
+      xsi:type="setup.p2:P2Task"
+      label="Mylyn">
+    <requirement
+        name="org.eclipse.mylyn.github.feature.feature.group"
+        filter=""/>
+    <requirement
+        name="org.eclipse.mylyn.builds.feature.group"/>
+    <requirement
+        name="org.eclipse.mylyn.hudson.feature.group"/>
+    <requirement
+        name="org.eclipse.mylyn.ide_feature.feature.group"/>
+    <requirement
+        name="org.eclipse.mylyn.bugzilla_feature.feature.group"/>
+    <requirement
+        name="org.eclipse.mylyn_feature.feature.group"/>
+    <requirement
+        name="org.eclipse.mylyn.versions.feature.group"/>
+    <requirement
+        name="org.eclipse.mylyn.wikitext_feature.feature.group"/>
+    <repository
+        url="http://download.eclipse.org/egit/github/updates/"/>
+  </setupTask>
+  <setupTask
+      xsi:type="setup.p2:P2Task"
+      id="subversive"
+      label="Subversive">
+    <requirement
+        name="org.eclipse.team.svn.resource.ignore.rules.jdt.feature.group"/>
+    <requirement
+        name="org.eclipse.team.svn.revision.graph.feature.group"/>
+    <requirement
+        name="org.eclipse.team.svn.mylyn.feature.group"/>
+    <requirement
+        name="org.eclipse.team.svn.feature.group"/>
+    <requirement
+        name="org.polarion.eclipse.team.svn.connector.feature.group"/>
+    <requirement
+        name="org.polarion.eclipse.team.svn.connector.svnkit18.feature.group"/>
+    <repository
+        url="http://community.polarion.com/projects/subversive/download/eclipse/5.0/mars-site/"/>
+    <description>SVN features</description>
+  </setupTask>
+  <setupTask
       xsi:type="setup:EclipseIniTask"
       option="-Doomph.setup"
       value="=true"
