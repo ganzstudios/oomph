@@ -69,19 +69,12 @@
         name="scope.project.name.new"
         storageURI="scope://Workspace"
         label="Project name"/>
-    <setupTask
-        xsi:type="setup:VariableTask"
-        id="workspace.location"
-        name="workspace.location"
-        value="${install.root/}${organization/proj/|lower}${scope.project.group/|lower}${scope.project.stream.name/|lower}"
-        defaultValue="${install.root/}${organization/proj/|lower}${scope.project.group/|lower}${scope.project.stream.name/|lower}"
-        storageURI="scope://Workspace"/>
     <setup:VariableTask
         name="github.user.id"
         defaultValue="anonymous"
         label="Github user ID"
-        xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
-        xmlns:xmi="http://www.omg.org/XMI">
+        xmlns:xmi="http://www.omg.org/XMI"
+        xmlns:setup="http://www.eclipse.org/oomph/setup/1.0">
 			<description>The user ID of the Github account</description>
 		</setup:VariableTask>
   </setupTask>
@@ -491,14 +484,12 @@
   <setupTask
       xsi:type="setup:CompoundTask"
       name="Tasks">
-
     <setupTask
         xsi:type="projectset:ProjectSetImportTask"
         id="builderx"
         uRL="http://repo.ganz.net/psf/webkinz/${scope.project.name}/${scope.project.stream.name}.psf">
       <description></description>
     </setupTask>
-    
     <setupTask
         xsi:type="mylyn:MylynQueriesTask"
         connectorKind="jira"

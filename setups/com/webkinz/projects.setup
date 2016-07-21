@@ -141,6 +141,13 @@
         type="PASSWORD"
         name="webkinz.jira.password"
         label="Jira password"/>
+    <setupTask
+        xsi:type="setup:VariableTask"
+        id="workspace.location"
+        name="workspace.location"
+        value="${install.root/|lower}proj/${scope.project.group/|lower}${scope.project.stream.name/|lower}"
+        defaultValue="${install.root/|lower}proj/${scope.project.group/|lower}${scope.project.stream.name/|lower}"
+        storageURI="scope://Workspace"/>
   </setupTask>
   <setupTask
       xsi:type="setup:CompoundTask"
