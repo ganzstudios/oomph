@@ -155,6 +155,17 @@
         label="master"/>
     <description>PHP Installer for Jenkins</description>
   </project>
+  <project name="ivyde"
+      label="Ivy"
+      logicalProjectContainer="/">
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="Tasks"/>
+    <stream
+        name="master"
+        label="master"/>
+    <description>Ivy Plugins</description>
+  </project>
   <logicalProjectContainer
       xsi:type="setup:Project"
       href="index:/org.eclipse.setup#//@projectCatalogs[name='com.ganz']/@projects[name='releng']"/>
