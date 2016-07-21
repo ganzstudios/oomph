@@ -41,40 +41,10 @@
       name="Variables">
     <setupTask
         xsi:type="setup:VariableTask"
-        id="installation.location"
-        type="FOLDER"
-        name="installation.location"
-        value="${install.root/oomph/|lower}/tool/eclipse"
-        storageURI="scope://Installation"
-        label="">
-      <description></description>
-    </setupTask>
-    <setupTask
-        xsi:type="setup:VariableTask"
-        id="workspace.location"
-        type="FOLDER"
-        name="workspace.location"
-        value="${install.root/oomph/|lower}${organization/proj/|lower}${scope.project.name/|lower}"
-        defaultValue=""
-        storageURI="scope://Workspace"
-        label="${scope.project.label}'s workspace">
-      <description>The location of the project's workspace</description>
-    </setupTask>
-    <setupTask
-        xsi:type="setup:VariableTask"
-        id="repository.location"
-        name="repository.location"
-        value="${install.root/oomph/repo/|lower}"
-        storageURI="scope://Installation"/>
-    <setupTask
-        xsi:type="setup:VariableTask"
-        id="git.repository.location"
-        type="FOLDER"
-        name="git.repository.location"
-        value="${repository.location/.git/|lower}${organization|lower}"
-        storageURI="scope://Installation">
-      <description></description>
-    </setupTask>
+        id="scope.project.group"
+        name="scope.project.group"
+        value=""
+        storageURI="scope://Workspace"/>
   </setupTask>
   <setupTask
       xsi:type="setup:CompoundTask"

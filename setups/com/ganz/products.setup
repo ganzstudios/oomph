@@ -118,7 +118,7 @@
         id="workspace.location"
         type="FOLDER"
         name="workspace.location"
-        value="${install.root/}${organization/proj/|lower}${scope.project.group/|lower}${scope.project.name/|lower}"
+        value="${install.root/|lower}/proj/${scope.project.group/|lower}${scope.project.name/|lower}"
         defaultValue=""
         storageURI="scope://Workspace"
         label="${scope.project.label}'s workspace">
@@ -128,7 +128,7 @@
         xsi:type="setup:VariableTask"
         id="repository.location"
         name="repository.location"
-        value="${install.root/|lower}${organization/repo/|lower}"
+        value="${install.root/|lower}/repo/"
         storageURI="scope://Installation"/>
     <setupTask
         xsi:type="setup:VariableTask"
