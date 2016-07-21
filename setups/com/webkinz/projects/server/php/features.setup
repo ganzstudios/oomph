@@ -10,11 +10,8 @@
       label="New Feature"
       logicalProjectContainer="/">
     <stream
-        name="master"
-        label="master"/>
-    <stream
-        name="kinzpost"
-        label="kinzpost"/>
+        name="mainline"
+        label="mainline"/>
   </project>
   <project name="kinzpost"
       label="Kinzpost update"

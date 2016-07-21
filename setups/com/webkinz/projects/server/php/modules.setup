@@ -10,49 +10,43 @@
       label="New Module"
       logicalProjectContainer="/">
     <stream
-        name="master"
-        label="master"/>
+        name="mainline"
+        label="mainline"/>
     <description>Creates an empty workspace if one does not exist</description>
   </project>
   <project name="xcore"
       label="xcore"
       logicalProjectContainer="/">
     <stream
-        name="master"
-        label="master"/>
-    <description>xcore project</description>    
+        name="mainline"
+        label="mainline">
+      <description></description>
+    </stream>
+    <description>xcore project</description>
   </project>
-    <project name="wafx"
+  <project name="wafx"
       label="wafx"
       logicalProjectContainer="/">
     <stream
-        name="master"
-        label="master"/>
+        name="mainline"
+        label="mainline"/>
   </project>
-      <project name="webkinz"
+  <project name="webkinz"
       label="webkinz"
       logicalProjectContainer="/">
     <stream
-        name="master"
-        label="master"/>
-        
+        name="mainline"
+        label="mainline"/>
   </project>
-    <project name="amfphp"
+  <project name="amfphp"
       label="amfphp"
       logicalProjectContainer="/">
     <stream
-        name="master"
-        label="master"/>
-        
+        name="mainline"
+        label="mainline"/>
   </project>
-  
-  <!--
   <logicalProjectContainer
-      xsi:type="setup:Project"
-      href="index:/org.eclipse.setup#//@projectCatalogs[name='com.webkinz']/@projects[name='server']/@projects[name='php']"/>
-      -->
-        <logicalProjectContainer
       xsi:type="setup:ProjectCatalog"
       href="index:/org.eclipse.setup#//@projectCatalogs[name='com.webkinz']"/>
-   <description>PHP Modules</description>
+  <description>PHP Modules</description>
 </setup:Project>
