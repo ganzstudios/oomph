@@ -128,7 +128,7 @@
         xsi:type="setup:VariableTask"
         id="repository.location"
         name="repository.location"
-        value="${install.root/|lower}/repo/"
+        value="${install.root/|lower}repo/"
         storageURI="scope://Installation"/>
     <setupTask
         xsi:type="setup:VariableTask"
