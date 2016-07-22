@@ -43,7 +43,7 @@
         xsi:type="setup:VariableTask"
         id="scope.project.group"
         name="scope.project.group"
-        value=""
+        value="oomph"
         storageURI="scope://Workspace"/>
     <setupTask
         xsi:type="setup:VariableTask"
