@@ -120,6 +120,24 @@
           label="HTTPS (read-only, anonymous)"/>
       <description>Choose from the available Github URIs</description>
     </setupTask>
+    <setupTask
+        xsi:type="setup:VariableTask"
+        id="releng.jira.url"
+        name="releng.jira.url"
+        value="http://jira.releng.ganz.net/"
+        label="RelEng Jira URL"/>
+    <setupTask
+        xsi:type="setup:VariableTask"
+        id="releng.jira.username"
+        name="releng.jira.username"
+        defaultValue="${scope.user.name}"
+        label="RelEng Jira username"/>
+    <setupTask
+        xsi:type="setup:VariableTask"
+        id="releng.jira.password"
+        type="PASSWORD"
+        name="releng.jira.password"
+        label="RelEng Jira password"/>
   </setupTask>
   <setupTask
       xsi:type="setup:CompoundTask"
