@@ -73,13 +73,6 @@
         name="scope.project.name.new"
         storageURI="scope://Workspace"
         label="Project name"/>
-    <setupTask
-        xsi:type="setup:VariableTask"
-        id="workspace.location"
-        name="workspace.location"
-        value="${install.root/}${organization/proj/|lower}${scope.project.group/|lower}"
-        defaultValue="${install.root/}${organization/proj/|lower}${scope.project.group/|lower}"
-        storageURI="scope://Workspace"/>
   </setupTask>
   <setupTask
       xsi:type="setup:CompoundTask"

@@ -118,17 +118,6 @@
     </setupTask>
     <setupTask
         xsi:type="setup:VariableTask"
-        id="workspace.location"
-        type="FOLDER"
-        name="workspace.location"
-        value="${install.root/|lower}/proj/${scope.project.group/|lower}${scope.project.name/|lower}"
-        defaultValue=""
-        storageURI="scope://Workspace"
-        label="${scope.project.label}'s workspace">
-      <description>The location of the project's workspace</description>
-    </setupTask>
-    <setupTask
-        xsi:type="setup:VariableTask"
         id="repository.location"
         name="repository.location"
         value="${install.root/|lower}repo/"
@@ -141,6 +130,13 @@
         value="${repository.location/.git/}${scope.project.group/|lower}">
       <description></description>
     </setupTask>
+    <setupTask
+        xsi:type="setup:VariableTask"
+        id="workspace.location"
+        name="workspace.location"
+        value="${install.root/|lower}proj/${scope.project.group/|lower}${scope.project.stream.name/|lower}"
+        defaultValue="${install.root/|lower}proj/${scope.project.group/|lower}${scope.project.stream.name/|lower}"
+        storageURI="scope://Workspace"/>
   </setupTask>
   <product name="org.eclipse.platform.ide"
       label="Eclipse Platform">
