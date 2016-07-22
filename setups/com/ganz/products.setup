@@ -49,7 +49,8 @@
     <requirement
         name="org.eclipse.mylyn.builds.feature.group"/>
     <requirement
-        name="org.eclipse.mylyn.hudson.feature.group"/>
+        name="org.eclipse.mylyn.hudson.feature.group"
+        versionRange="[1.12.2,2.0.0)"/>
     <requirement
         name="org.eclipse.mylyn.ide_feature.feature.group"/>
     <requirement
@@ -62,6 +63,8 @@
         name="org.eclipse.mylyn.wikitext_feature.feature.group"/>
     <repository
         url="http://download.eclipse.org/egit/github/updates/"/>
+    <repository
+        url="http://download.eclipse.org/mylyn/releases/latest"/>
   </setupTask>
   <setupTask
       xsi:type="setup.p2:P2Task"
