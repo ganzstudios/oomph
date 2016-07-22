@@ -37,19 +37,6 @@
     <description></description>
   </setupTask>
   <setupTask
-      xsi:type="setup:EclipseIniTask"
-      option="-Doomph.redirection.index.redirection"
-      value="=index:/->${git.oomph.location/|uri}setups/"
-      vm="true">
-    <description></description>
-  </setupTask>
-  <setupTask
-      xsi:type="setup:EclipseIniTask"
-      id=""
-      option="-Doomph.redirection.index.location.redirection"
-      value="=http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/->${git.oomph.location|uri}/setups/"
-      vm="true"/>
-  <setupTask
       xsi:type="setup:CompoundTask"
       name="Variables">
     <setupTask
