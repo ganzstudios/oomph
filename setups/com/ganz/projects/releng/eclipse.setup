@@ -5,9 +5,10 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:git="http://www.eclipse.org/oomph/setup/git/1.0"
     xmlns:projects="http://www.eclipse.org/oomph/setup/projects/1.0"
+    xmlns:projectset="http://www.eclipse.org/oomph/setup/projectset/1.0"
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
     xmlns:setup.p2="http://www.eclipse.org/oomph/setup/p2/1.0"
-    xsi:schemaLocation="http://www.eclipse.org/oomph/setup/git/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Git.ecore http://www.eclipse.org/oomph/setup/projects/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Projects.ecore"
+    xsi:schemaLocation="http://www.eclipse.org/oomph/setup/git/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Git.ecore http://www.eclipse.org/oomph/setup/projects/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Projects.ecore http://www.eclipse.org/oomph/setup/projectset/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/ProjectSet.ecore"
     name="eclipse"
     label="Eclipse">
   <annotation
@@ -148,15 +149,35 @@
         label="master"/>
     <description>PHP Installer for Jenkins</description>
   </project>
-  <project name="ivyde"
+  <project name="ivy"
       label="Ivy"
       logicalProjectContainer="/">
     <setupTask
         xsi:type="setup:CompoundTask"
-        name="Tasks"/>
+        name="Tasks">
+      <setupTask
+          xsi:type="projectset:ProjectSetImportTask"
+          id="builderx"
+          uRL="https://raw.githubusercontent.com/ganzstudios/oomph/master/setups/psf/${scope.project.group}/${scope.project.name}/${scope.project.stream.name}.psf">
+        <description></description>
+      </setupTask>
+    </setupTask>
+    <setupTask
+        xsi:type="setup.p2:P2Task">
+      <requirement
+          name="org.apache.ivy.feature.feature.group"/>
+      <requirement
+          name="org.apache.ivy.eclipse.ant.feature.feature.group"/>
+      <requirement
+          name="org.apache.ivyde.feature.feature.group"/>
+      <requirement
+          name="org.apache.ivyde.eclipse.resolvevisualizer.feature.feature.group"/>
+      <repository
+          url="http://www.apache.org/dist/ant/ivyde/updatesite"/>
+    </setupTask>
     <stream
-        name="master"
-        label="master"/>
+        name="mainline"
+        label="mainline"/>
     <description>Ivy Plugins</description>
   </project>
   <logicalProjectContainer
