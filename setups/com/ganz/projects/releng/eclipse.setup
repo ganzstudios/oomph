@@ -122,32 +122,31 @@
         label="master"/>
     <description>New Eclipse Plugin/Feature</description>
   </project>
-  <project name="php-plugin"
-      label="PHP Plugin"
+  <project name="gdtk"
+      label="Ganz Development Toolkit"
       logicalProjectContainer="/">
     <setupTask
         xsi:type="setup:CompoundTask"
         name="Tasks">
       <setupTask
           xsi:type="git:GitCloneTask"
-          id="git.clone.jenkins.php"
+          id="git.clone.eclipse.gdtk"
           location="${git.repository.location/}${scope.project.name}"
-          remoteURI="https://github.com/releng-jenkins/php-plugin"
-          pushURI=""
-          checkoutBranch="master">
-        <description>Clones the Jenkins PHP Plugin repository</description>
+          remoteURI="https://github.com/releng-eclipse/${scope.project.name}"
+          pushURI="">
+        <description>Clones the Ganz Development Toolkit repository</description>
       </setupTask>
       <setupTask
           xsi:type="projects:ProjectsImportTask">
         <sourceLocator
-            rootFolder="${git.clone.jenkins.php.location}"
+            rootFolder="${git.clone.eclipse.gdtk.location}"
             locateNestedProjects="true"/>
       </setupTask>
     </setupTask>
     <stream
-        name="master"
-        label="master"/>
-    <description>PHP Installer for Jenkins</description>
+        name="develop"
+        label="develop"/>
+    <description>Ganz Development toolkit</description>
   </project>
   <project name="ivy"
       label="Ivy"
@@ -174,6 +173,13 @@
           name="org.apache.ivyde.eclipse.resolvevisualizer.feature.feature.group"/>
       <repository
           url="http://www.apache.org/dist/ant/ivyde/updatesite"/>
+    </setupTask>
+    <setupTask
+        xsi:type="setup.p2:P2Task">
+      <requirement
+          name="org.eclipse.zest.source.feature.group"/>
+      <repository
+          url="http://download.eclipse.org/tools/gef/updates/legacy/releases/"/>
     </setupTask>
     <stream
         name="mainline"
