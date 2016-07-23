@@ -12,7 +12,8 @@
     label="Release Engineering">
 	<project href="releng/builderx.setup#/"/>
 	<project href="releng/eclipse.setup#/"/>
-	<project href="releng/jenkins.setup#/"/>	
+	<project href="releng/jenkins.setup#/"/>
+	<project href="releng/kb.setup#/"/>
   <logicalProjectContainer
       xsi:type="setup:Project"
         href="../projects.setup#/"/>
