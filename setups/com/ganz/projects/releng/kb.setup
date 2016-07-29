@@ -3,11 +3,7 @@
     xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:git="http://www.eclipse.org/oomph/setup/git/1.0"
-    xmlns:projects="http://www.eclipse.org/oomph/setup/projects/1.0"
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
-    xmlns:setup.p2="http://www.eclipse.org/oomph/setup/p2/1.0"
-    xsi:schemaLocation="http://www.eclipse.org/oomph/setup/git/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Git.ecore http://www.eclipse.org/oomph/setup/projects/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Projects.ecore"
     name="kb"
     label="Knowledgebase">
   <annotation
@@ -28,18 +24,6 @@
     <description></description>
   </setupTask>
   <setupTask
-      xsi:type="setup.p2:P2Task"
-      label="">
-    <requirement
-        name="org.eclipse.vex.feature.feature.group"/>
-    <repository
-        url="http://download.eclipse.org/vex/releases/latest/"/>
-    <description>
-      Install the tools needed in the IDE to work with the
-      source code for ${scope.project.label}
-    </description>
-  </setupTask>
-  <setupTask
       xsi:type="setup:CompoundTask"
       id="org.eclipse.ant.variables"
       name="Variables">
@@ -47,14 +31,21 @@
         xsi:type="setup:VariableTask"
         id="scope.project.group"
         name="scope.project.group"
-        value="releng/jenkins"
+        value="releng/kb"
         storageURI="scope://Workspace"/>
     <setupTask
         xsi:type="setup:VariableTask"
-        id="scope.project.name.new"
-        name="scope.project.name.new"
+        id="scope.new.workspace.name"
+        name="scope.new.workspace.name"
         storageURI="scope://Workspace"
-        label="Project name"/>
+        label="Workspace name"/>
+    <setupTask
+        xsi:type="setup:VariableTask"
+        id="workspace.location"
+        name="workspace.location"
+        value="${install.root/|lower}proj/${scope.project.group/|lower}${scope.new.workspace.name/|lower}"
+        defaultValue="${install.root/|lower}proj/${scope.project.group/|lower}${scope.new.workspace.name/|lower}"
+        storageURI="scope://Workspace"/>
   </setupTask>
   <setupTask
       xsi:type="setup:CompoundTask"
@@ -95,40 +86,13 @@
       excludedTriggers="STARTUP"
       option="-perspective"
       value="org.eclipse.jdt.ui.JavaPerspective"/>
-  <project name="new-plugin"
-      label="New Plugin"
+  <project name="new.workspace"
+      label="New Workspace"
       logicalProjectContainer="/">
     <stream
         name="master"
         label="master"/>
-    <description>New Jenkins Plugin</description>
-  </project>
-  <project name="php-plugin"
-      label="PHP Plugin"
-      logicalProjectContainer="/">
-    <setupTask
-        xsi:type="setup:CompoundTask"
-        name="Tasks">
-      <setupTask
-          xsi:type="git:GitCloneTask"
-          id="git.clone.jenkins.php"
-          location="${git.repository.location/}${scope.project.name}"
-          remoteURI="https://github.com/releng-jenkins/php-plugin"
-          pushURI=""
-          checkoutBranch="master">
-        <description>Clones the Jenkins PHP Plugin repository</description>
-      </setupTask>
-      <setupTask
-          xsi:type="projects:ProjectsImportTask">
-        <sourceLocator
-            rootFolder="${git.clone.jenkins.php.location}"
-            locateNestedProjects="true"/>
-      </setupTask>
-    </setupTask>
-    <stream
-        name="master"
-        label="master"/>
-    <description>PHP Installer for Jenkins</description>
+    <description>New Workspace</description>
   </project>
   <logicalProjectContainer
       xsi:type="setup:Project"
