@@ -73,8 +73,8 @@
         name="github.user.id"
         defaultValue="anonymous"
         label="Github user ID"
-        xmlns:xmi="http://www.omg.org/XMI"
-        xmlns:setup="http://www.eclipse.org/oomph/setup/1.0">
+        xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
+        xmlns:xmi="http://www.omg.org/XMI">
 			<description>The user ID of the Github account</description>
 		</setup:VariableTask>
   </setupTask>
@@ -116,6 +116,16 @@
           Container for the
           &quot;Window->Preferences->General->Perspectives&quot; preferences
         </description>
+      </setupTask>
+      <setupTask
+          xsi:type="setup:CompoundTask"
+          name="Workspace">
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.core.runtime/line.separator"
+            value="&#xA;">
+          <description>Sets the Unix new line delimiter</description>
+        </setupTask>
       </setupTask>
     </setupTask>
     <setupTask
