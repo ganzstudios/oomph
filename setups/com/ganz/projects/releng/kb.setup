@@ -4,6 +4,7 @@
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
+    xmlns:setup.p2="http://www.eclipse.org/oomph/setup/p2/1.0"
     name="kb"
     label="Knowledgebase">
   <annotation
@@ -22,6 +23,20 @@
       id="workspace"
       excludedTriggers="MANUAL">
     <description></description>
+  </setupTask>
+  <setupTask
+      xsi:type="setup.p2:P2Task"
+      label="">
+    <requirement
+        name="org.eclipse.pde.feature.group"/>
+    <requirement
+        name="org.eclipse.help.feature.group"/>
+    <repository
+        url="http://download.eclipse.org/eclipse/updates/4.5"/>
+    <description>
+      Install the tools needed in the IDE to work with the
+      source code for ${scope.project.label}
+    </description>
   </setupTask>
   <setupTask
       xsi:type="setup:CompoundTask"
