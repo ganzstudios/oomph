@@ -14,6 +14,7 @@
 	<project href="releng/eclipse.setup#/"/>
 	<project href="releng/jenkins.setup#/"/>
 	<project href="releng/kb.setup#/"/>
+	<project href="releng/sample.setup#/"/>
   <logicalProjectContainer
       xsi:type="setup:Project"
         href="../projects.setup#/"/>
