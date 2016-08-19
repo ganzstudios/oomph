@@ -109,7 +109,9 @@
         id="install.root"
         type="FOLDER"
         name="install.root"
+        value=""
         defaultValue="${user.home}"
+        storageURI="scope://Installation"
         label="Installation folder">
       <description>The root of the installation directory</description>
     </setupTask>
