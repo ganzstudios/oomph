@@ -478,7 +478,7 @@
         <setupTask
             xsi:type="setup:PreferenceTask"
             key="/instance/org.eclipse.egit.core/core_defaultRepositoryDir"
-            value="${git.repository.location}">
+            value="${git.repository.location|canonical}">
           <description></description>
         </setupTask>
       </setupTask>
