@@ -109,7 +109,6 @@
         id="install.root"
         type="FOLDER"
         name="install.root"
-        value=""
         defaultValue="${user.home}"
         storageURI="scope://Installation"
         label="Installation folder">
