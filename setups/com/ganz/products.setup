@@ -133,14 +133,17 @@
     <setupTask
         xsi:type="setup:VariableTask"
         id=""
+        type="FOLDER"
         name="git.container.root"
-        value="${repository.location/.git/|lower}"/>
+        value="${repository.location/.git/|lower}"
+        defaultValue="${repository.location/.git/|lower}"/>
     <setupTask
         xsi:type="setup:VariableTask"
         id="git.repository.location"
         type="FOLDER"
         name="git.repository.location"
-        value="${git.container.root}${scope.project.group/|lower}|canonical">
+        value="${git.container.root}${scope.project.group/|lower}"
+        defaultValue="${git.container.root}${scope.project.group/|lower}">
       <description></description>
     </setupTask>
     <setupTask
