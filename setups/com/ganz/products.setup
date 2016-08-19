@@ -119,7 +119,7 @@
         id="installation.location"
         type="FOLDER"
         name="installation.location"
-        value="${install.root/|lower}tool/eclipse"
+        value="${install.root/tool/eclipse/|lower}"
         label="">
       <description></description>
     </setupTask>
@@ -128,14 +128,14 @@
         id="repository.location"
         type="FOLDER"
         name="repository.location"
-        value="${install.root/|lower}repo/"
+        value="${install.root/repo/|lower}"
         storageURI="scope://Installation"/>
     <setupTask
         xsi:type="setup:VariableTask"
         id="git.repository.location"
         type="FOLDER"
         name="git.repository.location"
-        value="${repository.location/.git/}${scope.project.group/|lower}">
+        value="${repository.location/.git/|lower}${scope.project.group/|lower}">
       <description></description>
     </setupTask>
     <setupTask
