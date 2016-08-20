@@ -37,12 +37,6 @@
     <setupTask
         xsi:type="projectset:ProjectSetImportTask"
         id="builderx"
-        uRL="http://repo.ganz.net/psf/releng/${scope.project.name}/${scope.project.stream.name}.psf">
-      <description></description>
-    </setupTask>
-    <setupTask
-        xsi:type="projectset:ProjectSetImportTask"
-        id="builderx"
         uRL="https://raw.githubusercontent.com/ganzstudios/oomph/master/setups/psf/${scope.project.group}/${scope.project.stream.name}.psf">
       <description></description>
     </setupTask>
