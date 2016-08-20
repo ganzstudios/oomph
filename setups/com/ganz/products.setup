@@ -93,6 +93,17 @@
     <description>SVN features</description>
   </setupTask>
   <setupTask
+      xsi:type="setup.p2:P2Task"
+      id="atlassian"
+      label="Atlassian"
+      licenseConfirmationDisabled="true">
+    <requirement
+        name="com.atlassian.connector.eclipse.jira.feature.group"/>
+    <repository
+        url="http://update.atlassian.com/atlassian-eclipse-plugin/rest/e3.7/"/>
+    <description>Install JIRA-eclipse integration</description>
+  </setupTask>
+  <setupTask
       xsi:type="setup:EclipseIniTask"
       option="-Doomph.setup"
       value="=true"
