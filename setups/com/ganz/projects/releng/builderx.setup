@@ -24,6 +24,12 @@
         xsi:type="setup:VariableTask"
         name="jira.project.id"
         value="10505"/>
+    <setupTask
+        xsi:type="setup:VariableTask"
+        id="scope.project.group"
+        name="scope.project.group"
+        value="releng/ant"
+        storageURI="scope://Workspace"/>
   </setupTask>
   <setupTask
       xsi:type="setup:CompoundTask"
