@@ -58,6 +58,18 @@
       </query>
       <description>Releng</description>
     </setupTask>
+    <setupTask
+        xsi:type="mylyn:MylynBuildsTask"
+        serverURL="${releng.ci.url}job/tool/job/${scope.project.stream.name}/job/ant"
+        userID="${releng.ci.username}"
+        password="${releng.ci.password}">
+      <buildPlan
+          name="builderx" />          
+      <buildPlan
+          name="ant-svn" />
+          
+      <description>Builderx builds</description>
+    </setupTask>
   </setupTask>
   <stream name="mainline"
       label="mainline"/>
