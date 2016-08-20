@@ -41,6 +41,12 @@
       <description></description>
     </setupTask>
     <setupTask
+        xsi:type="projectset:ProjectSetImportTask"
+        id="builderx"
+        uRL="https://raw.githubusercontent.com/ganzstudios/oomph/master/setups/psf/${scope.project.group}/${scope.project.stream.name}.psf">
+      <description></description>
+    </setupTask>
+    <setupTask
         xsi:type="mylyn:MylynQueriesTask"
         connectorKind="jira"
         repositoryURL="${releng.jira.url}"
