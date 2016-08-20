@@ -33,17 +33,6 @@
   </setupTask>
   <setupTask
       xsi:type="setup.p2:P2Task"
-      id="atlassian"
-      label="Atlassian"
-      licenseConfirmationDisabled="true">
-    <requirement
-        name="com.atlassian.connector.eclipse.jira.feature.group"/>
-    <repository
-        url="http://repo.ganz.net/tool/eclipse/updatesite/"/>
-    <description>Install JIRA-eclipse integration</description>
-  </setupTask>
-  <setupTask
-      xsi:type="setup.p2:P2Task"
       id="toolkit"
       label="Toolkit"
       licenseConfirmationDisabled="true">
