@@ -125,19 +125,19 @@
         id="releng.jira.url"
         name="releng.jira.url"
         value="http://jira.releng.ganz.net/"
-        label="RelEng Jira URL"/>
+        label="Jira URL (RelEng)"/>
     <setupTask
         xsi:type="setup:VariableTask"
         id="releng.jira.username"
         name="releng.jira.username"
         defaultValue="${scope.user.name}"
-        label="RelEng Jira username"/>
+        label="Jira username (RelEng)"/>
     <setupTask
         xsi:type="setup:VariableTask"
         id="releng.jira.password"
         type="PASSWORD"
         name="releng.jira.password"
-        label="RelEng Jira password"/>
+        label="Jira password (RelEng)"/>
     <setupTask
         xsi:type="setup:VariableTask"
         id="ci.releng.url"

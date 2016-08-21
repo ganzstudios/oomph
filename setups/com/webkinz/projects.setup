@@ -128,19 +128,19 @@
         id="webkinz.jira.url"
         name="webkinz.jira.url"
         value="http://jira.ganz.com"
-        label="Jira URL"/>
+        label="Jira URL (Webkinz)"/>
     <setupTask
         xsi:type="setup:VariableTask"
         id="webkinz.jira.username"
         name="webkinz.jira.username"
         defaultValue="${scope.user.name}"
-        label="Jira username"/>
+        label="Jira username (Webkinz)"/>
     <setupTask
         xsi:type="setup:VariableTask"
         id="webkinz.jira.password"
         type="PASSWORD"
         name="webkinz.jira.password"
-        label="Jira password"/>
+        label="Jira password (Webkinz)"/>
   </setupTask>
   <setupTask
       xsi:type="setup:CompoundTask"
