@@ -47,7 +47,7 @@
         userID="${releng.jira.username}"
         password="${releng.jira.password}">
       <query
-          summary="BuilderX"
+          summary="builderx"
           url="${releng.jira.url}/issues/?jql=project+in+%28%22{$jira.project.key}%22%29+">
         <attribute
             key="FilterCustomUrl"
@@ -64,10 +64,9 @@
         userID="${releng.ci.username}"
         password="${releng.ci.password}">
       <buildPlan
-          name="builderx" />          
+          name="builderx"/>
       <buildPlan
-          name="ant-svn" />
-          
+          name="ant-svn"/>
       <description>Builderx builds</description>
     </setupTask>
   </setupTask>
