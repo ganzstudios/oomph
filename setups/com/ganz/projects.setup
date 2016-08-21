@@ -194,8 +194,6 @@
             key="/instance/org.eclipse.ui.workbench/org.eclipse.ui.commands"
             value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;org.eclipse.ui.commands>&#xD;&#xA;&lt;keyBinding contextId=&quot;org.eclipse.ui.contexts.window&quot; keyConfigurationId=&quot;org.eclipse.ui.defaultAcceleratorConfiguration&quot; keySequence=&quot;CTRL+F6&quot;/>&#xD;&#xA;&lt;keyBinding contextId=&quot;org.eclipse.ui.contexts.window&quot; keyConfigurationId=&quot;org.eclipse.ui.defaultAcceleratorConfiguration&quot; keySequence=&quot;CTRL+F6&quot;/>&#xD;&#xA;&lt;keyBinding commandId=&quot;org.eclipse.ui.window.nextEditor&quot; contextId=&quot;org.eclipse.ui.contexts.window&quot; keyConfigurationId=&quot;org.eclipse.ui.defaultAcceleratorConfiguration&quot; keySequence=&quot;CTRL+TAB&quot;/>&#xD;&#xA;&lt;/org.eclipse.ui.commands>"/>
       </setupTask>
-      <setupTask
-          xsi:type="setup:CompoundTask"/>
     </setupTask>
     <setupTask
         xsi:type="setup:CompoundTask"
