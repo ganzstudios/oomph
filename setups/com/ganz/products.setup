@@ -33,9 +33,6 @@
       licenseConfirmationDisabled="true">
     <requirement
         name="org.eclipse.oomph.setup.feature.group"/>
-    <requirement
-        name="org.eclipse.egit.feature.group"
-        versionRange="[4.0.0,5.0.0)"/>
     <repository
         url="${oomph.update.url}"/>
     <repository
@@ -44,6 +41,19 @@
         url="http://download.eclipse.org/egit/updates"/>
     <repository
         url="http://download.eclipse.org/releases/mars"/>
+    <description></description>
+  </setupTask>
+  <setupTask
+      xsi:type="setup.p2:P2Task"
+      label="EGit">
+    <requirement
+        name="org.eclipse.egit.feature.group"/>
+    <requirement
+        name="org.eclipse.egit.mylyn.feature.group"/>
+    <requirement
+        name="org.eclipse.mylyn.git.feature.group"/>
+    <repository
+        url="http://download.eclipse.org/egit/updates"/>
     <description></description>
   </setupTask>
   <setupTask

@@ -18,19 +18,6 @@
   </setupTask>
   <setupTask
       xsi:type="setup.p2:P2Task"
-      label="EGit">
-    <requirement
-        name="org.eclipse.egit.feature.group"/>
-    <requirement
-        name="org.eclipse.egit.mylyn.feature.group"/>
-    <requirement
-        name="org.eclipse.mylyn.git.feature.group"/>
-    <repository
-        url="http://download.eclipse.org/egit/updates"/>
-    <description></description>
-  </setupTask>
-  <setupTask
-      xsi:type="setup.p2:P2Task"
       label="Oomph SDK">
     <requirement
         name="org.eclipse.oomph.setup.sdk.feature.group"/>
