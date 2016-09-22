@@ -105,7 +105,7 @@
         label="mainline"/>
   </project>
   <project name="wxcore"
-      label="wxcore"
+      label="wxcore (incubation)"
       logicalProjectContainer="/">
     <stream
         name="incubation"
@@ -161,9 +161,10 @@
         </setupTask>
       </setupTask>
     </stream>
+    <description>The 2nd version of wx framework </description>
   </project>
   <project name="user"
-      label="user"
+      label="user (incubation)"
       logicalProjectContainer="/">
     <stream
         name="incubation"
@@ -220,10 +221,10 @@
         </setupTask>
       </setupTask>
     </stream>
-    <description>User plugin (incubation)</description>
+    <description>User plugin </description>
   </project>
   <project name="linq"
-      label="linq"
+      label="linq (incubation)"
       logicalProjectContainer="/">
     <stream
         name="incubation"
@@ -281,7 +282,7 @@
         </setupTask>
       </setupTask>
     </stream>
-    <description>LINQ library (incubation)</description>
+    <description>LINQ library </description>
   </project>
   <logicalProjectContainer
       xsi:type="setup:ProjectCatalog"
