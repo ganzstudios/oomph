@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <psf version="2.0">
 <provider id="org.eclipse.team.svn.core.svnnature">
-<project reference="1.0.1,http://repo.ganz.net/svn/incubator/server/php/lib/user/trunk,user,f0a8b9e10d800016116dff09483ce9e0;http://repo.ganz.net/svn/incubator/server/php/lib/;http://repo.ganz.net/svn/incubator/server/php/lib/;branches;tags;trunk;true;1d774d1c-f55e-4117-ae85-462ed2cf92c4;http://repo.ganz.net/svn/incubator;;false;;;0"/>
+<project reference="1.0.1,http://repo.ganz.net/svn/incubator/server/php/lib/user/trunk,user,f0a8b9e10d800016116dff09483ce9e0;http://repo.ganz.net/svn/incubator/server/php/lib/;incubation;branches;tags;trunk;true;1d774d1c-f55e-4117-ae85-462ed2cf92c4;http://repo.ganz.net/svn/incubator;;false;;;0"/>
 </provider>
 </psf>
