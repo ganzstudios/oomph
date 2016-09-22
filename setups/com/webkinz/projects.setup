@@ -172,18 +172,22 @@
         name="Jenkins">
       <setupTask
           xsi:type="setup:VariableTask"
-          id="default.jenkins.username"
-          name="default.jenkins.username"
+          id="jenkins.username"
+          name="jenkins.username"
           defaultValue="${scope.user.name}"
-          storageURI="scope://Installation"
           label="Jenkins Username "/>
       <setupTask
           xsi:type="setup:VariableTask"
-          id="default.jenkins.password"
+          id="jenkins.password"
           type="PASSWORD"
-          name="default.jenkins.password"
-          storageURI="scope://Installation"
+          name="jenkins.password"
           label="Jenkins Password"/>
+      <setupTask
+          xsi:type="setup:VariableTask"
+          id="releng.jenkins.url"
+          name="releng.jenkins.url"
+          value="http://releng.ci.ganz.net"
+          label="Jenkins URL (RelEng)"/>
     </setupTask>
   </setupTask>
   <setupTask
