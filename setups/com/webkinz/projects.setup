@@ -188,6 +188,14 @@
           name="releng.jenkins.url"
           value="http://releng.ci.ganz.net"
           label="Jenkins URL (RelEng)"/>
+      <setupTask
+          xsi:type="setup:VariableTask"
+          id="master.jenkins.url"
+          name="master.jenkins.url"
+          value="http://master.ci.ganz.net"
+          label="Jenkins URL (RelEng)">
+        <description></description>
+      </setupTask>
     </setupTask>
   </setupTask>
   <setupTask
