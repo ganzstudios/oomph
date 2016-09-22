@@ -3,8 +3,10 @@
     xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:mylyn="http://www.eclipse.org/oomph/setup/mylyn/1.0"
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
     xmlns:setup.p2="http://www.eclipse.org/oomph/setup/p2/1.0"
+    xsi:schemaLocation="http://www.eclipse.org/oomph/setup/mylyn/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Mylyn.ecore"
     name="com.webkinz"
     label="Webkinz Projects">
   <annotation
@@ -124,23 +126,65 @@
       <description>Choose from the available Github URIs</description>
     </setupTask>
     <setupTask
-        xsi:type="setup:VariableTask"
-        id="webkinz.jira.url"
-        name="webkinz.jira.url"
-        value="http://jira.ganz.com"
-        label="Jira URL (Webkinz)"/>
+        xsi:type="setup:CompoundTask"
+        name="Jira">
+      <setupTask
+          xsi:type="setup:VariableTask"
+          id="releng.jira.url"
+          name="releng.jira.url"
+          value="http://jira.releng.ganz.net"
+          label="JIRA URL (RelEng)"/>
+      <setupTask
+          xsi:type="setup:VariableTask"
+          id="releng.jira.username"
+          name="releng.jira.username"
+          defaultValue="${scope.user.name}"
+          label="JIRA Username (RelEng)">
+        <description>Something</description>
+      </setupTask>
+      <setupTask
+          xsi:type="setup:VariableTask"
+          id="releng.jira.password"
+          type="PASSWORD"
+          name="releng.jira.password"
+          label="JIRA Password (RelEng)"/>
+      <setupTask
+          xsi:type="setup:VariableTask"
+          id="webkinz.jira.url"
+          name="webkinz.jira.url"
+          value="http://jira.webkinz.com"
+          label="JIRA URL (Webkinz)"/>
+      <setupTask
+          xsi:type="setup:VariableTask"
+          id="webkinz.jira.username"
+          name="webkinz.jira.username"
+          defaultValue="${scope.user.name}"
+          label="JIRA Username (Webkinz)"/>
+      <setupTask
+          xsi:type="setup:VariableTask"
+          id="webkinz.jira.password"
+          type="PASSWORD"
+          name="webkinz.jira.password"
+          label="JIRA Password  (Webkinz)"/>
+    </setupTask>
     <setupTask
-        xsi:type="setup:VariableTask"
-        id="webkinz.jira.username"
-        name="webkinz.jira.username"
-        defaultValue="${scope.user.name}"
-        label="Jira username (Webkinz)"/>
-    <setupTask
-        xsi:type="setup:VariableTask"
-        id="webkinz.jira.password"
-        type="PASSWORD"
-        name="webkinz.jira.password"
-        label="Jira password (Webkinz)"/>
+        xsi:type="setup:CompoundTask"
+        name="Jenkins">
+      <setupTask
+          xsi:type="setup:VariableTask"
+          id="default.jenkins.username"
+          name="default.jenkins.username"
+          defaultValue="${scope.user.name}"
+          storageURI="scope://Installation"
+          label="Jenkins Username "/>
+      <setupTask
+          xsi:type="setup:VariableTask"
+          id="default.jenkins.password"
+          type="PASSWORD"
+          name="default.jenkins.password"
+          storageURI="scope://Installation"
+          label="Jenkins Password"/>
+    </setupTask>
   </setupTask>
   <setupTask
       xsi:type="setup:CompoundTask"
@@ -188,6 +232,28 @@
       </setupTask>
     </setupTask>
     <description></description>
+  </setupTask>
+  <setupTask
+      xsi:type="setup:CompoundTask"
+      name="Tasks">
+    <setupTask
+        xsi:type="mylyn:MylynQueriesTask"
+        connectorKind="jira"
+        repositoryURL="${webkinz.jira.url}"
+        userID="${webkinz.jira.username}"
+        password="${webkinz.jira.password}">
+      <query
+          summary="All my issues"
+          url="${webkinz.jira.url}/issues/?jql=resolution%20in%20(Unresolved)%20AND%20assignee%20in%20(currentUser())">
+        <attribute
+            key="FilterCustomUrl"
+            value="${webkinz.jira.url}/secure/IssueNavigator.jspa?mode=hide&amp;reset=true&amp;resolution=-1&amp;assigneeSelect=issue_current_user"/>
+        <attribute
+            key="FilterCustomJqlUrl"
+            value="${webkinz.jira.url}/issues/?jql=resolution%20in%20(Unresolved)%20AND%20assignee%20in%20(currentUser())"/>
+      </query>
+      <description>Configuration for Webkinz Issue Tracker </description>
+    </setupTask>
   </setupTask>
   <project href="projects/server.setup#/"/>
   <description>Webkinz Eclipse based projects catalog</description>

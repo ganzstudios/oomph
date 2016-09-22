@@ -3,11 +3,8 @@
     xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:mylyn="http://www.eclipse.org/oomph/setup/mylyn/1.0"
-    xmlns:projectset="http://www.eclipse.org/oomph/setup/projectset/1.0"
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
     xmlns:setup.p2="http://www.eclipse.org/oomph/setup/p2/1.0"
-    xsi:schemaLocation="http://www.eclipse.org/oomph/setup/mylyn/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Mylyn.ecore http://www.eclipse.org/oomph/setup/projectset/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/ProjectSet.ecore"
     name="php"
     label="PHP">
   <setupTask
@@ -58,14 +55,6 @@
         name="scope.project.name.new"
         storageURI="scope://Workspace"
         label="Project name"/>
-    <setup:VariableTask
-        name="github.user.id"
-        defaultValue="anonymous"
-        label="Github user ID"
-        xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
-        xmlns:xmi="http://www.omg.org/XMI">
-			<description>The user ID of the Github account</description>
-		</setup:VariableTask>
   </setupTask>
   <setupTask
       xsi:type="setup:CompoundTask"
@@ -479,34 +468,6 @@
       value="=org.eclipse.php.perspective"
       vm="true">
     <description></description>
-  </setupTask>
-  <setupTask
-      xsi:type="setup:CompoundTask"
-      name="Tasks">
-    <setupTask
-        xsi:type="projectset:ProjectSetImportTask"
-        id="builderx"
-        uRL="http://repo.ganz.net/psf/webkinz/${scope.project.name}/${scope.project.stream.name}.psf">
-      <description></description>
-    </setupTask>
-    <setupTask
-        xsi:type="mylyn:MylynQueriesTask"
-        connectorKind="jira"
-        repositoryURL="${webkinz.jira.url}"
-        userID="${webkinz.jira.username}"
-        password="${webkinz.jira.password}">
-      <query
-          summary="All my issues"
-          url="${webkinz.jira.url}/issues/?jql=resolution%20in%20(Unresolved)%20AND%20assignee%20in%20(currentUser())">
-        <attribute
-            key="FilterCustomUrl"
-            value="${webkinz.jira.url}/secure/IssueNavigator.jspa?mode=hide&amp;reset=true&amp;resolution=-1&amp;assigneeSelect=issue_current_user"/>
-        <attribute
-            key="FilterCustomJqlUrl"
-            value="${webkinz.jira.url}/issues/?jql=resolution%20in%20(Unresolved)%20AND%20assignee%20in%20(currentUser())"/>
-      </query>
-      <description>Configuration for Webkinz Issue Tracker </description>
-    </setupTask>
   </setupTask>
   <project href="php/modules.setup#/"/>
   <project href="php/features.setup#/"/>

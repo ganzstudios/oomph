@@ -3,7 +3,10 @@
     xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:mylyn="http://www.eclipse.org/oomph/setup/mylyn/1.0"
+    xmlns:projectset="http://www.eclipse.org/oomph/setup/projectset/1.0"
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
+    xsi:schemaLocation="http://www.eclipse.org/oomph/setup/mylyn/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Mylyn.ecore http://www.eclipse.org/oomph/setup/projectset/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/ProjectSet.ecore"
     name="modules"
     label="Modules">
   <project name="new"
@@ -44,6 +47,55 @@
     <stream
         name="mainline"
         label="mainline"/>
+  </project>
+  <project name="wxcore"
+      label="wxcore"
+      logicalProjectContainer="/">
+    <stream
+        name="incubation"
+        label="incubation">
+      <setupTask
+          xsi:type="setup:CompoundTask"
+          name="Variables">
+        <setupTask
+            xsi:type="setup:VariableTask"
+            name="jira.project.key"
+            value="WXCORE"
+            storageURI="scope://Workspace"/>
+        <setupTask
+            xsi:type="setup:VariableTask"
+            name="jira.project.id"
+            value="10601"/>
+      </setupTask>
+      <setupTask
+          xsi:type="setup:CompoundTask"
+          name="Tasks">
+        <setupTask
+            xsi:type="projectset:ProjectSetImportTask"
+            id="builderx"
+            uRL="https://raw.githubusercontent.com/ganzstudios/oomph/master/setups/psf/${scope.project.group}/${scope.project.name}/${scope.project.stream.name}.psf">
+          <description></description>
+        </setupTask>
+        <setupTask
+            xsi:type="mylyn:MylynQueriesTask"
+            connectorKind="jira"
+            repositoryURL="${releng.jira.url}"
+            userID="${releng.jira.username}"
+            password="${releng.jira.password}">
+          <query
+              summary="wxcore"
+              url="${releng.jira.url}/issues/?jql=project+in+%28%22{$jira.project.key}%22%29+">
+            <attribute
+                key="FilterCustomUrl"
+                value="${releng.jira.url}/secure/IssueNavigator.jspa?mode=hide&amp;reset=true&amp;pid=${jira.project.id}&amp;query=&amp;summary=true&amp;description=true"/>
+            <attribute
+                key="FilterCustomJqlUrl"
+                value="${releng.jira.url}/issues/?jql=project+in+%28%22${jira.project.key}%22%29+"/>
+          </query>
+          <description>Releng</description>
+        </setupTask>
+      </setupTask>
+    </stream>
   </project>
   <logicalProjectContainer
       xsi:type="setup:ProjectCatalog"
