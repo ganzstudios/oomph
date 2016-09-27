@@ -105,6 +105,17 @@
           <description>Sets the Unix new line delimiter</description>
         </setupTask>
       </setupTask>
+      <setupTask
+          xsi:type="setup:CompoundTask"
+          name="Content Types">
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            id=""
+            key="/instance/org.eclipse.core.runtime/content-types/org.eclipse.php.core.phpsource/file-extensions"
+            value="phar">
+          <description>Register *.phar as a PHP content type</description>
+        </setupTask>
+      </setupTask>
     </setupTask>
     <setupTask
         xsi:type="setup:CompoundTask"
