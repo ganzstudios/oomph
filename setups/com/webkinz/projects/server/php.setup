@@ -20,9 +20,9 @@
       licenseConfirmationDisabled="true">
     <requirement
         name="com.zend.php.productivity.feature.group"
-        versionRange="13.5.1"/>
+        versionRange="13.6.0"/>
     <repository
-        url="http://downloads.zend.com/studio-eclipse/updates/13_5"/>
+        url="http://downloads.zend.com/studio-eclipse/updates/win-13+"/>
     <description>
       Install the tools needed in the IDE to work with the
       source code for ${scope.project.label}
