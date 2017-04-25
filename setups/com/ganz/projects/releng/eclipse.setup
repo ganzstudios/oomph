@@ -96,7 +96,6 @@
           name="Perspectives">
         <setupTask
             xsi:type="setup:PreferenceTask"
-            id=""
             key="/instance/org.eclipse.ui/defaultPerspectiveId"
             value="org.eclipse.jdt.ui.JavaPerspective">
           <description>Make the Java perspective the default perspective</description>
@@ -143,6 +142,9 @@
             locateNestedProjects="true"/>
       </setupTask>
     </setupTask>
+    <stream
+        name="master"
+        label="master"/>
     <stream
         name="develop"
         label="develop"/>
