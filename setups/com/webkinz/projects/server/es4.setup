@@ -114,14 +114,6 @@
       first start
     </description>
   </setupTask>
-  <setupTask
-      xsi:type="setup:EclipseIniTask"
-      excludedTriggers="STARTUP"
-      option="-Dperspective"
-      value="=org.eclipse.php.perspective"
-      vm="true">
-    <description></description>
-  </setupTask>
   <project href="es4/modules.setup#/"/>
   <logicalProjectContainer
       xsi:type="setup:Project"
