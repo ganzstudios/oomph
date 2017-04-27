@@ -10,7 +10,8 @@
     xsi:schemaLocation="http://www.eclipse.org/oomph/setup/mylyn/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Mylyn.ecore http://www.eclipse.org/oomph/setup/projectset/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/ProjectSet.ecore"
     name="server"
     label="Server">
-	<project href="server/php.setup#/"/>	
+	<project href="server/php.setup#/"/>
+	<project href="server/es4.setup#/"/>	
   <logicalProjectContainer
       xsi:type="setup:Project"
         href="../projects.setup#/"/>
