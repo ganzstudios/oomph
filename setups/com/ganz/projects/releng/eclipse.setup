@@ -125,6 +125,36 @@
       label="Ganz Development Toolkit"
       logicalProjectContainer="/">
     <setupTask
+        xsi:type="setup.p2:P2Task"
+        label="PDT + DLTK">
+      <requirement
+          name="org.eclipse.php.feature.group"/>
+      <requirement
+          name="org.eclipse.php.source.feature.group"/>
+      <requirement
+          name="org.eclipse.php.mylyn.feature.group"/>
+      <requirement
+          name="org.eclipse.php.sdk.feature.group"/>
+      <requirement
+          name="org.eclipse.php.importer.feature.group"/>
+      <requirement
+          name="org.eclipse.dltk.core.sdk.feature.group"/>
+      <repository
+          url="http://download.eclipse.org/tools/pdt/updates/4.3"/>
+      <repository
+          url="http://download.eclipse.org/technology/dltk/updates-dev/5.7/"/>
+      <description>Installs PDT</description>
+    </setupTask>
+    <setupTask
+        xsi:type="setup.p2:P2Task"
+        label="Typescript">
+      <requirement
+          name="com.palantir.typescript.feature.feature.group"/>
+      <repository
+          url="http://eclipse-update.palantir.com/eclipse-typescript/"/>
+      <description>Installs Typescript</description>
+    </setupTask>
+    <setupTask
         xsi:type="setup:CompoundTask"
         name="Tasks">
       <setupTask
