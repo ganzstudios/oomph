@@ -77,7 +77,6 @@
           name="Perspectives">
         <setupTask
             xsi:type="setup:PreferenceTask"
-            id=""
             key="/instance/org.eclipse.ui/defaultPerspectiveId"
             value="org.eclipse.php.perspective">
           <description>Make the Java perspective the default perspective</description>
@@ -110,7 +109,6 @@
           name="Content Types">
         <setupTask
             xsi:type="setup:PreferenceTask"
-            id=""
             key="/instance/org.eclipse.core.runtime/content-types/org.eclipse.php.core.phpsource/file-extensions"
             value="phar">
           <description>Register *.phar as a PHP content type</description>
@@ -452,7 +450,14 @@
           <setupTask
               xsi:type="setup:PreferenceTask"
               id="org.eclipse.php.ui.cleanup.remove_trailing_whitespaces"
-              key="/instance/org.eclipse.php.ui/cleanup.remove_trailing_whitespaces"
+              key="/instance/org.eclipse.php.ui/cleanup.remove_trailing_whitespaces_all"
+              value="true">
+            <description>Remove trailing whitespaces</description>
+          </setupTask>
+          <setupTask
+              xsi:type="setup:PreferenceTask"
+              id="org.eclipse.php.ui.cleanup.remove_trailing_whitespaces"
+              key="/instance/org.eclipse.php.ui/cleanup.remove_trailing_whitespaces_ignore_empty"
               value="true">
             <description>Remove trailing whitespaces</description>
           </setupTask>
