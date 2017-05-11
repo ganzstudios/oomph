@@ -270,7 +270,7 @@
           <value>ignore</value>
         </detail>
         <detail
-            key="/instance/org.eclipse.php.ui/cleanup.remove_trailing_whitespaces_all">
+            key="/instance/org.eclipse.php.ui/cleanup.remove_trailing_whitespaces">
           <value>ignore</value>
         </detail>
         <detail
@@ -454,7 +454,7 @@
           <setupTask
               xsi:type="setup:PreferenceTask"
               id="org.eclipse.php.ui.cleanup.remove_trailing_whitespaces"
-              key="/instance/org.eclipse.php.ui/cleanup.remove_trailing_whitespaces_all"
+              key="/instance/org.eclipse.php.ui/cleanup.remove_trailing_whitespaces"
               value="true">
             <description>Remove trailing whitespaces</description>
           </setupTask>
