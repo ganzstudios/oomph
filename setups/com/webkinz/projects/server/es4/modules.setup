@@ -57,7 +57,7 @@
         </setupTask>
         <setupTask
             xsi:type="mylyn:MylynBuildsTask"
-            serverURL="${master.jenkins.url}/job/webkinz/job/${scope.project.stream.name}/server/job/${scope.project.name}"
+            serverURL="${master.jenkins.url}/job/webkinz/job/${scope.project.stream.name}/job/server"
             userID="${jenkins.username}"
             password="${jenkins.password}">
           <buildPlan
