@@ -267,11 +267,15 @@
         </detail>
         <detail
             key="/instance/org.eclipse.php.ui/cleanup.format.on.save">
-          <value>record</value>
+          <value>ignore</value>
         </detail>
         <detail
-            key="/instance/org.eclipse.php.ui/cleanup.remove_trailing_whitespaces">
-          <value>record</value>
+            key="/instance/org.eclipse.php.ui/cleanup.remove_trailing_whitespaces_all">
+          <value>ignore</value>
+        </detail>
+        <detail
+            key="/instance/org.eclipse.php.ui/cleanup.remove_trailing_whitespaces_ignore_empty">
+          <value>ignore</value>
         </detail>
         <detail
             key="/instance/org.eclipse.php.ui/org.eclipse.dltk.ui.methodreturntype">
@@ -458,7 +462,7 @@
               xsi:type="setup:PreferenceTask"
               id="org.eclipse.php.ui.cleanup.remove_trailing_whitespaces"
               key="/instance/org.eclipse.php.ui/cleanup.remove_trailing_whitespaces_ignore_empty"
-              value="true">
+              value="false">
             <description>Remove trailing whitespaces</description>
           </setupTask>
         </setupTask>
