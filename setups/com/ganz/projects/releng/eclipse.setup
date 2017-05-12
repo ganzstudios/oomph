@@ -126,6 +126,27 @@
       logicalProjectContainer="/">
     <setupTask
         xsi:type="setup.p2:P2Task"
+        id="zest"
+        label="Zest"
+        licenseConfirmationDisabled="true">
+      <requirement
+          name="org.eclipse.zest.feature.group"
+          versionRange="[1.7.0,2.0.0)"/>
+      <requirement
+          name="org.eclipse.zest.sdk.feature.group"
+          versionRange="[1.7.0,2.0.0)"/>
+      <requirement
+          name="org.eclipse.zest.source.feature.group"
+          versionRange="[1.7.0,2.0.0)"/>
+      <repository
+          url="http://download.eclipse.org/releases/neon"/>
+      <description>
+        Install the tools needed in the IDE to work with the
+        source code for ${scope.project.label}
+      </description>
+    </setupTask>
+    <setupTask
+        xsi:type="setup.p2:P2Task"
         label="PDT + DLTK">
       <requirement
           name="org.eclipse.php.feature.group"/>
@@ -155,6 +176,25 @@
       <description>Installs Typescript</description>
     </setupTask>
     <setupTask
+        xsi:type="setup.p2:P2Task"
+        id="ivy"
+        label="IvyDE">
+      <requirement
+          name="org.apache.ivy.feature.feature.group"/>
+      <requirement
+          name="org.apache.ivy.eclipse.ant.feature.feature.group"/>
+      <requirement
+          name="org.apache.ivyde.feature.feature.group"/>
+      <requirement
+          name="org.apache.ivyde.eclipse.resolvevisualizer.feature.feature.group"/>
+      <repository
+          url="http://www.apache.org/dist/ant/ivyde/updatesite"/>
+      <description>
+        Install the tools needed in the IDE to work with the
+        source code for ${scope.project.label}
+      </description>
+    </setupTask>
+    <setupTask
         xsi:type="setup:CompoundTask"
         name="Tasks">
       <setupTask
@@ -177,25 +217,6 @@
           uRL="https://raw.githubusercontent.com/ganzstudios/oomph/master/setups/psf/${scope.project.group}/${scope.project.name}/${scope.project.stream.name}.psf">
         <description></description>
       </setupTask>
-    </setupTask>
-    <setupTask
-        xsi:type="setup.p2:P2Task"
-        id="ivy"
-        label="IvyDE">
-      <requirement
-          name="org.apache.ivy.feature.feature.group"/>
-      <requirement
-          name="org.apache.ivy.eclipse.ant.feature.feature.group"/>
-      <requirement
-          name="org.apache.ivyde.feature.feature.group"/>
-      <requirement
-          name="org.apache.ivyde.eclipse.resolvevisualizer.feature.feature.group"/>
-      <repository
-          url="http://www.apache.org/dist/ant/ivyde/updatesite"/>
-      <description>
-        Install the tools needed in the IDE to work with the
-        source code for ${scope.project.label}
-      </description>
     </setupTask>
     <stream
         name="master"
@@ -230,13 +251,6 @@
           name="org.apache.ivyde.eclipse.resolvevisualizer.feature.feature.group"/>
       <repository
           url="http://www.apache.org/dist/ant/ivyde/updatesite"/>
-    </setupTask>
-    <setupTask
-        xsi:type="setup.p2:P2Task">
-      <requirement
-          name="org.eclipse.zest.source.feature.group"/>
-      <repository
-          url="http://download.eclipse.org/tools/gef/updates/legacy/releases/"/>
     </setupTask>
     <stream
         name="mainline"
