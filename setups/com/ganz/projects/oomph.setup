@@ -41,31 +41,22 @@
         label="">
       <description>Custom installation for oomph editor (required because we don't to modify the editor while testing changes)</description>
     </setupTask>
-    <setupTask
-        xsi:type="setup:VariableTask"
-        id="git.repository.location"
-        type="FOLDER"
-        name="git.repository.location"
-        value="${git.container.root}${scope.project.name/|lower}">
-      <description></description>
-    </setupTask>
   </setupTask>
   <setupTask
       xsi:type="setup:CompoundTask"
       name="Tasks">
     <setupTask
         xsi:type="git:GitCloneTask"
-        id="git.oomph"
-        location="${git.repository.location}${scope.project.name}"
+        id="git.clone.oomph"
+        location="${git.repository.location}/${scope.project.name}"
         remoteURI="https://github.com/ganzstudios/oomph"
-        pushURI=""
-        checkoutBranch="master">
+        pushURI="">
       <description>Clones the ${organization} oomph setups</description>
     </setupTask>
     <setupTask
         xsi:type="projects:ProjectsImportTask">
       <sourceLocator
-          rootFolder="${git.oomph.location}"
+          rootFolder="${git.clone.oomph.location}"
           locateNestedProjects="true"/>
     </setupTask>
   </setupTask>

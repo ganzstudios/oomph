@@ -33,7 +33,7 @@
 	<discoverablePackage
 		href="http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/WorkingSets.ecore#/" />
 		
-	<productCatalog href="com/ganz/products.setup#/" />
+	<productCatalog href="products.setup#/" />
 	<!-- 
 	<productCatalog href="com/webkinz/products.setup#/" />
 	 -->

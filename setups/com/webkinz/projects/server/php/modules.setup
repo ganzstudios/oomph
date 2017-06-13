@@ -17,272 +17,184 @@
         label="mainline"/>
     <description>Creates an empty workspace if one does not exist</description>
   </project>
+  <project name="wafx"
+      label="wafx"
+      logicalProjectContainer="/">
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="Variables">
+      <setupTask
+          xsi:type="setup:VariableTask"
+          name="jira.project.key"
+          value="WAFX"
+          storageURI="scope://Workspace"/>
+      <setupTask
+          xsi:type="setup:VariableTask"
+          name="jira.project.id"
+          value="10604"
+          storageURI="scope://Workspace"/>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="Tasks">
+      <setupTask
+          xsi:type="projectset:ProjectSetImportTask"
+          id="wafx"
+          uRL="${oomph.setups.location.url}/${pattern.project.psf.path}">
+        <description>Imports the 'wafx' library project</description>
+      </setupTask>
+      <setupTask
+          xsi:type="mylyn:MylynQueriesTask"
+          connectorKind="jira"
+          repositoryURL="${releng.jira.url}"
+          userID="${releng.jira.username}"
+          password="${releng.jira.password}">
+        <query
+            summary="${scope.project.name} "
+            url="${releng.jira.url}/issues/?jql=project+in+%28%22{$jira.project.key}%22%29+">
+          <attribute
+              key="FilterCustomUrl"
+              value="${releng.jira.url}/secure/IssueNavigator.jspa?mode=hide&amp;reset=true&amp;pid=${jira.project.id}&amp;query=&amp;summary=true&amp;description=true"/>
+          <attribute
+              key="FilterCustomJqlUrl"
+              value="${releng.jira.url}/issues/?jql=project+in+%28%22${jira.project.key}%22%29+"/>
+        </query>
+        <description>wafx</description>
+      </setupTask>
+      <setupTask
+          xsi:type="mylyn:MylynBuildsTask"
+          serverURL="${master.jenkins.url}/${pattern.jenkins.job.path}"
+          userID="${jenkins.username}"
+          password="${jenkins.password}">
+        <buildPlan
+            name="${scope.project.name}"/>
+        <description>Webkinz API (PHP) build</description>
+      </setupTask>
+    </setupTask>
+    <stream
+        name="mainline"
+        label="mainline"/>
+    <description>The '${scope.project.name}' project.</description>
+  </project>
+  <project name="webkinz"
+      label="webkinz"
+      logicalProjectContainer="/">
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="Variables">
+      <setupTask
+          xsi:type="setup:VariableTask"
+          name="jira.project.key"
+          value="WRLS"
+          storageURI="scope://Workspace"/>
+      <setupTask
+          xsi:type="setup:VariableTask"
+          name="jira.project.id"
+          value="10639"
+          storageURI="scope://Workspace"/>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="Tasks">
+      <setupTask
+          xsi:type="projectset:ProjectSetImportTask"
+          id="webkinz"
+          uRL="${oomph.setups.location.url}/${pattern.project.psf.path}">
+        <description>Imports the project set for the webkinz PHP backend</description>
+      </setupTask>
+      <setupTask
+          xsi:type="mylyn:MylynQueriesTask"
+          connectorKind="jira"
+          repositoryURL="${webkinz.jira.url}"
+          userID="${webkinz.jira.username}"
+          password="${webkinz.jira.password}">
+        <query
+            summary="${scope.project.name} "
+            url="${webkinz.jira.url}/issues/?jql=project+in+%28%22{$jira.project.key}%22%29+">
+          <attribute
+              key="FilterCustomUrl"
+              value="${releng.jira.url}/secure/IssueNavigator.jspa?mode=hide&amp;reset=true&amp;pid=${jira.project.id}&amp;query=&amp;summary=true&amp;description=true"/>
+          <attribute
+              key="FilterCustomJqlUrl"
+              value="${releng.jira.url}/issues/?jql=project+in+%28%22${jira.project.key}%22%29+"/>
+        </query>
+        <description>Webkinz</description>
+      </setupTask>
+      <setupTask
+          xsi:type="mylyn:MylynBuildsTask"
+          serverURL="${master.jenkins.url}/${pattern.jenkins.job.path}"
+          userID="${jenkins.username}"
+          password="${jenkins.password}">
+        <buildPlan
+            name="${scope.project.name}"/>
+        <description>Webkinz API (PHP) build</description>
+      </setupTask>
+    </setupTask>
+    <stream
+        name="mainline"
+        label="mainline"/>
+    <description>The webkinz PHP backend api project</description>
+  </project>
   <project name="xcore"
       label="xcore"
       logicalProjectContainer="/">
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="Variables">
+      <setupTask
+          xsi:type="setup:VariableTask"
+          name="jira.project.key"
+          value="WXCORE"
+          storageURI="scope://Workspace"/>
+      <setupTask
+          xsi:type="setup:VariableTask"
+          name="jira.project.id"
+          value="10601"
+          storageURI="scope://Workspace"/>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="Tasks">
+      <setupTask
+          xsi:type="projectset:ProjectSetImportTask"
+          id="xcore"
+          uRL="${oomph.setups.location.url}/${pattern.project.psf.path}">
+        <description>Imports the '${scope.project.name}' project</description>
+      </setupTask>
+      <setupTask
+          xsi:type="mylyn:MylynQueriesTask"
+          connectorKind="jira"
+          repositoryURL="${releng.jira.url}"
+          userID="${releng.jira.username}"
+          password="${releng.jira.password}">
+        <query
+            summary="${scope.project.name} "
+            url="${releng.jira.url}/issues/?jql=project+in+%28%22{$jira.project.key}%22%29+">
+          <attribute
+              key="FilterCustomUrl"
+              value="${releng.jira.url}/secure/IssueNavigator.jspa?mode=hide&amp;reset=true&amp;pid=${jira.project.id}&amp;query=&amp;summary=true&amp;description=true"/>
+          <attribute
+              key="FilterCustomJqlUrl"
+              value="${releng.jira.url}/issues/?jql=project+in+%28%22${jira.project.key}%22%29+"/>
+        </query>
+        <description>wafx</description>
+      </setupTask>
+      <setupTask
+          xsi:type="mylyn:MylynBuildsTask"
+          serverURL="${master.jenkins.url}/${pattern.jenkins.job.path}"
+          userID="${jenkins.username}"
+          password="${jenkins.password}">
+        <buildPlan
+            name="${scope.project.name}"/>
+        <description>Webkinz API (PHP) build</description>
+      </setupTask>
+    </setupTask>
     <stream
         name="mainline"
         label="mainline">
       <description></description>
     </stream>
-    <description>xcore project</description>
-  </project>
-  <project name="wafx"
-      label="wafx"
-      logicalProjectContainer="/">
-    <stream
-        name="mainline"
-        label="mainline"/>
-    <stream
-        name="incubation"
-        label="incubation">
-      <setupTask
-          xsi:type="setup:CompoundTask"
-          name="Variables">
-        <setupTask
-            xsi:type="setup:VariableTask"
-            name="jira.project.key"
-            value="WAFX"
-            storageURI="scope://Workspace">
-          <description></description>
-        </setupTask>
-        <setupTask
-            xsi:type="setup:VariableTask"
-            name="jira.project.id"
-            value="10604"
-            storageURI="scope://Workspace"/>
-      </setupTask>
-      <setupTask
-          xsi:type="setup:CompoundTask"
-          name="Tasks">
-        <setupTask
-            xsi:type="projectset:ProjectSetImportTask"
-            id="builderx"
-            uRL="https://raw.githubusercontent.com/ganzstudios/oomph/master/setups/psf/${scope.project.group}/${scope.project.name}/${scope.project.stream.name}.psf">
-          <description></description>
-        </setupTask>
-        <setupTask
-            xsi:type="mylyn:MylynQueriesTask"
-            connectorKind="jira"
-            repositoryURL="${releng.jira.url}"
-            userID="${releng.jira.username}"
-            password="${releng.jira.password}">
-          <query
-              summary="${scope.project.name} (incubation)"
-              url="${releng.jira.url}/issues/?jql=project+in+%28%22{$jira.project.key}%22%29+">
-            <attribute
-                key="FilterCustomUrl"
-                value="${releng.jira.url}/secure/IssueNavigator.jspa?mode=hide&amp;reset=true&amp;pid=${jira.project.id}&amp;query=&amp;summary=true&amp;description=true"/>
-            <attribute
-                key="FilterCustomJqlUrl"
-                value="${releng.jira.url}/issues/?jql=project+in+%28%22${jira.project.key}%22%29+"/>
-          </query>
-          <description>Releng</description>
-        </setupTask>
-        <setupTask
-            xsi:type="mylyn:MylynBuildsTask"
-            serverURL="${releng.jenkins.url}/job/${scope.project.group}/job/${scope.project.stream.name}"
-            userID="${jenkins.username}"
-            password="${jenkins.password}">
-          <buildPlan
-              name="${scope.project.name}"/>
-        </setupTask>
-      </setupTask>
-    </stream>
-  </project>
-  <project name="webkinz"
-      label="webkinz"
-      logicalProjectContainer="/">
-    <stream
-        name="mainline"
-        label="mainline"/>
-  </project>
-  <project name="amfphp"
-      label="amfphp"
-      logicalProjectContainer="/">
-    <stream
-        name="mainline"
-        label="mainline"/>
-  </project>
-  <project name="wxcore"
-      label="wxcore (incubation)"
-      logicalProjectContainer="/">
-    <stream
-        name="incubation"
-        label="incubation">
-      <setupTask
-          xsi:type="setup:CompoundTask"
-          name="Variables">
-        <setupTask
-            xsi:type="setup:VariableTask"
-            name="jira.project.key"
-            value="WXCORE"
-            storageURI="scope://Workspace"/>
-        <setupTask
-            xsi:type="setup:VariableTask"
-            name="jira.project.id"
-            value="10601"/>
-      </setupTask>
-      <setupTask
-          xsi:type="setup:CompoundTask"
-          name="Tasks">
-        <setupTask
-            xsi:type="projectset:ProjectSetImportTask"
-            id="builderx"
-            uRL="https://raw.githubusercontent.com/ganzstudios/oomph/master/setups/psf/${scope.project.group}/${scope.project.name}/${scope.project.stream.name}.psf">
-          <description></description>
-        </setupTask>
-        <setupTask
-            xsi:type="mylyn:MylynQueriesTask"
-            connectorKind="jira"
-            repositoryURL="${releng.jira.url}"
-            userID="${releng.jira.username}"
-            password="${releng.jira.password}">
-          <query
-              summary="${scope.project.name} (incubation)"
-              url="${releng.jira.url}/issues/?jql=project+in+%28%22{$jira.project.key}%22%29+">
-            <attribute
-                key="FilterCustomUrl"
-                value="${releng.jira.url}/secure/IssueNavigator.jspa?mode=hide&amp;reset=true&amp;pid=${jira.project.id}&amp;query=&amp;summary=true&amp;description=true"/>
-            <attribute
-                key="FilterCustomJqlUrl"
-                value="${releng.jira.url}/issues/?jql=project+in+%28%22${jira.project.key}%22%29+"/>
-          </query>
-          <description>Releng</description>
-        </setupTask>
-        <setupTask
-            xsi:type="mylyn:MylynBuildsTask"
-            serverURL="${releng.jenkins.url}/job/${scope.project.group}/job/${scope.project.stream.name}"
-            userID="${jenkins.username}"
-            password="${jenkins.password}">
-          <buildPlan
-              name="${scope.project.name}"/>
-          <description>wxcore builds</description>
-        </setupTask>
-      </setupTask>
-    </stream>
-    <description>The 2nd version of wx framework </description>
-  </project>
-  <project name="user"
-      label="user (incubation)"
-      logicalProjectContainer="/">
-    <stream
-        name="incubation"
-        label="incubation">
-      <setupTask
-          xsi:type="setup:CompoundTask"
-          name="Variables">
-        <setupTask
-            xsi:type="setup:VariableTask"
-            name="jira.project.key"
-            value="USRPLG"
-            storageURI="scope://Workspace">
-          <description></description>
-        </setupTask>
-        <setupTask
-            xsi:type="setup:VariableTask"
-            name="jira.project.id"
-            value="10602"/>
-      </setupTask>
-      <setupTask
-          xsi:type="setup:CompoundTask"
-          name="Tasks">
-        <setupTask
-            xsi:type="projectset:ProjectSetImportTask"
-            id="builderx"
-            uRL="https://raw.githubusercontent.com/ganzstudios/oomph/master/setups/psf/${scope.project.group}/${scope.project.name}/${scope.project.stream.name}.psf">
-          <description></description>
-        </setupTask>
-        <setupTask
-            xsi:type="mylyn:MylynQueriesTask"
-            connectorKind="jira"
-            repositoryURL="${releng.jira.url}"
-            userID="${releng.jira.username}"
-            password="${releng.jira.password}">
-          <query
-              summary="${scope.project.name} (incubation)"
-              url="${releng.jira.url}/issues/?jql=project+in+%28%22{$jira.project.key}%22%29+">
-            <attribute
-                key="FilterCustomUrl"
-                value="${releng.jira.url}/secure/IssueNavigator.jspa?mode=hide&amp;reset=true&amp;pid=${jira.project.id}&amp;query=&amp;summary=true&amp;description=true"/>
-            <attribute
-                key="FilterCustomJqlUrl"
-                value="${releng.jira.url}/issues/?jql=project+in+%28%22${jira.project.key}%22%29+"/>
-          </query>
-          <description>Releng</description>
-        </setupTask>
-        <setupTask
-            xsi:type="mylyn:MylynBuildsTask"
-            serverURL="${releng.jenkins.url}/job/${scope.project.group}/job/${scope.project.stream.name}"
-            userID="${jenkins.username}"
-            password="${jenkins.password}">
-          <buildPlan
-              name="${scope.project.name}"/>
-        </setupTask>
-      </setupTask>
-    </stream>
-    <description>User plugin </description>
-  </project>
-  <project name="linq"
-      label="linq (incubation)"
-      logicalProjectContainer="/">
-    <stream
-        name="incubation"
-        label="incubation">
-      <setupTask
-          xsi:type="setup:CompoundTask"
-          name="Variables">
-        <setupTask
-            xsi:type="setup:VariableTask"
-            name="jira.project.key"
-            value="LINQ"
-            storageURI="scope://Workspace">
-          <description></description>
-        </setupTask>
-        <setupTask
-            xsi:type="setup:VariableTask"
-            name="jira.project.id"
-            value="10603"
-            storageURI="scope://Workspace"/>
-      </setupTask>
-      <setupTask
-          xsi:type="setup:CompoundTask"
-          name="Tasks">
-        <setupTask
-            xsi:type="projectset:ProjectSetImportTask"
-            id="builderx"
-            uRL="https://raw.githubusercontent.com/ganzstudios/oomph/master/setups/psf/${scope.project.group}/${scope.project.name}/${scope.project.stream.name}.psf">
-          <description></description>
-        </setupTask>
-        <setupTask
-            xsi:type="mylyn:MylynQueriesTask"
-            connectorKind="jira"
-            repositoryURL="${releng.jira.url}"
-            userID="${releng.jira.username}"
-            password="${releng.jira.password}">
-          <query
-              summary="${scope.project.name} (incubation)"
-              url="${releng.jira.url}/issues/?jql=project+in+%28%22{$jira.project.key}%22%29+">
-            <attribute
-                key="FilterCustomUrl"
-                value="${releng.jira.url}/secure/IssueNavigator.jspa?mode=hide&amp;reset=true&amp;pid=${jira.project.id}&amp;query=&amp;summary=true&amp;description=true"/>
-            <attribute
-                key="FilterCustomJqlUrl"
-                value="${releng.jira.url}/issues/?jql=project+in+%28%22${jira.project.key}%22%29+"/>
-          </query>
-          <description>Releng</description>
-        </setupTask>
-        <setupTask
-            xsi:type="mylyn:MylynBuildsTask"
-            serverURL="${releng.jenkins.url}/job/${scope.project.group}/job/${scope.project.stream.name}"
-            userID="${jenkins.username}"
-            password="${jenkins.password}">
-          <buildPlan
-              name="${scope.project.name}"/>
-        </setupTask>
-      </setupTask>
-    </stream>
-    <description>LINQ library </description>
+    <description>The '${scope.project.name}' project.</description>
   </project>
   <logicalProjectContainer
       xsi:type="setup:ProjectCatalog"

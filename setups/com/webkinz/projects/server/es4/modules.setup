@@ -11,123 +11,121 @@
     label="Modules">
   <project name="stadium"
       label="stadium">
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="Variables">
+      <setupTask
+          xsi:type="setup:VariableTask"
+          name="jira.project.key"
+          value="PCMP"
+          storageURI="scope://Workspace"/>
+      <setupTask
+          xsi:type="setup:VariableTask"
+          name="jira.project.id"
+          value="10307"
+          storageURI="scope://Workspace"/>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="Tasks">
+      <setupTask
+          xsi:type="projectset:ProjectSetImportTask"
+          id="stadium"
+          uRL="https://raw.githubusercontent.com/ganzstudios/oomph/master/setups/psf/${scope.project.group}/${scope.project.name}/${scope.project.stream.name}.psf">
+        <description></description>
+      </setupTask>
+      <setupTask
+          xsi:type="mylyn:MylynQueriesTask"
+          connectorKind="jira"
+          repositoryURL="${webkinz.jira.url}"
+          userID="${webkinz.jira.username}"
+          password="${webkinz.jira.password}">
+        <query
+            summary="${scope.project.name} "
+            url="${webkinz.jira.url}/issues/?jql=project+in+%28%22{$jira.project.key}%22%29+">
+          <attribute
+              key="FilterCustomUrl"
+              value="${releng.jira.url}/secure/IssueNavigator.jspa?mode=hide&amp;reset=true&amp;pid=${jira.project.id}&amp;query=&amp;summary=true&amp;description=true"/>
+          <attribute
+              key="FilterCustomJqlUrl"
+              value="${releng.jira.url}/issues/?jql=project+in+%28%22${jira.project.key}%22%29+"/>
+        </query>
+        <description>Webkinz</description>
+      </setupTask>
+      <setupTask
+          xsi:type="mylyn:MylynBuildsTask"
+          serverURL="${master.jenkins.url}/job/${scope.project.group}/job/${scope.project.stream.name}/job/${scope.project.kind}/job/${scope.project.name}"
+          userID="${jenkins.username}"
+          password="${jenkins.password}">
+        <buildPlan
+            name="${scope.project.name}"/>
+        <description>es4 (stadium) builds</description>
+      </setupTask>
+    </setupTask>
     <stream
         name="mainline"
-        label="mainline">
-      <setupTask
-          xsi:type="setup:CompoundTask"
-          name="Variables">
-        <setupTask
-            xsi:type="setup:VariableTask"
-            name="jira.project.key"
-            value="PCMP"
-            storageURI="scope://Workspace"/>
-        <setupTask
-            xsi:type="setup:VariableTask"
-            name="jira.project.id"
-            value="10307"
-            storageURI="scope://Workspace"/>
-      </setupTask>
-      <setupTask
-          xsi:type="setup:CompoundTask"
-          name="Tasks">
-        <setupTask
-            xsi:type="projectset:ProjectSetImportTask"
-            id="builderx"
-            uRL="https://raw.githubusercontent.com/ganzstudios/oomph/master/setups/psf/${scope.project.group}/${scope.project.name}/${scope.project.stream.name}.psf">
-          <description></description>
-        </setupTask>
-        <setupTask
-            xsi:type="mylyn:MylynQueriesTask"
-            connectorKind="jira"
-            repositoryURL="${webkinz.jira.url}"
-            userID="${webkinz.jira.username}"
-            password="${webkinz.jira.password}">
-          <query
-              summary="${scope.project.name} "
-              url="${webkinz.jira.url}/issues/?jql=project+in+%28%22{$jira.project.key}%22%29+">
-            <attribute
-                key="FilterCustomUrl"
-                value="${releng.jira.url}/secure/IssueNavigator.jspa?mode=hide&amp;reset=true&amp;pid=${jira.project.id}&amp;query=&amp;summary=true&amp;description=true"/>
-            <attribute
-                key="FilterCustomJqlUrl"
-                value="${releng.jira.url}/issues/?jql=project+in+%28%22${jira.project.key}%22%29+"/>
-          </query>
-          <description>Webkinz</description>
-        </setupTask>
-        <setupTask
-            xsi:type="mylyn:MylynBuildsTask"
-            serverURL="${master.jenkins.url}/job/webkinz/job/${scope.project.stream.name}/job/server"
-            userID="${jenkins.username}"
-            password="${jenkins.password}">
-          <buildPlan
-              name="${scope.project.name}"/>
-          <description>es4 (stadium) builds</description>
-        </setupTask>
-      </setupTask>
-    </stream>
+        label="mainline"/>
     <logicalProjectContainer
         xsi:type="setup:Project"
         href="../php/modules.setup#/"/>
     <description>The 2nd version of wx framework </description>
   </project>
   <project name="es4server"
-      label="server">
+      label="es4server">
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="Variables">
+      <setupTask
+          xsi:type="setup:VariableTask"
+          name="jira.project.key"
+          value="PCMP"
+          storageURI="scope://Workspace"/>
+      <setupTask
+          xsi:type="setup:VariableTask"
+          name="jira.project.id"
+          value="10307"
+          storageURI="scope://Workspace"/>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="Tasks">
+      <setupTask
+          xsi:type="projectset:ProjectSetImportTask"
+          id="server"
+          uRL="https://raw.githubusercontent.com/ganzstudios/oomph/master/setups/psf/${scope.project.group}/${scope.project.name}/${scope.project.stream.name}.psf">
+        <description></description>
+      </setupTask>
+      <setupTask
+          xsi:type="mylyn:MylynQueriesTask"
+          connectorKind="jira"
+          repositoryURL="${releng.jira.url}"
+          userID="${releng.jira.username}"
+          password="${releng.jira.password}">
+        <query
+            summary="${scope.project.name} "
+            url="${webkinz.jira.url}/issues/?jql=project+in+%28%22{$jira.project.key}%22%29+">
+          <attribute
+              key="FilterCustomUrl"
+              value="${releng.jira.url}/secure/IssueNavigator.jspa?mode=hide&amp;reset=true&amp;pid=${jira.project.id}&amp;query=&amp;summary=true&amp;description=true"/>
+          <attribute
+              key="FilterCustomJqlUrl"
+              value="${releng.jira.url}/issues/?jql=project+in+%28%22${jira.project.key}%22%29+"/>
+        </query>
+        <description>Releng</description>
+      </setupTask>
+      <setupTask
+          xsi:type="mylyn:MylynBuildsTask"
+          serverURL="${master.jenkins.url}/job/${scope.project.group}/job/${scope.project.stream.name}/job/${scope.project.kind}/job/${scope.project.name}"
+          userID="${jenkins.username}"
+          password="${jenkins.password}">
+        <buildPlan
+            name="${scope.project.name}"/>
+        <description>es4 (server) builds</description>
+      </setupTask>
+    </setupTask>
     <stream
         name="mainline"
-        label="mainline">
-      <setupTask
-          xsi:type="setup:CompoundTask"
-          name="Variables">
-        <setupTask
-            xsi:type="setup:VariableTask"
-            name="jira.project.key"
-            value="PCMP"
-            storageURI="scope://Workspace"/>
-        <setupTask
-            xsi:type="setup:VariableTask"
-            name="jira.project.id"
-            value="10307"
-            storageURI="scope://Workspace"/>
-      </setupTask>
-      <setupTask
-          xsi:type="setup:CompoundTask"
-          name="Tasks">
-        <setupTask
-            xsi:type="projectset:ProjectSetImportTask"
-            id="builderx"
-            uRL="https://raw.githubusercontent.com/ganzstudios/oomph/master/setups/psf/${scope.project.group}/${scope.project.name}/${scope.project.stream.name}.psf">
-          <description></description>
-        </setupTask>
-        <setupTask
-            xsi:type="mylyn:MylynQueriesTask"
-            connectorKind="jira"
-            repositoryURL="${releng.jira.url}"
-            userID="${releng.jira.username}"
-            password="${releng.jira.password}">
-          <query
-              summary="${scope.project.name} "
-              url="${webkinz.jira.url}/issues/?jql=project+in+%28%22{$jira.project.key}%22%29+">
-            <attribute
-                key="FilterCustomUrl"
-                value="${releng.jira.url}/secure/IssueNavigator.jspa?mode=hide&amp;reset=true&amp;pid=${jira.project.id}&amp;query=&amp;summary=true&amp;description=true"/>
-            <attribute
-                key="FilterCustomJqlUrl"
-                value="${releng.jira.url}/issues/?jql=project+in+%28%22${jira.project.key}%22%29+"/>
-          </query>
-          <description>Releng</description>
-        </setupTask>
-        <setupTask
-            xsi:type="mylyn:MylynBuildsTask"
-            serverURL="${master.jenkins.url}/job/webkinz/job/${scope.project.stream.name}/server/job/${scope.project.name}"
-            userID="${jenkins.username}"
-            password="${jenkins.password}">
-          <buildPlan
-              name="${scope.project.name}"/>
-          <description>es4 (server) builds</description>
-        </setupTask>
-      </setupTask>
-    </stream>
+        label="mainline"/>
     <logicalProjectContainer
         xsi:type="setup:Project"
         href="../php/modules.setup#/"/>

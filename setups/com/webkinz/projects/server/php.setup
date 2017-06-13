@@ -460,7 +460,7 @@
           </setupTask>
           <setupTask
               xsi:type="setup:PreferenceTask"
-              id="org.eclipse.php.ui.cleanup.remove_trailing_whitespaces"
+              id="org.eclipse.php.ui.cleanup.remove_trailing_whitespaces_ignore_empty"
               key="/instance/org.eclipse.php.ui/cleanup.remove_trailing_whitespaces_ignore_empty"
               value="false">
             <description>Remove trailing whitespaces</description>
