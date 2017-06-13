@@ -51,7 +51,7 @@
         location="${git.repository.location}/${scope.project.name}"
         remoteURI="https://github.com/ganzstudios/oomph"
         pushURI="">
-      <description>Clones the ${organization} oomph setups</description>
+      <description>Clones the oomph setups repository</description>
     </setupTask>
     <setupTask
         xsi:type="projects:ProjectsImportTask">
