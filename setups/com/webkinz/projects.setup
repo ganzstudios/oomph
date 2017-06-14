@@ -199,6 +199,12 @@
     </setupTask>
   </setupTask>
   <setupTask
+      xsi:type="setup:VariableTask"
+      id="scope.project.group"
+      name="scope.project.group"
+      value="webkinz"
+      storageURI="scope://Workspace"/>
+  <setupTask
       xsi:type="setup:CompoundTask"
       name="Preferences">
     <setupTask
@@ -268,5 +274,6 @@
     </setupTask>
   </setupTask>
   <project href="projects/server.setup#/"/>
+  <project href="projects/multiuse.setup#/"/>
   <description>Webkinz Eclipse based projects catalog</description>
 </setup:ProjectCatalog>

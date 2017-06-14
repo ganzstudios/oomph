@@ -18,7 +18,6 @@
         storageURI="scope://Workspace"/>
   </setupTask>
   <project href="server/php.setup#/"/>
-  <project href="server/es4.setup#/"/>
   <logicalProjectContainer
       xsi:type="setup:ProjectCatalog"
       href="../projects.setup#/"/>

@@ -30,12 +30,6 @@
       name="Variables">
     <setupTask
         xsi:type="setup:VariableTask"
-        id="scope.project.group"
-        name="scope.project.group"
-        value="es4"
-        storageURI="scope://Workspace"/>
-    <setupTask
-        xsi:type="setup:VariableTask"
         id="scope.project.name.new"
         name="scope.project.name.new"
         storageURI="scope://Workspace"
@@ -62,7 +56,6 @@
           name="Perspectives">
         <setupTask
             xsi:type="setup:PreferenceTask"
-            id=""
             key="/instance/org.eclipse.ui/defaultPerspectiveId"
             value="org.eclipse.php.perspective">
           <description>Make the Java perspective the default perspective</description>
@@ -95,7 +88,6 @@
           name="Content Types">
         <setupTask
             xsi:type="setup:PreferenceTask"
-            id=""
             key="/instance/org.eclipse.core.runtime/content-types/org.eclipse.php.core.phpsource/file-extensions"
             value="phar">
           <description>Register *.phar as a PHP content type</description>

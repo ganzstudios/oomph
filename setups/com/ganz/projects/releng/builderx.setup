@@ -19,8 +19,6 @@
       label="JDT">
     <requirement
         name="org.eclipse.jdt.feature.group"/>
-    <repository
-        url="http://download.eclipse.org/eclipse/updates/4.5"/>
     <description>
       Install the tools needed in the IDE to work with the
       source code for ${scope.project.label}
@@ -28,7 +26,8 @@
   </setupTask>
   <setupTask
       xsi:type="setup.p2:P2Task"
-      label="Ivy">
+      label="Ivy"
+      licenseConfirmationDisabled="true">
     <requirement
         name="org.apache.ivy.feature.feature.group"/>
     <requirement

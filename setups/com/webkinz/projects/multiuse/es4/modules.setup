@@ -9,6 +9,16 @@
     xsi:schemaLocation="http://www.eclipse.org/oomph/setup/mylyn/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Mylyn.ecore http://www.eclipse.org/oomph/setup/projectset/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/ProjectSet.ecore"
     name="modules"
     label="Modules">
+  <project name="new"
+      label="New Module">
+    <stream
+        name="mainline"
+        label="mainline"/>
+    <logicalProjectContainer
+        xsi:type="setup:Project"
+        href="../../../projects.setup#//@projects[name='mutiuse']"/>
+    <description>Creates an empty workspace if one does not exist</description>
+  </project>
   <project name="stadium"
       label="stadium">
     <setupTask

@@ -4,23 +4,20 @@
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
-    name="releng"
-    label="Release Engineering">
+    name="multiuse"
+    label="Multiuse">
   <setupTask
       xsi:type="setup:CompoundTask"
+      id="org.eclipse.ant.variables"
       name="Variables">
     <setupTask
         xsi:type="setup:VariableTask"
-        id="scope.project.group"
-        name="scope.project.group"
-        value="releng"
+        id="scope.project.kind"
+        name="scope.project.kind"
+        value="multiuse"
         storageURI="scope://Workspace"/>
   </setupTask>
-  <project href="releng/builderx.setup#/"/>
-  <project href="releng/eclipse.setup#/"/>
-  <project href="releng/jenkins.setup#/"/>
-  <project href="releng/kb.setup#/"/>
-  <project href="releng/sample.setup#/"/>
+  <project href="multiuse/es4.setup#/"/>
   <logicalProjectContainer
       xsi:type="setup:ProjectCatalog"
       href="../projects.setup#/"/>
