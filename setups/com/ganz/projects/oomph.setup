@@ -41,6 +41,17 @@
         label="">
       <description>Custom installation for oomph editor (required because we don't to modify the editor while testing changes)</description>
     </setupTask>
+    <setupTask
+        xsi:type="setup:VariableTask"
+        id="workspace.location"
+        type="FOLDER"
+        name="workspace.location"
+        value="${install.root/proj/oomph/|lower}${scope.project.stream.name/|lower}"
+        defaultValue=""
+        storageURI="scope://Workspace"
+        label="${scope.project.label}'s workspace">
+      <description>The location of the project's workspace</description>
+    </setupTask>
   </setupTask>
   <setupTask
       xsi:type="setup:CompoundTask"

@@ -187,7 +187,7 @@
         id="git.repository.location"
         type="FOLDER"
         name="git.repository.location"
-        value="${install.root/repo/}"
+        value="${install.root/repo/.git/|lower}"
         label="Git Repository Root">
       <description></description>
     </setupTask>
