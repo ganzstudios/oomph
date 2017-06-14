@@ -57,9 +57,9 @@
         value="10505"/>
     <setupTask
         xsi:type="setup:VariableTask"
-        id="scope.project.group"
-        name="scope.project.group"
-        value="releng/ant"
+        id="scope.project.kind"
+        name="scope.project.kind"
+        value="ant"
         storageURI="scope://Workspace"/>
   </setupTask>
   <setupTask
@@ -83,7 +83,6 @@
           name="Perspectives">
         <setupTask
             xsi:type="setup:PreferenceTask"
-            id=""
             key="/instance/org.eclipse.ui/defaultPerspectiveId"
             value="org.eclipse.jdt.ui.JavaPerspective">
           <description>Make the Java perspective the default perspective</description>
@@ -102,7 +101,7 @@
     <setupTask
         xsi:type="projectset:ProjectSetImportTask"
         id="builderx"
-        uRL="https://raw.githubusercontent.com/ganzstudios/oomph/master/setups/psf/${scope.project.group}/${scope.project.stream.name}.psf">
+        uRL="${oomph.setups.location.url}${pattern.project.psf.path}">
       <description></description>
     </setupTask>
     <setupTask
@@ -129,9 +128,7 @@
         userID="${releng.ci.username}"
         password="${releng.ci.password}">
       <buildPlan
-          name="builderx"/>
-      <buildPlan
-          name="ant-svn"/>
+          name="${scope.project.name}"/>
       <description>Builderx builds</description>
     </setupTask>
   </setupTask>
