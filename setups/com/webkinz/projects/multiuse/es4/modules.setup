@@ -10,17 +10,16 @@
     name="modules"
     label="Modules">
   <project name="new"
-      label="New Module">
+      label="New Module"
+      logicalProjectContainer="/">
     <stream
         name="mainline"
         label="mainline"/>
-    <logicalProjectContainer
-        xsi:type="setup:Project"
-        href="../../../projects.setup#//@projects[name='mutiuse']"/>
     <description>Creates an empty workspace if one does not exist</description>
   </project>
   <project name="stadium"
-      label="stadium">
+      label="stadium"
+      logicalProjectContainer="/">
     <setupTask
         xsi:type="setup:CompoundTask"
         name="Variables">
@@ -41,7 +40,7 @@
       <setupTask
           xsi:type="projectset:ProjectSetImportTask"
           id="stadium"
-          uRL="https://raw.githubusercontent.com/ganzstudios/oomph/master/setups/psf/${scope.project.group}/${scope.project.name}/${scope.project.stream.name}.psf">
+          uRL="${oomph.setups.location.url}${pattern.project.psf.path}">
         <description></description>
       </setupTask>
       <setupTask
@@ -64,7 +63,7 @@
       </setupTask>
       <setupTask
           xsi:type="mylyn:MylynBuildsTask"
-          serverURL="${master.jenkins.url}/job/${scope.project.group}/job/${scope.project.stream.name}/job/${scope.project.kind}/job/${scope.project.name}"
+          serverURL="${master.jenkins.url}/${pattern.jenkins.job.path}"
           userID="${jenkins.username}"
           password="${jenkins.password}">
         <buildPlan
@@ -75,13 +74,11 @@
     <stream
         name="mainline"
         label="mainline"/>
-    <logicalProjectContainer
-        xsi:type="setup:Project"
-        href="../php/modules.setup#/"/>
-    <description>The 2nd version of wx framework </description>
+    <description>The es4 stadium plugin</description>
   </project>
   <project name="es4server"
-      label="es4server">
+      label="es4server"
+      logicalProjectContainer="/">
     <setupTask
         xsi:type="setup:CompoundTask"
         name="Variables">
@@ -102,7 +99,7 @@
       <setupTask
           xsi:type="projectset:ProjectSetImportTask"
           id="server"
-          uRL="https://raw.githubusercontent.com/ganzstudios/oomph/master/setups/psf/${scope.project.group}/${scope.project.name}/${scope.project.stream.name}.psf">
+          uRL="${oomph.setups.location.url}${pattern.project.psf.path}">
         <description></description>
       </setupTask>
       <setupTask
@@ -125,7 +122,7 @@
       </setupTask>
       <setupTask
           xsi:type="mylyn:MylynBuildsTask"
-          serverURL="${master.jenkins.url}/job/${scope.project.group}/job/${scope.project.stream.name}/job/${scope.project.kind}/job/${scope.project.name}"
+          serverURL="${master.jenkins.url}/${pattern.jenkins.job.path}"
           userID="${jenkins.username}"
           password="${jenkins.password}">
         <buildPlan
@@ -136,9 +133,6 @@
     <stream
         name="mainline"
         label="mainline"/>
-    <logicalProjectContainer
-        xsi:type="setup:Project"
-        href="../php/modules.setup#/"/>
     <description>The 2nd version of wx framework </description>
   </project>
   <logicalProjectContainer
