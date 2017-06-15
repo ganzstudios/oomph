@@ -144,7 +144,7 @@
         xsi:type="setup:VariableTask"
         id="oomph.setups.location.url"
         name="oomph.setups.location.url"
-        value="${oomph.setups.local.url}"
+        value="${oomph.setups.remote.url}"
         storageURI="scope://Workspace"
         label="">
       <description>Location of the setup files. Can be set to a local url (for development and testing purposes) or a remote url</description>
