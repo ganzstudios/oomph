@@ -135,7 +135,7 @@
         xsi:type="setup:VariableTask"
         id="oomph.setups.local.url"
         name="oomph.setups.local.url"
-        value="file:///C:/work/ganz/repo/.git/oomph/oomph/setups/"
+        value="file:///C:/work/ganz/repo/.git/oomph/setups/"
         storageURI="scope://Workspace"
         label="">
       <description>Location of the setup files. Can be set to a local path (i.e. file:///C:/work/ganz/repo/.git/oomph/oomph/setups/) to test psf</description>

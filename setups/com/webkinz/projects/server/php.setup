@@ -29,17 +29,6 @@
     </description>
   </setupTask>
   <setupTask
-      xsi:type="setup.p2:P2Task"
-      id="toolkit"
-      label="Toolkit"
-      licenseConfirmationDisabled="true">
-    <requirement
-        name="com.ganz.toolkit.feature.feature.group"/>
-    <repository
-        url="http://repo.ganz.net/tool/eclipse/updatesite/"/>
-    <description>Ganz Studios Toolkit</description>
-  </setupTask>
-  <setupTask
       xsi:type="setup:CompoundTask"
       id="org.eclipse.ant.variables"
       name="Variables">
