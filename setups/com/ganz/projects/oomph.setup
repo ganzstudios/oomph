@@ -11,14 +11,9 @@
     name="oomph"
     label="Oomph">
   <setupTask
-      xsi:type="setup:WorkspaceTask"
-      id="workspace"
-      excludedTriggers="MANUAL">
-    <description></description>
-  </setupTask>
-  <setupTask
       xsi:type="setup.p2:P2Task"
-      label="Oomph SDK">
+      label="Oomph SDK"
+      licenseConfirmationDisabled="true">
     <requirement
         name="org.eclipse.oomph.setup.sdk.feature.group"/>
     <description></description>
@@ -28,16 +23,10 @@
       name="Variables">
     <setupTask
         xsi:type="setup:VariableTask"
-        id="scope.project.group"
-        name="scope.project.group"
-        value="oomph"
-        storageURI="scope://Workspace"/>
-    <setupTask
-        xsi:type="setup:VariableTask"
         id="installation.location"
         type="FOLDER"
         name="installation.location"
-        value="${install.root/|lower}tool/eclipse/oomph"
+        value="${install.root/tool/eclipse/oomph|lower}"
         label="">
       <description>Custom installation for oomph editor (required because we don't to modify the editor while testing changes)</description>
     </setupTask>
@@ -53,6 +42,12 @@
     </setupTask>
     <setupTask
         xsi:type="setup:VariableTask"
+        id="scope.project.group"
+        name="scope.project.group"
+        value="oomph"
+        storageURI="scope://Workspace"/>
+    <setupTask
+        xsi:type="setup:VariableTask"
         id="scope.project.kind"
         name="scope.project.kind"
         value=""
@@ -61,7 +56,7 @@
         xsi:type="setup:VariableTask"
         id="oomph.git.clone.location"
         name="oomph.git.clone.location"
-        value="${git.repository.location}/${scope.project.name}"
+        value="${git.repository.location/|lower}${scope.project.name}"
         storageURI="scope://Workspace">
       <description>The folder where the 'oomph' repository will be cloned in.</description>
     </setupTask>
@@ -69,7 +64,7 @@
         xsi:type="setup:VariableTask"
         id="eclipse.oomph.git.clone.location"
         name="eclipse.oomph.git.clone.location"
-        value="${git.repository.location}/org.eclipse.oomph"
+        value="${git.repository.location/org.eclipse.oomph}"
         storageURI="scope://Workspace">
       <description>The folder where the official (eclipse) 'oomph' repository will be cloned in.</description>
     </setupTask>
