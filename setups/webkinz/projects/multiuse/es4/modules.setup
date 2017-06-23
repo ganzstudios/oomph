@@ -95,11 +95,20 @@
         <description></description>
       </setupTask>
       <setupTask
+          xsi:type="mylyn:MylynBuildsTask"
+          serverURL="${master.jenkins.url}/${pattern.jenkins.job.path}"
+          userID="${jenkins.username}"
+          password="${jenkins.password}">
+        <buildPlan
+            name="${scope.project.name}"/>
+        <description>es4 (server) builds</description>
+      </setupTask>
+      <setupTask
           xsi:type="mylyn:MylynQueriesTask"
           connectorKind="jira"
-          repositoryURL="${releng.jira.url}"
-          userID="${releng.jira.username}"
-          password="${releng.jira.password}">
+          repositoryURL="${webkinz.jira.url}"
+          userID="${webkinz.jira.username}"
+          password="${webkinz.jira.password}">
         <query
             summary="${scope.project.name} "
             url="${webkinz.jira.url}/issues/?jql=project+in+%28%22{$jira.project.key}%22%29+">
@@ -110,16 +119,7 @@
               key="FilterCustomJqlUrl"
               value="${releng.jira.url}/issues/?jql=project+in+%28%22${jira.project.key}%22%29+"/>
         </query>
-        <description>Releng</description>
-      </setupTask>
-      <setupTask
-          xsi:type="mylyn:MylynBuildsTask"
-          serverURL="${master.jenkins.url}/${pattern.jenkins.job.path}"
-          userID="${jenkins.username}"
-          password="${jenkins.password}">
-        <buildPlan
-            name="${scope.project.name}"/>
-        <description>es4 (server) builds</description>
+        <description>Webkinz</description>
       </setupTask>
     </setupTask>
     <stream
@@ -129,6 +129,6 @@
   </project>
   <logicalProjectContainer
       xsi:type="setup:ProjectCatalog"
-      href="index:/org.eclipse.setup#//@projectCatalogs[name='com.webkinz']"/>
+      href="index:/org.eclipse.setup#//@projectCatalogs[name='com.webkinz']/@projects[name='multiuse']"/>
   <description>ES4 Modules</description>
 </setup:Project>

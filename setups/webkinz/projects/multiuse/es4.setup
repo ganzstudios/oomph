@@ -17,11 +17,6 @@
         value="es4"
         storageURI="scope://Workspace"/>
   </setupTask>
-  <setupTask
-      xsi:type="setup:CompoundTask"
-      name="Preferences">
-    <description></description>
-  </setupTask>
   <project href="es4/modules.setup#/"/>
   <logicalProjectContainer
       xsi:type="setup:Project"

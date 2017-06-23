@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<psf version="2.0">
-<provider id="org.eclipse.team.svn.core.svnnature">
-<project reference="1.0.1,http://php.edge.svn.ganz.com:8080/svn/webkinz/trunk,webkinz,70489605455000171c498def74b869af;http://php.edge.svn.ganz.com:8080/svn/webkinz/;webkinz;branches;tags;trunk;true;2148df39-ec81-4456-8c2e-2b443e504b7f;http://php.edge.svn.ganz.com:8080/svn/webkinz;;false;;;0"/>
-</provider>
-</psf>

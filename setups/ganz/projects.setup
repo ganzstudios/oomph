@@ -267,5 +267,6 @@
     </setupTask>
   </setupTask>
   <project href="projects/oomph.setup#/"/>
+  <project href="projects/releng.setup#/"/>
   <description>Ganz Studios Eclipse based projects catalog</description>
 </setup:ProjectCatalog>

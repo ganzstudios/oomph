@@ -385,5 +385,6 @@
     </setupTask>    
   </setupTask>
   <project href="projects/server.setup#/"/>
+  <project href="projects/multiuse.setup#/"/>
   <description>Webkinz Eclipse based projects catalog</description>
 </setup:ProjectCatalog>
