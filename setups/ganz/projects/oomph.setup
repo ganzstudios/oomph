@@ -23,12 +23,6 @@
       name="Variables">
     <setupTask
         xsi:type="setup:VariableTask"
-        id="scope.project.group"
-        name="scope.project.group"
-        value="oomph"
-        storageURI="scope://Workspace"/>
-    <setupTask
-        xsi:type="setup:VariableTask"
         id="installation.location"
         type="FOLDER"
         name="installation.location"
@@ -48,15 +42,9 @@
     </setupTask>
     <setupTask
         xsi:type="setup:VariableTask"
-        id="scope.project.kind"
-        name="scope.project.kind"
-        value=""
-        storageURI="scope://Workspace"/>
-    <setupTask
-        xsi:type="setup:VariableTask"
         id="oomph.git.clone.location"
         name="oomph.git.clone.location"
-        value="${git.repository.location}/${scope.project.name}"
+        value="${git.repository.location/}${scope.project.name}"
         storageURI="scope://Workspace">
       <description>The folder where the 'oomph' repository will be cloned in.</description>
     </setupTask>
@@ -64,7 +52,7 @@
         xsi:type="setup:VariableTask"
         id="eclipse.oomph.git.clone.location"
         name="eclipse.oomph.git.clone.location"
-        value="${git.repository.location}/org.eclipse.oomph"
+        value="${git.repository.location/org.eclipse.oomph}"
         storageURI="scope://Workspace">
       <description>The folder where the official (eclipse) 'oomph' repository will be cloned in.</description>
     </setupTask>

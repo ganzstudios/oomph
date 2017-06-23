@@ -102,27 +102,13 @@
   </setupTask>
   <setupTask
       xsi:type="setup:CompoundTask"
-      name="Eclipse Ini">
-    <setupTask
-        xsi:type="setup:EclipseIniTask"
-        option="-Duser.home"
-        value="=${user.home}"
-        vm="true"/>
-    <setupTask
-        xsi:type="setup:EclipseIniTask"
-        option="-Doomph.setup"
-        value="=true"
-        vm="true"/>
-  </setupTask>
-  <setupTask
-      xsi:type="setup:CompoundTask"
       name="Installation Variables">
     <setupTask
         xsi:type="setup:VariableTask"
         id="install.root"
         type="FOLDER"
         name="install.root"
-        defaultValue="${opts.install.root/}"
+        defaultValue="${opts.install.path/}"
         label="Installation folder">
       <description>The root of the installation directory</description>
     </setupTask>
@@ -149,7 +135,7 @@
         id="workspace.location"
         type="FOLDER"
         name="workspace.location"
-        value="${install.root/proj/|lower}${scope.project.group/|lower}${scope.project.kind/|lower}${scope.project.stream.name/|lower}"
+        value="${install.root/proj/|lower}${scope.project.catalog.name/|lower}${scope.project.page/|lower}${scope.project.stream.name/|lower}"
         defaultValue=""
         storageURI="scope://Workspace"
         label="${scope.project.label}'s workspace">
@@ -164,6 +150,105 @@
         label="Git Repository Root">
       <description></description>
     </setupTask>
+  </setupTask>
+  <setupTask
+      xsi:type="setup:CompoundTask"
+      name="Configuration Variables">
+    <setupTask
+        xsi:type="setup:VariableTask"
+        id="oomph.setups.location.url"
+        name="oomph.setups.location.url"
+        defaultValue="${opts.projectsets.url}"
+        storageURI="scope://Workspace"
+        label="">
+      <description>Location of the setup files. Can be set to a local url (for development and testing purposes) or a remote url</description>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="Jenkins">
+      <setupTask
+          xsi:type="setup:VariableTask"
+          id="jenkins.username"
+          name="jenkins.username"
+          defaultValue="${scope.user.name}"
+          label="Jenkins Username "/>
+      <setupTask
+          xsi:type="setup:VariableTask"
+          id="jenkins.password"
+          type="PASSWORD"
+          name="jenkins.password"
+          label="Jenkins Password"/>
+      <setupTask
+          xsi:type="setup:VariableTask"
+          id="releng.jenkins.url"
+          name="releng.jenkins.url"
+          value="http://releng.ci.ganz.net"
+          label="Jenkins URL (RelEng)"/>
+      <setupTask
+          xsi:type="setup:VariableTask"
+          id="master.jenkins.url"
+          name="master.jenkins.url"
+          value="http://master.ci.ganz.net"
+          label="Jenkins URL (RelEng)">
+        <description></description>
+      </setupTask>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="Jira">
+      <setupTask
+          xsi:type="setup:VariableTask"
+          id="releng.jira.url"
+          name="releng.jira.url"
+          value="http://jira.releng.ganz.net"
+          label="JIRA URL (RelEng)"/>
+      <setupTask
+          xsi:type="setup:VariableTask"
+          id="releng.jira.username"
+          name="releng.jira.username"
+          defaultValue="${scope.user.name}"
+          label="JIRA Username (RelEng)">
+        <description>Something</description>
+      </setupTask>
+      <setupTask
+          xsi:type="setup:VariableTask"
+          id="releng.jira.password"
+          type="PASSWORD"
+          name="releng.jira.password"
+          label="JIRA Password (RelEng)"/>
+      <setupTask
+          xsi:type="setup:VariableTask"
+          id="webkinz.jira.url"
+          name="webkinz.jira.url"
+          value="http://jira.webkinz.com"
+          label="JIRA URL (Webkinz)"/>
+      <setupTask
+          xsi:type="setup:VariableTask"
+          id="webkinz.jira.username"
+          name="webkinz.jira.username"
+          defaultValue="${scope.user.name}"
+          label="JIRA Username (Webkinz)"/>
+      <setupTask
+          xsi:type="setup:VariableTask"
+          id="webkinz.jira.password"
+          type="PASSWORD"
+          name="webkinz.jira.password"
+          label="JIRA Password  (Webkinz)"/>
+    </setupTask>
+  </setupTask>
+  <setupTask
+      xsi:type="setup:CompoundTask"
+      name="Eclipse Ini">
+    <setupTask
+        xsi:type="setup:EclipseIniTask"
+        option="-Duser.home"
+        value="=${user.home}"
+        vm="true"/>
+    <setupTask
+        xsi:type="setup:EclipseIniTask"
+        option="-Doomph.setup"
+        value="=true"
+        vm="true"/>
   </setupTask>
   <setupTask
       xsi:type="setup:CompoundTask"
@@ -194,13 +279,14 @@
         xsi:type="setup:VariableTask"
         id="pattern.jenkins.job.path"
         name="pattern.jenkins.job.path"
-        value="job/${scope.project.group}/job/${scope.project.stream.name}/job/${scope.project.kind}/"
-        storageURI="scope://Workspace"/>
+        value="job/${scope.project.catalog.name}/job/${scope.project.stream.name}/job/${scope.project.section}/"
+        storageURI="scope://Workspace"
+        label=""/>
     <setupTask
         xsi:type="setup:VariableTask"
         id="pattern.project.psf.path"
         name="pattern.project.psf.path"
-        value="psf/${scope.project.group}/${scope.project.kind}/${scope.project.name}/${scope.project.stream.name}.psf"
+        value="${scope.project.catalog.name}/resources/${scope.project.section}/${scope.project.page}/${scope.project.name}/${scope.project.stream.name}.psf"
         storageURI="scope://Workspace"/>
     <description>Definition of the patterns used throughout the setup files</description>
   </setupTask>
