@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<setup:ProjectCatalog
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:mylyn="http://www.eclipse.org/oomph/setup/mylyn/1.0"
+    xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
+    xmlns:setup.p2="http://www.eclipse.org/oomph/setup/p2/1.0"
+    xsi:schemaLocation="http://www.eclipse.org/oomph/setup/mylyn/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Mylyn.ecore"
+    name="webkinz"
+    label="Webkinz Projects">
+  <setupTask
+      xsi:type="setup:InstallationTask"
+      id="installation">
+    <description></description>
+  </setupTask>
+  <setupTask
+      xsi:type="setup:WorkspaceTask"
+      id="workspace"/>
+  <setupTask
+      xsi:type="setup.p2:P2Task"
+      label="Oomph"
+      licenseConfirmationDisabled="true">
+    <requirement
+        name="org.eclipse.oomph.setup.feature.group"/>
+    <repository
+        url="${oomph.update.url}"/>
+    <repository
+        url="http://download.eclipse.org/modeling/emf/emf/updates/2.10/core/R201405190339"/>
+    <repository
+        url="http://download.eclipse.org/egit/updates"/>
+    <description></description>
+  </setupTask>
+  <setupTask
+      xsi:type="setup.p2:P2Task"
+      label="EGit"
+      licenseConfirmationDisabled="true">
+    <requirement
+        name="org.eclipse.egit.feature.group"/>
+    <requirement
+        name="org.eclipse.egit.mylyn.feature.group"/>
+    <requirement
+        name="org.eclipse.mylyn.git.feature.group"/>
+    <repository
+        url="http://download.eclipse.org/egit/updates"/>
+    <description></description>
+  </setupTask>
+  <setupTask
+      xsi:type="setup.p2:P2Task"
+      label="Mylyn"
+      licenseConfirmationDisabled="true">
+    <requirement
+        name="org.eclipse.mylyn.github.feature.feature.group"
+        filter=""/>
+    <requirement
+        name="org.eclipse.mylyn.builds.feature.group"/>
+    <requirement
+        name="org.eclipse.mylyn.hudson.feature.group"
+        versionRange="[1.12.2,2.0.0)"/>
+    <requirement
+        name="org.eclipse.mylyn.ide_feature.feature.group"/>
+    <requirement
+        name="org.eclipse.mylyn.bugzilla_feature.feature.group"/>
+    <requirement
+        name="org.eclipse.mylyn_feature.feature.group"/>
+    <requirement
+        name="org.eclipse.mylyn.versions.feature.group"/>
+    <requirement
+        name="org.eclipse.mylyn.wikitext_feature.feature.group"/>
+    <repository
+        url="http://download.eclipse.org/egit/github/updates/"/>
+    <repository
+        url="http://download.eclipse.org/mylyn/releases/latest"/>
+  </setupTask>
+  <setupTask
+      xsi:type="setup.p2:P2Task"
+      id="subversive"
+      label="Subversive"
+      licenseConfirmationDisabled="true">
+    <requirement
+        name="org.eclipse.team.svn.resource.ignore.rules.jdt.feature.group"/>
+    <requirement
+        name="org.eclipse.team.svn.revision.graph.feature.group"/>
+    <requirement
+        name="org.eclipse.team.svn.mylyn.feature.group"/>
+    <requirement
+        name="org.eclipse.team.svn.feature.group"/>
+    <requirement
+        name="org.polarion.eclipse.team.svn.connector.feature.group"/>
+    <requirement
+        name="org.polarion.eclipse.team.svn.connector.svnkit18.feature.group"/>
+    <description>SVN features</description>
+  </setupTask>
+  <setupTask
+      xsi:type="setup.p2:P2Task"
+      id="atlassian"
+      label="Atlassian"
+      licenseConfirmationDisabled="true">
+    <requirement
+        name="com.atlassian.connector.eclipse.jira.feature.group"/>
+    <repository
+        url="http://update.atlassian.com/atlassian-eclipse-plugin/rest/e3.7/"/>
+    <description>Install JIRA-eclipse integration</description>
+  </setupTask>
+  <setupTask
+      xsi:type="setup.p2:P2Task"
+      id="toolkit"
+      label="Toolkit"
+      licenseConfirmationDisabled="true">
+    <requirement
+        name="com.ganz.toolkit.feature.feature.group"/>
+    <repository
+        url="http://repo.ganz.net/tool/eclipse/updatesite/"/>
+    <description>Ganz Studios Toolkit</description>
+  </setupTask>
+  <setupTask
+      xsi:type="setup:CompoundTask"
+      name="Installation Variables">
+    <setupTask
+        xsi:type="setup:VariableTask"
+        id="install.root"
+        type="FOLDER"
+        name="install.root"
+        defaultValue="${opts.install.path/}"
+        label="Installation folder">
+      <description>The root of the installation directory</description>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:VariableTask"
+        id="installation.location"
+        type="FOLDER"
+        name="installation.location"
+        value="${install.root/tool/eclipse/|lower}"
+        label="">
+      <description></description>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:VariableTask"
+        id="installation.absoluteProductFolder"
+        type="FOLDER"
+        name="installation.absoluteProductFolder"
+        value="${installation.location/}${installation.relativeProductFolder/|lower}"
+        label="Absolute product installation folder">
+      <description>Used to for ResourceCreation task that need to create resources in the product folder</description>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:VariableTask"
+        id="workspace.location"
+        type="FOLDER"
+        name="workspace.location"
+        value="${install.root/proj/|lower}${scope.project.catalog.name/|lower}${scope.project.page/|lower}${scope.project.stream.name/|lower}"
+        defaultValue=""
+        storageURI="scope://Workspace"
+        label="${scope.project.label}'s workspace">
+      <description>The location of the project's workspace</description>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:VariableTask"
+        id="git.repository.location"
+        type="FOLDER"
+        name="git.repository.location"
+        value="${install.root/repo/.git/|lower}"
+        label="Git Repository Root">
+      <description></description>
+    </setupTask>
+  </setupTask>
+  <setupTask
+      xsi:type="setup:CompoundTask"
+      name="Configuration Variables">
+    <setupTask
+        xsi:type="setup:VariableTask"
+        id="oomph.setups.location.url"
+        name="oomph.setups.location.url"
+        defaultValue="${opts.projectsets.url}"
+        storageURI="scope://Workspace"
+        label="">
+      <description>Location of the setup files. Can be set to a local url (for development and testing purposes) or a remote url</description>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="Jenkins">
+      <setupTask
+          xsi:type="setup:VariableTask"
+          id="jenkins.username"
+          name="jenkins.username"
+          defaultValue="${scope.user.name}"
+          label="Jenkins Username "/>
+      <setupTask
+          xsi:type="setup:VariableTask"
+          id="jenkins.password"
+          type="PASSWORD"
+          name="jenkins.password"
+          label="Jenkins Password"/>
+      <setupTask
+          xsi:type="setup:VariableTask"
+          id="releng.jenkins.url"
+          name="releng.jenkins.url"
+          value="http://releng.ci.ganz.net"
+          label="Jenkins URL (RelEng)"/>
+      <setupTask
+          xsi:type="setup:VariableTask"
+          id="master.jenkins.url"
+          name="master.jenkins.url"
+          value="http://master.ci.ganz.net"
+          label="Jenkins URL (RelEng)">
+        <description></description>
+      </setupTask>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="Jira">
+      <setupTask
+          xsi:type="setup:VariableTask"
+          id="releng.jira.url"
+          name="releng.jira.url"
+          value="http://jira.releng.ganz.net"
+          label="JIRA URL (RelEng)"/>
+      <setupTask
+          xsi:type="setup:VariableTask"
+          id="releng.jira.username"
+          name="releng.jira.username"
+          defaultValue="${scope.user.name}"
+          label="JIRA Username (RelEng)">
+        <description>Something</description>
+      </setupTask>
+      <setupTask
+          xsi:type="setup:VariableTask"
+          id="releng.jira.password"
+          type="PASSWORD"
+          name="releng.jira.password"
+          label="JIRA Password (RelEng)"/>
+      <setupTask
+          xsi:type="setup:VariableTask"
+          id="webkinz.jira.url"
+          name="webkinz.jira.url"
+          value="http://jira.webkinz.com"
+          label="JIRA URL (Webkinz)"/>
+      <setupTask
+          xsi:type="setup:VariableTask"
+          id="webkinz.jira.username"
+          name="webkinz.jira.username"
+          defaultValue="${scope.user.name}"
+          label="JIRA Username (Webkinz)"/>
+      <setupTask
+          xsi:type="setup:VariableTask"
+          id="webkinz.jira.password"
+          type="PASSWORD"
+          name="webkinz.jira.password"
+          label="JIRA Password  (Webkinz)"/>
+    </setupTask>
+  </setupTask>
+  <setupTask
+      xsi:type="setup:CompoundTask"
+      name="Eclipse Ini">
+    <setupTask
+        xsi:type="setup:EclipseIniTask"
+        option="-Duser.home"
+        value="=${user.home}"
+        vm="true"/>
+    <setupTask
+        xsi:type="setup:EclipseIniTask"
+        option="-Doomph.setup"
+        value="=true"
+        vm="true"/>
+  </setupTask>
+  <setupTask
+      xsi:type="setup:CompoundTask"
+      name="Resource Creation">
+    <setupTask
+        xsi:type="setup:ResourceCreationTask"
+        content="MAX_RECENT_WORKSPACES=5&#xA;RECENT_WORKSPACES=${workspace.location|property}&#xA;RECENT_WORKSPACES_PROTOCOL=3&#xA;SHOW_WORKSPACE_SELECTION_DIALOG=true&#xA;eclipse.preferences.version=1&#xA;"
+        targetURL="configuration:/.settings/org.eclipse.ui.ide.prefs"
+        encoding="UTF-8">
+      <description>
+        Suppress prompt for default workspace already upon very
+        first start
+      </description>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:ResourceCreationTask"
+        id="eclipse.bat"
+        content="@echo off&#xA;SET CWD=%~dp0&#xA;SET HOME=${user.home}&#xA;start %CWD%\eclipse.exe "
+        targetURL="${installation.absoluteProductFolder/eclipse.bat|uri}"
+        encoding="UTF-8">
+      <description>Creates an eclipse.bat to allow for customized startup of eclipse</description>
+    </setupTask>
+  </setupTask>
+  <setupTask
+      xsi:type="setup:CompoundTask"
+      name="Pattern Definition Variables">
+    <setupTask
+        xsi:type="setup:VariableTask"
+        id="pattern.jenkins.job.path"
+        name="pattern.jenkins.job.path"
+        value="job/${scope.project.catalog.name}/job/${scope.project.stream.name}/job/${scope.project.section}/"
+        storageURI="scope://Workspace"
+        label=""/>
+    <setupTask
+        xsi:type="setup:VariableTask"
+        id="pattern.project.psf.path"
+        name="pattern.project.psf.path"
+        value="${scope.project.catalog.name}/resources/${scope.project.section}/${scope.project.page}/${scope.project.name}/${scope.project.stream.name}.psf"
+        storageURI="scope://Workspace"/>
+    <description>Definition of the patterns used throughout the setup files</description>
+  </setupTask>
+  <setupTask
+      xsi:type="setup:CompoundTask"
+      name="Preferences">
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="General">
+      <setupTask
+          xsi:type="setup:CompoundTask"
+          name="Capabilities">
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.ui.workbench/UIActivities.org.eclipse.antDevelopment"
+            value="true">
+          <description>Automatic Ant Enablement</description>
+        </setupTask>
+      </setupTask>
+      <setupTask
+          xsi:type="setup:CompoundTask"
+          name="Editors">
+        <setupTask
+            xsi:type="setup:CompoundTask"
+            name="Text Editors">
+          <setupTask
+              xsi:type="setup:PreferenceTask"
+              key="/instance/org.eclipse.ui.editors/lineNumberRuler"
+              value="true"/>
+        </setupTask>
+      </setupTask>
+      <setupTask
+          xsi:type="setup:CompoundTask"
+          name="Keys">
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.ui.workbench/org.eclipse.ui.commands"
+            value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;org.eclipse.ui.commands>&#xD;&#xA;&lt;keyBinding contextId=&quot;org.eclipse.ui.contexts.window&quot; keyConfigurationId=&quot;org.eclipse.ui.defaultAcceleratorConfiguration&quot; keySequence=&quot;CTRL+F6&quot;/>&#xD;&#xA;&lt;keyBinding contextId=&quot;org.eclipse.ui.contexts.window&quot; keyConfigurationId=&quot;org.eclipse.ui.defaultAcceleratorConfiguration&quot; keySequence=&quot;CTRL+F6&quot;/>&#xD;&#xA;&lt;keyBinding commandId=&quot;org.eclipse.ui.window.nextEditor&quot; contextId=&quot;org.eclipse.ui.contexts.window&quot; keyConfigurationId=&quot;org.eclipse.ui.defaultAcceleratorConfiguration&quot; keySequence=&quot;CTRL+TAB&quot;/>&#xD;&#xA;&lt;/org.eclipse.ui.commands>"/>
+      </setupTask>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="Team">
+      <setupTask
+          xsi:type="setup:CompoundTask"
+          name="Git">
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.egit.core/core_autoIgnoreDerivedResources"
+            value="true"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.egit.core/core_defaultRepositoryDir"
+            value="${git.repository.location|canonical}">
+          <description></description>
+        </setupTask>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.egit.ui/CloneWizard_StoreInSecureStore"
+            value="true">
+          <description></description>
+        </setupTask>
+      </setupTask>
+    </setupTask>
+  </setupTask>
+  <setupTask
+      xsi:type="setup:CompoundTask"
+      name="Tasks">
+    <setupTask
+        xsi:type="mylyn:MylynQueriesTask" connectorKind="jira" repositoryURL="${webkinz.jira.url}" userID="${webkinz.jira.username}"
+        password="${webkinz.jira.password}">
+         <query
+          summary="All my issues"
+          url="${webkinz.jira.url}/issues/?jql=resolution%20in%20(Unresolved)%20AND%20assignee%20in%20(currentUser())">
+        <attribute
+            key="FilterCustomUrl"
+            value="${webkinz.jira.url}/secure/IssueNavigator.jspa?mode=hide&amp;reset=true&amp;resolution=-1&amp;assigneeSelect=issue_current_user"/>
+        <attribute
+            key="FilterCustomJqlUrl"
+            value="${webkinz.jira.url}/issues/?jql=resolution%20in%20(Unresolved)%20AND%20assignee%20in%20(currentUser())"/>
+      </query>
+      <description>Configuration for Webkinz Issue Tracker </description>     
+    </setupTask>    
+  </setupTask>
+  <project href="projects/server.setup#/"/>
+  <description>Webkinz Eclipse based projects catalog</description>
+</setup:ProjectCatalog>

@@ -34,5 +34,8 @@
 		href="http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/WorkingSets.ecore#/" />
 		
 	<productCatalog href="products.setup#/" />
-	<projectCatalog href="projects.setup#/" />
+
+	<projectCatalog href="ganz/projects.setup#/" />
+	<projectCatalog href="webkinz/projects.setup#/" />
+	
 </setup:Index>

@@ -4,19 +4,22 @@
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
-    name="com.webkinz"
-    label="Webkinz Projects">
+    name="server"
+    label="Server">
   <setupTask
       xsi:type="setup:CompoundTask"
+      id="org.eclipse.ant.variables"
       name="Variables">
     <setupTask
         xsi:type="setup:VariableTask"
-        id="scope.project.group"
-        name="scope.project.group"
-        value="webkinz"
+        id="scope.project.section"
+        name="scope.project.section"
+        value="server"
         storageURI="scope://Workspace"/>
   </setupTask>
-  <project href="projects/server.setup#/"/>
-  <project href="projects/multiuse.setup#/"/>
-  <description>Webkinz Eclipse based projects.</description>
+  <project href="server/php.setup#/"/>
+  <logicalProjectContainer
+      xsi:type="setup:ProjectCatalog"
+      href="index:/org.eclipse.setup#//@projectCatalogs[name='com.webkinz']/"/>
+  <description></description>
 </setup:Project>

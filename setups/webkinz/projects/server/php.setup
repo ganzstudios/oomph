@@ -8,10 +8,15 @@
     name="php"
     label="PHP">
   <setupTask
-      xsi:type="setup:WorkspaceTask"
-      id="workspace"
-      excludedTriggers="MANUAL">
-    <description></description>
+      xsi:type="setup:CompoundTask"
+      id="org.eclipse.ant.variables"
+      name="Variables">
+    <setupTask
+        xsi:type="setup:VariableTask"
+        id="scope.project.page"
+        name="scope.project.page"
+        value="php"
+        storageURI="scope://Workspace"/>
   </setupTask>
   <setupTask
       xsi:type="setup.p2:P2Task"
@@ -30,31 +35,10 @@
   </setupTask>
   <setupTask
       xsi:type="setup:CompoundTask"
-      id="org.eclipse.ant.variables"
-      name="Variables">
-    <setupTask
-        xsi:type="setup:VariableTask"
-        id="scope.project.name.new"
-        name="scope.project.name.new"
-        storageURI="scope://Workspace"
-        label="Project name"/>
-  </setupTask>
-  <setupTask
-      xsi:type="setup:CompoundTask"
       name="Preferences">
     <setupTask
         xsi:type="setup:CompoundTask"
         name="General">
-      <setupTask
-          xsi:type="setup:CompoundTask"
-          name="Capabilities">
-        <setupTask
-            xsi:type="setup:PreferenceTask"
-            key="/instance/org.eclipse.ui.workbench/UIActivities.org.eclipse.antDevelopment"
-            value="true">
-          <description>Automatic Ant Enablement</description>
-        </setupTask>
-      </setupTask>
       <setupTask
           xsi:type="setup:CompoundTask"
           name="Perspectives">
@@ -455,16 +439,6 @@
     <description></description>
   </setupTask>
   <setupTask
-      xsi:type="setup:ResourceCreationTask"
-      content="MAX_RECENT_WORKSPACES=5&#xA;RECENT_WORKSPACES=${workspace.location|property}&#xA;RECENT_WORKSPACES_PROTOCOL=3&#xA;SHOW_WORKSPACE_SELECTION_DIALOG=true&#xA;eclipse.preferences.version=1&#xA;"
-      targetURL="configuration:/.settings/org.eclipse.ui.ide.prefs"
-      encoding="UTF-8">
-    <description>
-      Suppress prompt for default workspace already upon very
-      first start
-    </description>
-  </setupTask>
-  <setupTask
       xsi:type="setup:EclipseIniTask"
       excludedTriggers="STARTUP"
       option="-Dperspective"
@@ -473,7 +447,6 @@
     <description></description>
   </setupTask>
   <project href="php/modules.setup#/"/>
-  <project href="php/features.setup#/"/>
   <logicalProjectContainer
       xsi:type="setup:Project"
       href="index:/org.eclipse.setup#//@projectCatalogs[name='com.webkinz']/@projects[name='server']"/>

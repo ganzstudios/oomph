@@ -4,22 +4,27 @@
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
-    name="server"
-    label="Server">
+    name="es4"
+    label="ES4">
   <setupTask
       xsi:type="setup:CompoundTask"
       id="org.eclipse.ant.variables"
       name="Variables">
     <setupTask
         xsi:type="setup:VariableTask"
-        id="scope.project.kind"
-        name="scope.project.kind"
-        value="server"
+        id="scope.project.page"
+        name="scope.project.page"
+        value="es4"
         storageURI="scope://Workspace"/>
   </setupTask>
-  <project href="server/php.setup#/"/>
+  <setupTask
+      xsi:type="setup:CompoundTask"
+      name="Preferences">
+    <description></description>
+  </setupTask>
+  <project href="es4/modules.setup#/"/>
   <logicalProjectContainer
-      xsi:type="setup:ProjectCatalog"
-      href="../projects.setup#/"/>
-  <description></description>
+      xsi:type="setup:Project"
+      href="index:/org.eclipse.setup#//@projectCatalogs[name='com.webkinz']/@projects[name='server']"/>
+  <description>ES4 Projects</description>
 </setup:Project>

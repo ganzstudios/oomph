@@ -9,13 +9,15 @@
     xsi:schemaLocation="http://www.eclipse.org/oomph/setup/mylyn/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Mylyn.ecore http://www.eclipse.org/oomph/setup/projectset/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/ProjectSet.ecore"
     name="modules"
     label="Modules">
-  <project name="new"
-      label="New Module"
-      logicalProjectContainer="/">
+  <project name="empty"
+      label="(No Projects)">
     <stream
         name="mainline"
         label="mainline"/>
-    <description>Creates an empty workspace if one does not exist</description>
+    <logicalProjectContainer
+        xsi:type="setup:Project"
+        href="../php.setup#//@projects[name='modules']"/>
+    <description>Installs the required webkinz php development stack but does not checkout any projects</description>
   </project>
   <project name="wafx"
       label="wafx"
@@ -104,6 +106,7 @@
       </setupTask>
       <setupTask
           xsi:type="mylyn:MylynQueriesTask"
+          disabled="true"
           connectorKind="jira"
           repositoryURL="${webkinz.jira.url}"
           userID="${webkinz.jira.username}"

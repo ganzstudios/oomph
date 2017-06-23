@@ -23,10 +23,16 @@
       name="Variables">
     <setupTask
         xsi:type="setup:VariableTask"
+        id="scope.project.group"
+        name="scope.project.group"
+        value="oomph"
+        storageURI="scope://Workspace"/>
+    <setupTask
+        xsi:type="setup:VariableTask"
         id="installation.location"
         type="FOLDER"
         name="installation.location"
-        value="${install.root/tool/eclipse/oomph|lower}"
+        value="${install.root/|lower}tool/eclipse/oomph"
         label="">
       <description>Custom installation for oomph editor (required because we don't to modify the editor while testing changes)</description>
     </setupTask>
@@ -42,12 +48,6 @@
     </setupTask>
     <setupTask
         xsi:type="setup:VariableTask"
-        id="scope.project.group"
-        name="scope.project.group"
-        value="oomph"
-        storageURI="scope://Workspace"/>
-    <setupTask
-        xsi:type="setup:VariableTask"
         id="scope.project.kind"
         name="scope.project.kind"
         value=""
@@ -56,7 +56,7 @@
         xsi:type="setup:VariableTask"
         id="oomph.git.clone.location"
         name="oomph.git.clone.location"
-        value="${git.repository.location/|lower}${scope.project.name}"
+        value="${git.repository.location}/${scope.project.name}"
         storageURI="scope://Workspace">
       <description>The folder where the 'oomph' repository will be cloned in.</description>
     </setupTask>
@@ -64,7 +64,7 @@
         xsi:type="setup:VariableTask"
         id="eclipse.oomph.git.clone.location"
         name="eclipse.oomph.git.clone.location"
-        value="${git.repository.location/org.eclipse.oomph}"
+        value="${git.repository.location}/org.eclipse.oomph"
         storageURI="scope://Workspace">
       <description>The folder where the official (eclipse) 'oomph' repository will be cloned in.</description>
     </setupTask>
@@ -103,6 +103,6 @@
       label="master"/>
   <logicalProjectContainer
       xsi:type="setup:ProjectCatalog"
-      href="index:/org.eclipse.setup#//@projectCatalogs[name='com.ganz']"/>
+      href="index:/org.eclipse.setup#//@projectCatalogs[name='ganz']"/>
   <description>The setups for Ganz Studios Projects</description>
 </setup:Project>

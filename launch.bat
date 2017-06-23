@@ -2,7 +2,8 @@
 @echo off
 
 SET cwd=%~dp0
-SET userprofile=%HOMEDRIVE%\work\test\ganz\user
+SET INSTALLPATH=%HOMEDRIVE%\work\test\ganz
+SET USERPROFILE=%INSTALLPATH%\user
 
 SET exec=%1
 SET setups=file:///%cwd:\=/%setups/
@@ -23,9 +24,8 @@ GOTO :CASE_DEFAULT
 	
 :CASE_INSTALL
 	ECHO Launching installer...
-	echo %userprofile%	
 	echo on	
-	start ..\..\setup\eclipse-inst.exe -vmargs -Duser.home="%userprofile%" -Doomph.redirection.setups="http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/->%setups%"
+	start ..\..\setup\eclipse-inst.exe -vmargs -Dopts.install.path="%INSTALLPATH%" -Dopts.projectsets.url="%setups%" -Duser.home="%USERPROFILE%" -Doomph.redirection.setups="http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/->%setups%"
 	@echo off
 	GOTO CASE_RETURN
 	
