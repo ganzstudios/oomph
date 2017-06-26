@@ -171,7 +171,7 @@
         xsi:type="setup:VariableTask"
         id="oomph.setups.location.url"
         name="oomph.setups.location.url"
-        defaultValue="${opts.projectsets.url}"
+        value="https://raw.githubusercontent.com/ganzstudios/oomph/master/setups/"
         storageURI="scope://Workspace"
         label="">
       <description>Location of the setup files. Can be set to a local url (for development and testing purposes) or a remote url</description>
@@ -369,9 +369,12 @@
       xsi:type="setup:CompoundTask"
       name="Tasks">
     <setupTask
-        xsi:type="mylyn:MylynQueriesTask" connectorKind="jira" repositoryURL="${webkinz.jira.url}" userID="${webkinz.jira.username}"
+        xsi:type="mylyn:MylynQueriesTask"
+        connectorKind="jira"
+        repositoryURL="${webkinz.jira.url}"
+        userID="${webkinz.jira.username}"
         password="${webkinz.jira.password}">
-         <query
+      <query
           summary="All my issues"
           url="${webkinz.jira.url}/issues/?jql=resolution%20in%20(Unresolved)%20AND%20assignee%20in%20(currentUser())">
         <attribute
@@ -381,8 +384,8 @@
             key="FilterCustomJqlUrl"
             value="${webkinz.jira.url}/issues/?jql=resolution%20in%20(Unresolved)%20AND%20assignee%20in%20(currentUser())"/>
       </query>
-      <description>Configuration for Webkinz Issue Tracker </description>     
-    </setupTask>    
+      <description>Configuration for Webkinz Issue Tracker </description>
+    </setupTask>
   </setupTask>
   <project href="projects/server.setup#/"/>
   <project href="projects/multiuse.setup#/"/>
