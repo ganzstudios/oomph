@@ -109,6 +109,7 @@
         type="FOLDER"
         name="install.root"
         defaultValue="${opts.install.path/}"
+        storageURI="scope://Installation"
         label="Installation folder">
       <description>The root of the installation directory</description>
     </setupTask>
@@ -136,7 +137,6 @@
         type="FOLDER"
         name="workspace.location"
         value="${install.root/proj/|lower}${scope.project.catalog.name/|lower}${scope.project.page/|lower}${scope.project.stream.name/|lower}"
-        defaultValue=""
         storageURI="scope://Workspace"
         label="${scope.project.label}'s workspace">
       <description>The location of the project's workspace</description>
@@ -158,7 +158,7 @@
         xsi:type="setup:VariableTask"
         id="oomph.setups.location.url"
         name="oomph.setups.location.url"
-        defaultValue="${opts.projectsets.url}"
+        value="${opts.projectsets.url}"
         storageURI="scope://Workspace"
         label="">
       <description>Location of the setup files. Can be set to a local url (for development and testing purposes) or a remote url</description>
@@ -249,6 +249,11 @@
         option="-Doomph.setup"
         value="=true"
         vm="true"/>
+    <setupTask
+        xsi:type="setup:EclipseIniTask"
+        option="-Doomph.setups.location.url"
+        value="${oomph.setups.location.url}"
+        vm="true"/>
   </setupTask>
   <setupTask
       xsi:type="setup:CompoundTask"
@@ -271,24 +276,6 @@
         encoding="UTF-8">
       <description>Creates an eclipse.bat to allow for customized startup of eclipse</description>
     </setupTask>
-  </setupTask>
-  <setupTask
-      xsi:type="setup:CompoundTask"
-      name="Pattern Definition Variables">
-    <setupTask
-        xsi:type="setup:VariableTask"
-        id="pattern.jenkins.job.path"
-        name="pattern.jenkins.job.path"
-        value="job/${scope.project.catalog.name}/job/${scope.project.stream.name}/job/${scope.project.section}/"
-        storageURI="scope://Workspace"
-        label=""/>
-    <setupTask
-        xsi:type="setup:VariableTask"
-        id="pattern.project.psf.path"
-        name="pattern.project.psf.path"
-        value="${scope.project.catalog.name}/resources/${scope.project.section}/${scope.project.page}/${scope.project.name}/${scope.project.stream.name}.psf"
-        storageURI="scope://Workspace"/>
-    <description>Definition of the patterns used throughout the setup files</description>
   </setupTask>
   <setupTask
       xsi:type="setup:CompoundTask"
@@ -351,6 +338,39 @@
         </setupTask>
       </setupTask>
     </setupTask>
+  </setupTask>
+  <setupTask
+      xsi:type="setup:CompoundTask"
+      name="Pattern Definition Variables">
+    <setupTask
+        xsi:type="setup:VariableTask"
+        id="pattern.jenkins.job.path"
+        name="pattern.jenkins.job.path"
+        value="job/${scope.project.catalog.name}/job/${scope.project.stream.name}/job/${scope.project.section}/"
+        label=""/>
+    <setupTask
+        xsi:type="setup:VariableTask"
+        id="pattern.project.psf.path"
+        name="pattern.project.psf.path"
+        value="${scope.project.catalog.name}/resources/${scope.project.section}/${scope.project.page}/${scope.project.name}/${scope.project.stream.name}.psf"
+        storageURI="scope://Workspace"/>
+    <setupTask
+        xsi:type="setup:VariableTask"
+        id="scope.project.catalog.name"
+        name="scope.project.catalog.name"
+        value=""
+        label=""/>
+    <setupTask
+        xsi:type="setup:VariableTask"
+        id="scope.project.section"
+        name="scope.project.section"
+        value=""/>
+    <setupTask
+        xsi:type="setup:VariableTask"
+        id="scope.project.page"
+        name="scope.project.page"
+        value=""/>
+    <description>Definition of the patterns used throughout the setup files</description>
   </setupTask>
   <project href="projects/oomph.setup#/"/>
   <project href="projects/releng.setup#/"/>
