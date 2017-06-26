@@ -136,7 +136,7 @@
         id="workspace.location"
         type="FOLDER"
         name="workspace.location"
-        value="${install.root/proj/|lower}${scope.project.catalog.name/|lower}${scope.project.page/|lower}${scope.project.stream.name/|lower}"
+        value="${install.root/proj/|lower}${scope.project.section/|lower}${scope.project.page/|lower}${scope.project.stream.name/|lower}"
         storageURI="scope://Workspace"
         label="${scope.project.label}'s workspace">
       <description>The location of the project's workspace</description>
@@ -349,12 +349,6 @@
         name="pattern.project.psf.path"
         value="${scope.project.catalog.name}/resources/${scope.project.section}/${scope.project.page}/${scope.project.name}/${scope.project.stream.name}.psf"
         storageURI="scope://Workspace"/>
-    <setupTask
-        xsi:type="setup:VariableTask"
-        id="scope.project.catalog.name"
-        name="scope.project.catalog.name"
-        value=""
-        label=""/>
     <setupTask
         xsi:type="setup:VariableTask"
         id="scope.project.section"
