@@ -119,6 +119,7 @@
         type="FOLDER"
         name="installation.location"
         value="${install.root/tool/eclipse/|lower}"
+        storageURI="scope://Installation"
         label="">
       <description></description>
     </setupTask>
@@ -128,6 +129,7 @@
         type="FOLDER"
         name="installation.absoluteProductFolder"
         value="${installation.location/}${installation.relativeProductFolder/|lower}"
+        storageURI="scope://Installation"
         label="Absolute product installation folder">
       <description>Used to for ResourceCreation task that need to create resources in the product folder</description>
     </setupTask>
@@ -136,7 +138,7 @@
         id="workspace.location"
         type="FOLDER"
         name="workspace.location"
-        value="${install.root/proj/|lower}${scope.project.section/|lower}${scope.project.page/|lower}${scope.project.stream.name/|lower}"
+        value="${install.root/proj/|lower}${scope.project.catalog.section/|lower}${scope.project.catalog.page/|lower}${scope.project.stream.name/|lower}"
         storageURI="scope://Workspace"
         label="${scope.project.label}'s workspace">
       <description>The location of the project's workspace</description>

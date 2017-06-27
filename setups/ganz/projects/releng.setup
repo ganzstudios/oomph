@@ -3,22 +3,38 @@
     xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:jdt="http://www.eclipse.org/oomph/setup/jdt/1.0"
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
+    xmlns:setup.p2="http://www.eclipse.org/oomph/setup/p2/1.0"
+    xsi:schemaLocation="http://www.eclipse.org/oomph/setup/jdt/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/JDT.ecore"
     name="releng"
     label="Release Engineering">
   <setupTask
       xsi:type="setup:CompoundTask"
       name="Variables">
- 
+    <setupTask
+        xsi:type="setup:VariableTask"
+        id="scope.project.catalog.section"
+        name="scope.project.catalog.section"
+        value="releng"
+        storageURI="scope://Workspace"/>
   </setupTask>
-
+  <setupTask
+      xsi:type="jdt:JRETask"
+      version="JavaSE-1.8"
+      location="${jre.location-1.8}"/>
+  <setupTask
+      xsi:type="setup.p2:P2Task"
+      label="JDT"
+      licenseConfirmationDisabled="true">
+    <requirement
+        name="org.eclipse.jdt.feature.group"/>
+    <description>
+      Install the tools needed in the IDE to work with the
+      source code for ${scope.project.label}
+    </description>
+  </setupTask>
   <project href="releng/eclipse.setup#/"/>
-  <!--
-    <project href="releng/builderx.setup#/"/>
-  <project href="releng/jenkins.setup#/"/>
-  <project href="releng/kb.setup#/"/>
-  <project href="releng/sample.setup#/"/>
-  -->
   <logicalProjectContainer
       xsi:type="setup:ProjectCatalog"
       href="index:/org.eclipse.setup#//@projectCatalogs[name='ganz']"/>

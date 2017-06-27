@@ -12,6 +12,25 @@
     name="eclipse"
     label="Eclipse">
   <setupTask
+      xsi:type="setup:CompoundTask"
+      id="org.eclipse.ant.variables"
+      name="Variables">
+    <setupTask
+        xsi:type="setup:VariableTask"
+        id="gdtk.git.clone.location"
+        name="gdtk.git.clone.location"
+        value="${git.repository.location/}${scope.project.name}"
+        storageURI="scope://Workspace">
+      <description>The folder where the 'gdtk' repository will be cloned in.</description>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:VariableTask"
+        id="scope.project.catalog.page"
+        name="scope.project.catalog.page"
+        value="eclipse"
+        storageURI="scope://Workspace"/>
+  </setupTask>
+  <setupTask
       xsi:type="setup.p2:P2Task"
       label=""
       licenseConfirmationDisabled="true">
@@ -41,17 +60,77 @@
     </description>
   </setupTask>
   <setupTask
-      xsi:type="setup:CompoundTask"
-      id="org.eclipse.ant.variables"
-      name="Variables">
-    <setupTask
-        xsi:type="setup:VariableTask"
-        id="gdtk.git.clone.location"
-        name="gdtk.git.clone.location"
-        value="${git.repository.location}/${scope.project.name}"
-        storageURI="scope://Workspace">
-      <description>The folder where the 'gdtk' repository will be cloned in.</description>
-    </setupTask>
+      xsi:type="setup.p2:P2Task"
+      id="zest"
+      label="Zest"
+      licenseConfirmationDisabled="true">
+    <requirement
+        name="org.eclipse.zest.feature.group"
+        versionRange="[1.7.0,2.0.0)"/>
+    <requirement
+        name="org.eclipse.zest.sdk.feature.group"
+        versionRange="[1.7.0,2.0.0)"/>
+    <requirement
+        name="org.eclipse.zest.source.feature.group"
+        versionRange="[1.7.0,2.0.0)"/>
+    <repository
+        url="http://download.eclipse.org/releases/neon"/>
+    <description>
+      Install the tools needed in the IDE to work with the
+      source code for ${scope.project.label}
+    </description>
+  </setupTask>
+  <setupTask
+      xsi:type="setup.p2:P2Task"
+      label="PDT + DLTK"
+      licenseConfirmationDisabled="true">
+    <requirement
+        name="org.eclipse.php.feature.group"/>
+    <requirement
+        name="org.eclipse.php.source.feature.group"/>
+    <requirement
+        name="org.eclipse.php.mylyn.feature.group"/>
+    <requirement
+        name="org.eclipse.php.sdk.feature.group"/>
+    <requirement
+        name="org.eclipse.php.importer.feature.group"/>
+    <requirement
+        name="org.eclipse.dltk.core.sdk.feature.group"/>
+    <repository
+        url="http://download.eclipse.org/tools/pdt/updates/4.3"/>
+    <repository
+        url="http://download.eclipse.org/technology/dltk/updates-dev/5.7/"/>
+    <description>Installs PDT</description>
+  </setupTask>
+  <setupTask
+      xsi:type="setup.p2:P2Task"
+      label="Typescript"
+      licenseConfirmationDisabled="true">
+    <requirement
+        name="com.palantir.typescript.feature.feature.group"/>
+    <repository
+        url="http://eclipse-update.palantir.com/eclipse-typescript/"/>
+    <description>Installs Typescript</description>
+  </setupTask>
+  <setupTask
+      xsi:type="setup.p2:P2Task"
+      id="ivy"
+      label="IvyDE"
+      licenseConfirmationDisabled="true">
+    <requirement
+        name="org.apache.ivy.feature.feature.group"/>
+    <requirement
+        name="org.apache.ivy.eclipse.ant.feature.feature.group"/>
+    <requirement
+        name="org.apache.ivyde.feature.feature.group"/>
+    <requirement
+        name="org.apache.ivyde.eclipse.resolvevisualizer.feature.feature.group"/>
+    <repository
+        url="http://www.apache.org/dist/ant/ivyde/updatesite"/>
+    <description>
+      Install the tools needed in the IDE to work with the
+      source code for ${scope.project.label}
+    </description>
   </setupTask>
   <setupTask
       xsi:type="setup:CompoundTask"
@@ -59,16 +138,6 @@
     <setupTask
         xsi:type="setup:CompoundTask"
         name="General">
-      <setupTask
-          xsi:type="setup:CompoundTask"
-          name="Capabilities">
-        <setupTask
-            xsi:type="setup:PreferenceTask"
-            key="/instance/org.eclipse.ui.workbench/UIActivities.org.eclipse.antDevelopment"
-            value="true">
-          <description>Automatic Ant Enablement</description>
-        </setupTask>
-      </setupTask>
       <setupTask
           xsi:type="setup:CompoundTask"
           name="Perspectives">
@@ -91,90 +160,17 @@
       excludedTriggers="STARTUP"
       option="-perspective"
       value="org.eclipse.jdt.ui.JavaPerspective"/>
-  <project name="new-plugin"
-      label="New Plugin"
+  <project name="empty"
+      label="(No Projects)"
       logicalProjectContainer="/">
     <stream
         name="master"
         label="master"/>
-    <description>New Eclipse Plugin/Feature</description>
+    <description>Installs the required eclipse development stack but does not checkout any projects</description>
   </project>
   <project name="gdtk"
       label="Ganz Development Toolkit"
       logicalProjectContainer="/">
-    <setupTask
-        xsi:type="setup.p2:P2Task"
-        id="zest"
-        label="Zest"
-        licenseConfirmationDisabled="true">
-      <requirement
-          name="org.eclipse.zest.feature.group"
-          versionRange="[1.7.0,2.0.0)"/>
-      <requirement
-          name="org.eclipse.zest.sdk.feature.group"
-          versionRange="[1.7.0,2.0.0)"/>
-      <requirement
-          name="org.eclipse.zest.source.feature.group"
-          versionRange="[1.7.0,2.0.0)"/>
-      <repository
-          url="http://download.eclipse.org/releases/neon"/>
-      <description>
-        Install the tools needed in the IDE to work with the
-        source code for ${scope.project.label}
-      </description>
-    </setupTask>
-    <setupTask
-        xsi:type="setup.p2:P2Task"
-        label="PDT + DLTK"
-        licenseConfirmationDisabled="true">
-      <requirement
-          name="org.eclipse.php.feature.group"/>
-      <requirement
-          name="org.eclipse.php.source.feature.group"/>
-      <requirement
-          name="org.eclipse.php.mylyn.feature.group"/>
-      <requirement
-          name="org.eclipse.php.sdk.feature.group"/>
-      <requirement
-          name="org.eclipse.php.importer.feature.group"/>
-      <requirement
-          name="org.eclipse.dltk.core.sdk.feature.group"/>
-      <repository
-          url="http://download.eclipse.org/tools/pdt/updates/4.3"/>
-      <repository
-          url="http://download.eclipse.org/technology/dltk/updates-dev/5.7/"/>
-      <description>Installs PDT</description>
-    </setupTask>
-    <setupTask
-        xsi:type="setup.p2:P2Task"
-        label="Typescript"
-        licenseConfirmationDisabled="true">
-      <requirement
-          name="com.palantir.typescript.feature.feature.group"/>
-      <repository
-          url="http://eclipse-update.palantir.com/eclipse-typescript/"/>
-      <description>Installs Typescript</description>
-    </setupTask>
-    <setupTask
-        xsi:type="setup.p2:P2Task"
-        id="ivy"
-        label="IvyDE"
-        licenseConfirmationDisabled="true">
-      <requirement
-          name="org.apache.ivy.feature.feature.group"/>
-      <requirement
-          name="org.apache.ivy.eclipse.ant.feature.feature.group"/>
-      <requirement
-          name="org.apache.ivyde.feature.feature.group"/>
-      <requirement
-          name="org.apache.ivyde.eclipse.resolvevisualizer.feature.feature.group"/>
-      <repository
-          url="http://www.apache.org/dist/ant/ivyde/updatesite"/>
-      <description>
-        Install the tools needed in the IDE to work with the
-        source code for ${scope.project.label}
-      </description>
-    </setupTask>
     <setupTask
         xsi:type="setup:CompoundTask"
         name="Tasks">
@@ -217,26 +213,13 @@
       <setupTask
           xsi:type="projectset:ProjectSetImportTask"
           id="builderx"
-          uRL="https://raw.githubusercontent.com/ganzstudios/oomph/master/setups/psf/${scope.project.group}/${scope.project.name}/${scope.project.stream.name}.psf">
+          uRL="${oomph.setups.location.url}${pattern.project.psf.path}">
         <description></description>
       </setupTask>
     </setupTask>
-    <setupTask
-        xsi:type="setup.p2:P2Task">
-      <requirement
-          name="org.apache.ivy.feature.feature.group"/>
-      <requirement
-          name="org.apache.ivy.eclipse.ant.feature.feature.group"/>
-      <requirement
-          name="org.apache.ivyde.feature.feature.group"/>
-      <requirement
-          name="org.apache.ivyde.eclipse.resolvevisualizer.feature.feature.group"/>
-      <repository
-          url="http://www.apache.org/dist/ant/ivyde/updatesite"/>
-    </setupTask>
     <stream
-        name="mainline"
-        label="mainline"/>
+        name="master"
+        label="master"/>
     <description>Ivy Plugins</description>
   </project>
   <logicalProjectContainer
