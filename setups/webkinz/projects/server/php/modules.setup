@@ -201,6 +201,6 @@
   </project>
   <logicalProjectContainer
       xsi:type="setup:ProjectCatalog"
-      href="index:/org.eclipse.setup#//@projectCatalogs[name='com.webkinz']"/>
+      href="index:/org.eclipse.setup#//@projectCatalogs[name='webkinz']/@projects[name='server']/@projects[name='php']"/>
   <description>PHP Modules</description>
 </setup:Project>
