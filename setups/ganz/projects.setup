@@ -341,24 +341,28 @@
         xsi:type="setup:VariableTask"
         id="pattern.jenkins.job.path"
         name="pattern.jenkins.job.path"
-        value="job/${scope.project.catalog.name}/job/${scope.project.stream.name}/job/${scope.project.section}/"
+        value="job/${scope.project.catalog.name}/job/${scope.project.stream.name}/job/${scope.project.catalog.section}/"
         label=""/>
     <setupTask
         xsi:type="setup:VariableTask"
         id="pattern.project.psf.path"
         name="pattern.project.psf.path"
-        value="${scope.project.catalog.name}/resources/${scope.project.section}/${scope.project.page}/${scope.project.name}/${scope.project.stream.name}.psf"
+        value="${scope.project.catalog.name}/resources/${scope.project.catalog.section}/${scope.project.catalog.page}/${scope.project.name}/${scope.project.stream.name}.psf"
         storageURI="scope://Workspace"/>
     <setupTask
         xsi:type="setup:VariableTask"
-        id="scope.project.section"
-        name="scope.project.section"
-        value=""/>
+        id="scope.project.catalog.section"
+        name="scope.project.catalog.section"
+        value="">
+      <description>The project's catalog section (allows for building hierachy trees). Corresponds to a project setup under ganz/projects</description>
+    </setupTask>
     <setupTask
         xsi:type="setup:VariableTask"
-        id="scope.project.page"
-        name="scope.project.page"
-        value=""/>
+        id="scope.project.catalog.page"
+        name="scope.project.catalog.page"
+        value="">
+      <description>The project's catalog page (allows for building hierachy trees). Corresponds to a project setup in one of the directories under projects (ex. releng/eclipse.setup will have scope.project.catalog.page=eclipse)</description>
+    </setupTask>
     <description>Definition of the patterns used throughout the setup files</description>
   </setupTask>
   <project href="projects/oomph.setup#/"/>
