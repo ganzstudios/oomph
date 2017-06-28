@@ -218,7 +218,7 @@
       <setupTask
           xsi:type="projectset:ProjectSetImportTask"
           id="ivyde"
-          uRL="${oomph.setups.location.url}${pattern.project.psf.path}">
+          uRL="${oomph.setups.location.url}${scope.project.catalog.name}/resources/${scope.project.catalog.section}/${scope.project.catalog.page}/${scope.project.name}/ivy.psf">
         <description></description>
       </setupTask>
     </setupTask>
