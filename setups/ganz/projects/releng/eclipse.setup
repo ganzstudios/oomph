@@ -29,6 +29,16 @@
         name="scope.project.catalog.page"
         value="eclipse"
         storageURI="scope://Workspace"/>
+    <setupTask
+        xsi:type="setup:VariableTask"
+        id="installation.location"
+        type="FOLDER"
+        name="installation.location"
+        value="${install.root/tool/eclipse/devel/|lower}"
+        storageURI="scope://Installation"
+        label="">
+      <description>Override the standard installation location (plugins under development might conflict with released versions of those plugins)</description>
+    </setupTask>
   </setupTask>
   <setupTask
       xsi:type="setup.p2:P2Task"
@@ -133,6 +143,23 @@
     </description>
   </setupTask>
   <setupTask
+      xsi:type="setup.p2:P2Task"
+      label="Mylyn (SDK)"
+      licenseConfirmationDisabled="true">
+    <requirement
+        name="org.eclipse.mylyn.builds.sdk.feature.group"/>
+    <requirement
+        name="org.eclipse.mylyn.commons.sdk.feature.group"/>
+    <requirement
+        name="org.eclipse.mylyn.context.sdk.feature.group"/>
+    <requirement
+        name="org.eclipse.mylyn.sdk_feature.feature.group"/>
+    <description>
+      Install the tools needed in the IDE to work with the
+      source code for ${scope.project.label}
+    </description>
+  </setupTask>
+  <setupTask
       xsi:type="setup:CompoundTask"
       name="Preferences">
     <setupTask
@@ -191,8 +218,7 @@
       <setupTask
           xsi:type="projectset:ProjectSetImportTask"
           id="ivyde"
-          disabled="true"
-          uRL="https://raw.githubusercontent.com/ganzstudios/oomph/master/setups/psf/${scope.project.group}/${scope.project.name}/${scope.project.stream.name}.psf">
+          uRL="${oomph.setups.location.url}${pattern.project.psf.path}">
         <description></description>
       </setupTask>
     </setupTask>
@@ -203,24 +229,6 @@
         name="develop"
         label="develop"/>
     <description>Ganz Development toolkit</description>
-  </project>
-  <project name="ivy"
-      label="Ivy"
-      logicalProjectContainer="/">
-    <setupTask
-        xsi:type="setup:CompoundTask"
-        name="Tasks">
-      <setupTask
-          xsi:type="projectset:ProjectSetImportTask"
-          id="builderx"
-          uRL="${oomph.setups.location.url}${pattern.project.psf.path}">
-        <description></description>
-      </setupTask>
-    </setupTask>
-    <stream
-        name="master"
-        label="master"/>
-    <description>Ivy Plugins</description>
   </project>
   <logicalProjectContainer
       xsi:type="setup:Project"

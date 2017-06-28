@@ -35,6 +35,7 @@
     </description>
   </setupTask>
   <project href="releng/eclipse.setup#/"/>
+  <project href="releng/jenkins.setup#/"/>
   <logicalProjectContainer
       xsi:type="setup:ProjectCatalog"
       href="index:/org.eclipse.setup#//@projectCatalogs[name='ganz']"/>
