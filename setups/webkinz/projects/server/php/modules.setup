@@ -10,13 +10,11 @@
     name="modules"
     label="Modules">
   <project name="empty"
-      label="(No Projects)">
+      label="(No Projects)"
+      logicalProjectContainer="/">
     <stream
         name="mainline"
         label="mainline"/>
-    <logicalProjectContainer
-        xsi:type="setup:Project"
-        href="../php.setup#//@projects[name='modules']"/>
     <description>Installs the required webkinz php development stack but does not checkout any projects</description>
   </project>
   <project name="wafx"
@@ -199,8 +197,31 @@
     </stream>
     <description>The '${scope.project.name}' project.</description>
   </project>
+  <project name="corefx"
+      label="corefx (incubator)"
+      logicalProjectContainer="/">
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="Variables"/>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="Tasks">
+      <setupTask
+          xsi:type="projectset:ProjectSetImportTask"
+          id="xcore"
+          uRL="${oomph.setups.location.url}/${pattern.project.psf.path}">
+        <description>Imports the '${scope.project.name}' project</description>
+      </setupTask>
+    </setupTask>
+    <stream
+        name="incubator"
+        label="incubator">
+      <description></description>
+    </stream>
+    <description>The '${scope.project.name}' project.</description>
+  </project>
   <logicalProjectContainer
-      xsi:type="setup:ProjectCatalog"
+      xsi:type="setup:Project"
       href="index:/org.eclipse.setup#//@projectCatalogs[name='webkinz']/@projects[name='server']/@projects[name='php']"/>
   <description>PHP Modules</description>
 </setup:Project>
