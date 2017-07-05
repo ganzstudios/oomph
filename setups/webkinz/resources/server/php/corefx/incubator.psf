@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<psf version="2.0">
+<provider id="org.eclipse.team.svn.core.svnnature">
+<project reference="1.0.1,http://repo.ganz.net/svn/incubator/server/php/lib/corefx/trunk,corefx,5018eff1b661001715b7e0439c7c48a7;http://repo.ganz.net/svn/incubator/server/php/lib/;php.incubator;branches;tags;trunk;true;1d774d1c-f55e-4117-ae85-462ed2cf92c4;http://repo.ganz.net/svn/incubator;;false;;;0"/>
+</provider>
+</psf>
