@@ -12,33 +12,19 @@
     name="eclipse"
     label="Eclipse">
   <setupTask
+      xsi:type="setup:WorkspaceTask"
+      id="workspace"
+      excludedTriggers="MANUAL"/>
+  <setupTask
       xsi:type="setup:CompoundTask"
       id="org.eclipse.ant.variables"
       name="Variables">
-    <setupTask
-        xsi:type="setup:VariableTask"
-        id="gdtk.git.clone.location"
-        name="gdtk.git.clone.location"
-        value="${git.repository.location/}${scope.project.name}"
-        storageURI="scope://Workspace">
-      <description>The folder where the 'gdtk' repository will be cloned in.</description>
-    </setupTask>
     <setupTask
         xsi:type="setup:VariableTask"
         id="scope.project.catalog.page"
         name="scope.project.catalog.page"
         value="eclipse"
         storageURI="scope://Workspace"/>
-    <setupTask
-        xsi:type="setup:VariableTask"
-        id="installation.location"
-        type="FOLDER"
-        name="installation.location"
-        value="${install.root/tool/eclipse/devel/|lower}"
-        storageURI="scope://Installation"
-        label="">
-      <description>Override the standard installation location (plugins under development might conflict with released versions of those plugins)</description>
-    </setupTask>
   </setupTask>
   <setupTask
       xsi:type="setup.p2:P2Task"
@@ -205,7 +191,7 @@
           xsi:type="git:GitCloneTask"
           id="git.clone.eclipse.gdtk"
           location="${git.repository.location/}${scope.project.name}"
-          remoteURI="https://github.com/releng-eclipse/${scope.project.name}"
+          remoteURI="${git.remote.uri}"
           pushURI="">
         <description>Clones the Ganz Development Toolkit repository</description>
       </setupTask>
@@ -220,6 +206,19 @@
           id="ivyde"
           uRL="${oomph.setups.location.url}${scope.project.catalog.name}/resources/${scope.project.catalog.section}/${scope.project.catalog.page}/${scope.project.name}/ivy.psf">
         <description></description>
+      </setupTask>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        id="org.eclipse.ant.variables"
+        name="Variables">
+      <setupTask
+          xsi:type="setup:VariableTask"
+          id="gdtk.git.clone.location"
+          name="gdtk.git.clone.location"
+          value="${git.repository.location/}${scope.project.name}"
+          storageURI="scope://Workspace">
+        <description>The folder where the 'gdtk' repository will be cloned in.</description>
       </setupTask>
     </setupTask>
     <stream

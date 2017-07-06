@@ -4,12 +4,17 @@
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:git="http://www.eclipse.org/oomph/setup/git/1.0"
+    xmlns:mylyn="http://www.eclipse.org/oomph/setup/mylyn/1.0"
     xmlns:projects="http://www.eclipse.org/oomph/setup/projects/1.0"
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
     xmlns:setup.p2="http://www.eclipse.org/oomph/setup/p2/1.0"
-    xsi:schemaLocation="http://www.eclipse.org/oomph/setup/git/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Git.ecore http://www.eclipse.org/oomph/setup/projects/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Projects.ecore"
+    xsi:schemaLocation="http://www.eclipse.org/oomph/setup/git/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Git.ecore http://www.eclipse.org/oomph/setup/mylyn/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Mylyn.ecore http://www.eclipse.org/oomph/setup/projects/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Projects.ecore"
     name="jenkins"
     label="Jenkins">
+  <setupTask
+      xsi:type="setup:WorkspaceTask"
+      id="workspace"
+      excludedTriggers="MANUAL"/>
   <setupTask
       xsi:type="setup:CompoundTask"
       id="ganz.releng.jenkins.variables"
@@ -83,7 +88,7 @@
           xsi:type="git:GitCloneTask"
           id="git.clone.jenkins.php"
           location="${git.repository.location/}${scope.project.name}"
-          remoteURI="https://github.com/releng-jenkins/${scope.project.name}"
+          remoteURI="${git.remote.uri}"
           pushURI="">
         <description>Clones the Jenkins PHP Plugin repository</description>
       </setupTask>
@@ -92,6 +97,15 @@
         <sourceLocator
             rootFolder="${git.clone.jenkins.php.location}"
             locateNestedProjects="true"/>
+      </setupTask>
+      <setupTask
+          xsi:type="mylyn:MylynBuildsTask"
+          serverURL="${releng.jenkins.url}/${pattern.jenkins.job.path}"
+          userID="${jenkins.username}"
+          password="${jenkins.password}">
+        <buildPlan
+            name="${scope.project.name}"/>
+        <description>Builderx builds</description>
       </setupTask>
     </setupTask>
     <stream

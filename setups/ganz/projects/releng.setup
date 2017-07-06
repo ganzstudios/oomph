@@ -34,6 +34,7 @@
       source code for ${scope.project.label}
     </description>
   </setupTask>
+  <project href="releng/ant.setup#/"/>
   <project href="releng/eclipse.setup#/"/>
   <project href="releng/jenkins.setup#/"/>
   <logicalProjectContainer

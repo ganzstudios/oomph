@@ -13,9 +13,6 @@
     <description></description>
   </setupTask>
   <setupTask
-      xsi:type="setup:WorkspaceTask"
-      id="workspace"/>
-  <setupTask
       xsi:type="setup.p2:P2Task"
       label="Oomph"
       licenseConfirmationDisabled="true">
@@ -118,7 +115,7 @@
         id="installation.location"
         type="FOLDER"
         name="installation.location"
-        value="${install.root/tool/eclipse/|lower}"
+        value="${install.root/tool/eclipse/|lower}${scope.project.catalog.section}"
         storageURI="scope://Installation"
         label="">
       <description></description>
@@ -161,6 +158,15 @@
         id="oomph.setups.location.url"
         name="oomph.setups.location.url"
         value="https://raw.githubusercontent.com/ganzstudios/oomph/master/setups/"
+        storageURI="scope://Workspace"
+        label="">
+      <description>Location of the setup files. Can be set to a local url (for development and testing purposes) or a remote url</description>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:VariableTask"
+        id="git.remote.uri"
+        name="git.remote.uri"
+        value="https://github.com/${scope.project.catalog.section}-${scope.project.catalog.page}/${scope.project.name}"
         storageURI="scope://Workspace"
         label="">
       <description>Location of the setup files. Can be set to a local url (for development and testing purposes) or a remote url</description>
@@ -343,7 +349,7 @@
         xsi:type="setup:VariableTask"
         id="pattern.jenkins.job.path"
         name="pattern.jenkins.job.path"
-        value="job/${scope.project.catalog.name}/job/${scope.project.stream.name}/job/${scope.project.catalog.section}/"
+        value="job/tool/job/${scope.project.stream.name}/job/${scope.project.catalog.page}/"
         label=""/>
     <setupTask
         xsi:type="setup:VariableTask"

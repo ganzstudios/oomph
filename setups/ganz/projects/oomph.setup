@@ -11,6 +11,10 @@
     name="oomph"
     label="Oomph">
   <setupTask
+      xsi:type="setup:WorkspaceTask"
+      id="workspace"
+      excludedTriggers="MANUAL"/>
+  <setupTask
       xsi:type="setup.p2:P2Task"
       label="Oomph SDK"
       licenseConfirmationDisabled="true">
