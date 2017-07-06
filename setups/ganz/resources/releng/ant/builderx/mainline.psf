@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<psf version="2.0">
+<provider id="org.eclipse.team.svn.core.svnnature">
+<project reference="1.0.1,http://repo.ganz.net/svn/releng/tool/ant/com.ganz.builderx/trunk,.builderx,a0c58b3a6f6200171a06969237c7ad8f;http://repo.ganz.net/svn/releng/tool/ant/;releng.ant;branches;tags;trunk;true;f0724d69-4115-477e-ba81-e89dcff87815;http://repo.ganz.net/svn/releng;;false;;;0"/>
+</provider>
+</psf>
