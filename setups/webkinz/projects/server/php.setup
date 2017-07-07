@@ -46,7 +46,7 @@
             xsi:type="setup:PreferenceTask"
             key="/instance/org.eclipse.ui/defaultPerspectiveId"
             value="org.eclipse.php.perspective">
-          <description>Make the Java perspective the default perspective</description>
+          <description>Make the PHP perspective the default perspective</description>
         </setupTask>
         <setupTask
             xsi:type="setup:CompoundTask"
@@ -248,6 +248,14 @@
             key="/instance/org.eclipse.php.ui/org.eclipse.dltk.ui.methodreturntype">
           <value>record</value>
         </detail>
+              <detail
+          key="/instance/com.zend.php.phpunit/PHPUnit_Reporting">
+        <value>record</value>
+      </detail>
+      <detail
+          key="/instance/com.zend.php.phpunit/PHPUnit_CodeCoverage">
+        <value>record</value>
+      </detail>
       </annotation>
       <setupTask
           xsi:type="setup:CompoundTask"
@@ -433,6 +441,19 @@
             <description>Remove trailing whitespaces</description>
           </setupTask>
         </setupTask>
+      </setupTask>
+      <setupTask
+          xsi:type="setup:CompoundTask"
+          name="PHPUnit">
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/com.zend.php.phpunit/PHPUnit_CodeCoverage"
+            value="false"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/com.zend.php.phpunit/PHPUnit_Reporting"
+            value="false"/>
+        <description>PHP Unit preferences</description>
       </setupTask>
       <description>PHP Preferences</description>
     </setupTask>
