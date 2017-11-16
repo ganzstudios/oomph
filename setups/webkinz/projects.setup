@@ -78,8 +78,6 @@
       label="Subversive"
       licenseConfirmationDisabled="true">
     <requirement
-        name="org.eclipse.team.svn.resource.ignore.rules.jdt.feature.group"/>
-    <requirement
         name="org.eclipse.team.svn.revision.graph.feature.group"/>
     <requirement
         name="org.eclipse.team.svn.mylyn.feature.group"/>
